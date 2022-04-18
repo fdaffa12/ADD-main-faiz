@@ -143,46 +143,14 @@ Route::group(['middleware' => 'is_admin'], function () {
     Route::get('admin/delete-dev/{dev_id}', 'Admin\DeveloperController@destroydev');
 });
 
-Route::get('book', 'FrontendController@book');
-Route::post('store-pendaftaran', 'Admin\PendaftaranController@storePendaftaran')->name('store.pendaftaran');
-
-Route::get('gallery', 'FrontendController@gallery');
-Route::get('gallery/item/{id}', 'FrontendController@galleryitem');
-Route::get('about', 'FrontendController@about');
-Route::get('developer', 'FrontendController@developer');
-Route::get('gallery/developer/{id}', 'FrontendController@gallerydev');
-
-
-
 //
-Route::view('/primary', 'dashboard/primary');
-Route::view('/secondary', 'dashboard/secondary');
-Route::view('/input', 'dashboard/inputsec');
-Route::view('/media', 'dashboard/mediamgr');
+// Route::view('/primary', 'dashboard/primary');
+// Route::view('/secondary', 'dashboard/secondary');
+// Route::view('/input', 'dashboard/inputsec');
+// Route::view('/media', 'dashboard/mediamgr');
 
 //dashboard
+Route::get('search-catalog', 'DashboardController@search');
 Route::get('dashboard-dev', 'DashboardController@dashboardev');
 Route::get('dashboard-dev/item/{id}', 'DashboardController@devitem');
 Route::get('dashboard-dev/detail/{id}', 'DashboardController@detail');
-// Route::get('page/{title_slug}', 'FrontendController@pages');
-// Route::get('publikasi/{nama}', 'FrontendController@publikasi');
-// Route::get('post/{post_slug}', 'FrontendController@post');
-// Route::get('desa/{nama_slug}', 'FrontendController@desa');
-// Route::get('potensi/{potensi_slug}', 'FrontendController@potensi');
-// Route::get('paten/{judul_slug}', 'FrontendController@paten');
-// Route::get('unduhan', 'FrontendController@unduhan');
-// Route::get('search', 'FrontendController@search');
-// Route::get('gallery', 'FrontendController@gallery');
-// Route::get('gallery/item/{id}', 'FrontendController@galleryItem');
-// Route::get('video', 'FrontendController@video');
-// Route::get('video/detail/{slug}', 'FrontendController@videoDetail');
-// Route::get('agenda/detail/{slug}', 'FrontendController@agendaDetail');
-// Route::get('agenda', 'FrontendController@agenda');
-// Route::get('pekerjaan', 'FrontendController@pekerjaan');
-// Route::get('pendidikan', 'FrontendController@pendidikan');
-// Route::get('perkawinan', 'FrontendController@perkawinan');
-// Route::get('goldarah', 'FrontendController@goldarah');
-// Route::get('agama', 'FrontendController@agama');
-// Route::get('contact', 'FrontendController@contact');
-// Route::post('/contact-post', 'FrontendController@contactPost');
-// Route::post('/comment', 'FrontendController@comment');

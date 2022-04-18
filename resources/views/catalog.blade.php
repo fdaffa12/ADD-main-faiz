@@ -38,9 +38,10 @@
 @endsection
 @section('search')
 <div class="header-elements d-none bg-transparent py-0 border-0 mb-3 mb-md-0">
-    <form action="#">
+    <form action="{{url('search-catalog')}}" method="get">
         <div class="form-group form-group-feedback form-group-feedback-right">
-            <input type="search" class="form-control wmin-md-250" placeholder="Search">
+            <input type="text" id="query" name="query" value="{{ request()->input('query') }}"
+                class="form-control wmin-md-250" placeholder="Search">
             <div class="form-control-feedback">
                 <i class="icon-search4 font-size-sm opacity-50"></i>
             </div>

@@ -60,4 +60,11 @@ class DashboardController extends Controller
 
         return view('dashboard.catadet', compact('categoryitems', 'data'));
     }
+
+    public function search(Request $request)
+    {
+        $query = $request->input('query');
+        $categoryitems = Category::where('title', 'LIKE', "%$query%")->orderby('id', 'DESC')->get();
+        return view('dashboard.show', compact('categoryitems'));
+    }
 }
