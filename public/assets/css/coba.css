@@ -1,0 +1,38 @@
+/* CSS Document */
+
+.container {
+  width: 700px;
+  margin: 15px;
+  position: relative;
+  margin: 0 auto;
+  background: #fff;
+  padding: 15px;
+  box-shadow: 0px 5px 9.5px 0.5px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0px 5px 9.5px 0.5px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0px 5px 9.5px 0.5px rgba(0, 0, 0, 0.1);
+  -o-box-shadow: 0px 5px 9.5px 0.5px rgba(0, 0, 0, 0.1);
+  -ms-box-shadow: 0px 5px 9.5px 0.5px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -o-border-radius: 10px;
+  -ms-border-radius: 10px; }
+
+.fButton{
+	display: block;
+	height: 145px;
+	width: 145px;
+	margin: 0px 3px;
+	border: none;
+	background-color: #0ff;
+	padding: 12px 20px;
+	font-size: 15px;
+	cursor: pointer;
+	text-align: center;
+}
+
+.btn-S1{
+	width: 130px;
+	height: 130px;
+	margin: 0px 3px;
+}
