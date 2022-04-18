@@ -79,7 +79,7 @@
         <div class="breadcrumb-line breadcrumb-line-light header-elements-md-inline">
             <div class="d-flex">
                 <div class="breadcrumb">
-                    <a href="index.html" class="breadcrumb-item"><i class="icon-home2 mr-2"></i> Beranda</a>
+                    <a href="{{('/')}}" class="breadcrumb-item"><i class="icon-home2 mr-2"></i> Beranda</a>
                     @yield('navigation')
                 </div>
 

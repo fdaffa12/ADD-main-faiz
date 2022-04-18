@@ -39,19 +39,19 @@
                     @endforeach
                 </div>
                 <div class="mt-1 mb-4">
-                    <h6 class="font-weight-semibold">Harga Mulai Dari Rp.
+                    <h6 class="font-weight-semibold"><i class="icon-cash"></i> Harga Mulai Dari Rp.
                         {{$data->harga}}
                     </h6>
                     <!-- <h4 class="font-weight-semibold">Harga :
                         {{$data->harga}}
                     </h4> -->
-                    <h6 class="font-weight-semibold">Luas Tanah :
+                    <h6 class="font-weight-semibold"><i class="icon-bookmarks"></i> Luas Tanah :
                         {{$data->lt}}
                     </h6>
-                    <h6 class="font-weight-semibold">Luas Bangunan :
+                    <h6 class="font-weight-semibold"><i class="icon-bookmarks"></i> Luas Bangunan :
                         {{$data->lb}}
                     </h6>
-                    <h6 class="font-weight-semibold">Fasilitas :
+                    <h6 class="font-weight-semibold"><i class="icon-office"></i> Fasilitas :
                         {{$data->fasilitas}}
                     </h6>
                     <h5 class="font-weight-semibold">Deskripsi Rumah :

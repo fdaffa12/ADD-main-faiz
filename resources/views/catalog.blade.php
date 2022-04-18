@@ -79,11 +79,11 @@
 
                     <!-- Main -->
                     <li class="nav-item">
-                        <a href="#" class="nav-link">
+                        <a href="{{'/'}}" class="nav-link">
                             <i class="icon-home4"></i>
                             <span>
                                 Dashboard
-                                <span class="d-block font-weight-normal opacity-50">No active orders</span>
+                                <!-- <span class="d-block font-weight-normal opacity-50">No active orders</span> -->
                             </span>
                         </a>
                     </li>
