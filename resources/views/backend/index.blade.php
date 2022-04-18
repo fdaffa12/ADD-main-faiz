@@ -2,13 +2,9 @@
 @section('')
 @endsection
 @section('dashcontent')
-<ul class="nav nav-tabs nav-tabs-solid rounded">
-    <li class="nav-item"><a href="/" class="nav-link rounded-left active" data-toggle="tab">Primary</a></li>
-    <li class="nav-item"><a href="{{'secondary'}}" class="nav-link" data-toggle="tab">Secondary</a></li>
-</ul>
 
 <div class="tab-content">
-    <div class="tab-pane fade show active" id="solid-rounded-tab1">
+    <!-- <div class="tab-pane fade show active" id="solid-rounded-tab1">
         <div class="table-responsive">
             <table class="table text-nowrap">
                 <thead>
@@ -127,7 +123,7 @@
                 </tbody>
             </table>
         </div>
-    </div>
+    </div> -->
 
 </div>
 @endsection

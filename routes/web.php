@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'DashboardController@index')->name('home.route');
 
 Route::get('admin/home', 'HomeController@adminHome')->name('admin.home')->middleware('is_admin');
+Route::get('admin/logout', 'HomeController@Logout')->name('admin.logout');
 
 
 // Route::get('home', [pgnav::class, 'home']);

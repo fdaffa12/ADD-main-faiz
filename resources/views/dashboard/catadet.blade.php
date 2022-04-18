@@ -18,10 +18,10 @@
         <ul class="nav nav-tabs nav-tabs-bottom flex-nowrap mb-0">
             <li class="nav-item"><a href="#course-overview" class="nav-link active" data-toggle="tab"><i
                         class="icon-menu7 mr-2"></i> Overview</a></li>
-            <li class="nav-item"><a href="#course-attendees" class="nav-link" data-toggle="tab"><i
+            <!-- <li class="nav-item"><a href="#course-attendees" class="nav-link" data-toggle="tab"><i
                         class="icon-people mr-2"></i> Product Detail</a></li>
             <li class="nav-item"><a href="#course-schedule" class="nav-link" data-toggle="tab"><i
-                        class="icon-calendar3 mr-2"></i> ...</a></li>
+                        class="icon-calendar3 mr-2"></i> ...</a></li> -->
         </ul>
     </div>
 
@@ -42,6 +42,20 @@
                     <h6 class="font-weight-semibold">Harga Mulai Dari Rp.
                         {{$data->harga}}
                     </h6>
+                    <!-- <h4 class="font-weight-semibold">Harga :
+                        {{$data->harga}}
+                    </h4> -->
+                    <h6 class="font-weight-semibold">Luas Tanah :
+                        {{$data->lt}}
+                    </h6>
+                    <h6 class="font-weight-semibold">Luas Bangunan :
+                        {{$data->lb}}
+                    </h6>
+                    <h6 class="font-weight-semibold">Fasilitas :
+                        {{$data->fasilitas}}
+                    </h6>
+                    <h5 class="font-weight-semibold">Deskripsi Rumah :
+                    </h5>
                     <p>{{$data->description}}</p>
                 </div>
 
@@ -49,23 +63,9 @@
             </div>
         </div>
 
-        <div class="tab-pane fade" id="course-attendees">
+        <!-- <div class="tab-pane fade" id="course-attendees">
             <div class="card-body">
-                <h4 class="font-weight-semibold">Harga :
-                    {{$data->harga}}
-                </h4>
-                <h6 class="font-weight-semibold">Luas Tanah :
-                    {{$data->lt}}
-                </h6>
-                <h6 class="font-weight-semibold">Luas Bangunan :
-                    {{$data->lb}}
-                </h6>
-                <h6 class="font-weight-semibold">Fasilitas :
-                    {{$data->fasilitas}}
-                </h6>
-                <h5 class="font-weight-semibold">Deskripsi Rumah :
-                </h5>
-                <p>{{$data->description}}</p>
+
             </div>
         </div>
 
@@ -73,7 +73,7 @@
             <div class="card-body">
                 <div class="schedule"></div>
             </div>
-        </div>
+        </div> -->
     </div>
 </div>
 @endsection
