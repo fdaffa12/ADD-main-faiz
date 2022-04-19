@@ -6,15 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Category extends Model
 {
-    protected $fillable = ['title', 'description', 'image', 'fasilitas', 'lb', 'lt', 'lokasi', 'harga', 'type', 'dev_id'];
+    protected $fillable = ['title', 'description', 'image', 'fasilitas', 'lb', 'lt', 'lokasi', 'harga', 'type', 'list_id'];
 
     public function categoryitem()
     {
         return $this->hasMany('App\CategoryItem');
     }
 
-    public function developer()
+    public function listing()
     {
-        return $this->belongsTo(Developer::class, 'dev_id');
+        return $this->belongsTo(Listing::class, 'list_id');
     }
 }

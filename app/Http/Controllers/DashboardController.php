@@ -7,6 +7,8 @@ use App\Category;
 use App\CategoryItem;
 use App\Setting;
 use App\Post;
+use App\Primary;
+use App\PrimaryItem;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -47,7 +49,7 @@ class DashboardController extends Controller
 
     public function devitem($id)
     {
-        $categoryitems = Category::where('dev_id', $id)->orderBy('created_at', 'desc')->paginate(6);
+        $categoryitems = Primary::where('dev_id', $id)->orderBy('created_at', 'desc')->paginate(6);
         $data = Developer::find($id);
 
         return view('dashboard.dev-item', compact('categoryitems', 'data'));
@@ -55,8 +57,8 @@ class DashboardController extends Controller
 
     public function detail($id)
     {
-        $categoryitems = CategoryItem::where('category_id', $id)->orderBy('created_at', 'desc')->paginate(6);
-        $data = Category::where('id', $id)->first();
+        $categoryitems = PrimaryItem::where('primary_id', $id)->orderBy('created_at', 'desc')->paginate(6);
+        $data = Primary::where('id', $id)->first();
 
         return view('dashboard.catadet', compact('categoryitems', 'data'));
     }
@@ -64,7 +66,7 @@ class DashboardController extends Controller
     public function search(Request $request)
     {
         $query = $request->input('query');
-        $categoryitems = Category::where('title', 'LIKE', "%$query%")->orderby('id', 'DESC')->get();
+        $categoryitems = Primary::where('title', 'LIKE', "%$query%")->orderby('id', 'DESC')->get();
         return view('dashboard.show', compact('categoryitems'));
     }
 }

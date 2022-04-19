@@ -66,13 +66,13 @@
             <div class="col-lg-3">
                 <div class="form-group">
                     <label class="form-control-label">Nama Developer: <span class="tx-danger">*</span></label>
-                    <select class="form-control" name="dev_id" data-placeholder="Choose Category">
+                    <select class="form-control" name="list_id" data-placeholder="Choose Category">
                         <option label="Choose Category"></option>
-                        @foreach($developer as $category)
-                        <option value="{{$category->id}}">{{$category->nama_dev}}</option>
+                        @foreach($listing as $list)
+                        <option value="{{$list->id}}">{{$list->nama_pemilik}}</option>
                         @endforeach
                     </select>
-                    @error('dev_id')
+                    @error('list_id')
                     <strong class="text-danger">{{$message}}</strong>
                     @enderror
                 </div>

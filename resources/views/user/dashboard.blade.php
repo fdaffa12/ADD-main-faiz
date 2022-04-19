@@ -45,7 +45,7 @@
             </div>
             <ul class="navbar-nav navbar-nav-underline flex-row">
 
-                <li class="nav-item nav-item-dropdown-xl dropdown dropdown-user h-100">
+                <!-- <li class="nav-item nav-item-dropdown-xl dropdown dropdown-user h-100">
                     <a href="#"
                         class="navbar-nav-link navbar-nav-link-toggler d-flex align-items-center h-100 dropdown-toggle"
                         data-toggle="dropdown">
@@ -58,7 +58,7 @@
                         <a href="{{url('admin/add-developer')}}" class="dropdown-item">Add
                             Developer</a>
                     </div>
-                </li>
+                </li> -->
                 <li class="nav-item nav-item-dropdown-xl dropdown dropdown-user h-100">
                     <a href="#"
                         class="navbar-nav-link navbar-nav-link-toggler d-flex align-items-center h-100 dropdown-toggle"
@@ -72,7 +72,7 @@
                             Galley Developer</a>
                     </div>
                 </li>
-                <li class="nav-item nav-item-dropdown-xl dropdown dropdown-user h-100">
+                <!-- <li class="nav-item nav-item-dropdown-xl dropdown dropdown-user h-100">
                     <a href="#"
                         class="navbar-nav-link navbar-nav-link-toggler d-flex align-items-center h-100 dropdown-toggle"
                         data-toggle="dropdown">
@@ -84,7 +84,7 @@
                         <a href="{{url('admin/add-primary')}}" class="dropdown-item">Add
                             Primary Developer</a>
                     </div>
-                </li>
+                </li> -->
                 <li class="nav-item nav-item-dropdown-xl dropdown dropdown-user h-100">
                     <a href="#"
                         class="navbar-nav-link navbar-nav-link-toggler d-flex align-items-center h-100 dropdown-toggle"
@@ -98,25 +98,25 @@
                             Listing</a>
                     </div>
                 </li>
-                <li class="nav-item nav-item-dropdown-xl dropdown dropdown-user h-100">
+                <!-- <li class="nav-item nav-item-dropdown-xl dropdown dropdown-user h-100">
                     <a href="{{url('admin/setting')}}"
                         class="navbar-nav-link navbar-nav-link-toggler d-flex align-items-center h-100">
                         <span class="d-none d-xl-block">Setting</span>
                     </a>
-                </li>
-                <li class="nav-item nav-item-dropdown-xl dropdown dropdown-user h-100">
+                </li> -->
+                <!-- <li class="nav-item nav-item-dropdown-xl dropdown dropdown-user h-100">
                     <a href="{{url('admin/publikasi')}}"
                         class="navbar-nav-link navbar-nav-link-toggler d-flex align-items-center h-100">
                         <span class="d-none d-xl-block">Publikasi</span>
                     </a>
-                </li>
+                </li> -->
                 <!-- <li class="nav-item nav-item-dropdown-xl dropdown dropdown-user h-100">
                     <a href="{{url('admin/index-pages')}}"
                         class="navbar-nav-link navbar-nav-link-toggler d-flex align-items-center h-100">
                         <span class="d-none d-xl-block">Pages</span>
                     </a>
                 </li> -->
-                <li class="nav-item nav-item-dropdown-xl dropdown dropdown-user h-100">
+                <!-- <li class="nav-item nav-item-dropdown-xl dropdown dropdown-user h-100">
                     <a href="#"
                         class="navbar-nav-link navbar-nav-link-toggler d-flex align-items-center h-100 dropdown-toggle"
                         data-toggle="dropdown">
@@ -128,7 +128,7 @@
                         <a href="{{url('admin/add-struktur')}}" class="dropdown-item">Add
                             Struktur Perusahaan</a>
                     </div>
-                </li>
+                </li> -->
             </ul>
 
         </div>

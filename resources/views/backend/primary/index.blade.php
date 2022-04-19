@@ -22,12 +22,12 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($categories as $dt)
+                    @foreach ($primaries as $dt)
                     <tr>
                         <td><img src="{{asset($dt->image)}}" width="100px;" height="80px;" style="border-radius:10px;"
                                 alt=""></td>
                         <td><span class="text-default font-weight-semibold">{{ $dt->title }}</span></td>
-                        <td>{{$dt->listing->nama_pemilik}}</td>
+                        <td>{{$dt->developer->nama_dev}}</td>
                         <td>{{$dt->harga}}</td>
                         <td>{{$dt->lt}} / {{$dt->lb}}</td>
                         <td>{{$dt->lokasi}}</td>
@@ -40,14 +40,14 @@
                                     <a href="#" class="list-icons-item dropdown-toggle caret-0"
                                         data-toggle="dropdown"><i class="icon-menu7"></i></a>
                                     <div class="dropdown-menu dropdown-menu-right">
-                                        <a href="{{route('gallery.images', $dt->id)}}" class="dropdown-item"><i
+                                        <a href="{{route('primary.images', $dt->id)}}" class="dropdown-item"><i
                                                 class="icon-file-picture"></i> Manage
                                             Media</a>
-                                        <a href="{{route('gallery.getByID', $dt->id)}}" class="dropdown-item"><i
+                                        <a href="{{route('primary.getByID', $dt->id)}}" class="dropdown-item"><i
                                                 class="icon-file-text2"></i> Edit
                                             Detail</a>
                                         <div class="dropdown-divider"></div>
-                                        <a href="{{url('admin/gallery/delete/'.$dt->id)}}"
+                                        <a href="{{url('admin/primary/delete/'.$dt->id)}}"
                                             onclick="return confirm('Are you sure?')" class="dropdown-item"><i
                                                 class="icon-file-minus"></i> Delete
                                             Developer</a>

@@ -8,122 +8,131 @@
 <!-- Wizard with validation -->
 <div class="card">
     <div class="card-header bg-primary header-elements-inline">
-        <h6 class="card-title">Edit Gallery Developer</h6>
+        <h6 class="card-title">Add Primary Developer</h6>
     </div>
-    <form class="wizard-form pt-3" action="{{route('gallery.update')}}" method="POST" enctype="multipart/form-data">
-        @csrf
-        <input type="hidden" name="id" value="{{$data->id}}">
+    <form class="wizard-form pt-3" action="{{route('primary.store')}}" method="POST" enctype="multipart/form-data">
+        {{ csrf_field() }}
         <div class="row">
             <div class="col-lg-3">
                 <div class="form-group">
-                    <label class="form-control-label">Title: <span class="tx-danger">*</span></label>
-                    <input class="form-control" type="text" name="title" value="{{$data->title}}"
-                        placeholder="Enter Judul">
+                    <label for="title">Nama Cluster</label>
+                    <input type="text" class="form-control" name="title" id="title">
                     @error('title')
                     <strong class="text-danger">{{$message}}</strong>
                     @enderror
                 </div>
-            </div><!-- col-4 -->
+            </div>
+
             <div class="col-lg-3">
                 <div class="form-group">
-                    <label class="form-control-label">Harga: <span class="tx-danger">*</span></label>
-                    <input class="form-control" type="text" name="harga" value="{{$data->harga}}"
-                        placeholder="Enter Judul">
-                    @error('harga')
-                    <strong class="text-danger">{{$message}}</strong>
-                    @enderror
-                </div>
-            </div><!-- col-4 -->
-            <div class="col-lg-3">
-                <div class="form-group">
-                    <label class="form-control-label">Luas Tanah: <span class="tx-danger">*</span></label>
-                    <input class="form-control" type="text" name="lt" value="{{$data->lt}}" placeholder="Enter Judul">
-                    @error('lt')
-                    <strong class="text-danger">{{$message}}</strong>
-                    @enderror
-                </div>
-            </div><!-- col-4 -->
-            <div class="col-lg-3">
-                <div class="form-group">
-                    <label class="form-control-label">Luas Bangunan: <span class="tx-danger">*</span></label>
-                    <input class="form-control" type="text" name="lb" value="{{$data->lb}}"
-                        placeholder="Enter Luas Bangunan">
+                    <label for="lb">Luas Bangunan</label>
+                    <input type="text" class="form-control" name="lb" id="lb">
                     @error('lb')
                     <strong class="text-danger">{{$message}}</strong>
                     @enderror
                 </div>
-            </div><!-- col-4 -->
+            </div>
+
             <div class="col-lg-3">
                 <div class="form-group">
-                    <label class="form-control-label">Lokasi: <span class="tx-danger">*</span></label>
-                    <input class="form-control" type="text" name="lokasi" value="{{$data->lokasi}}"
-                        placeholder="Enter Lokasi">
-                    @error('lokasi')
+                    <label for="lt">Luas Tanah</label>
+                    <input type="text" class="form-control" name="lt" id="lt">
+                    @error('lt')
                     <strong class="text-danger">{{$message}}</strong>
                     @enderror
                 </div>
-            </div><!-- col-4 -->
+            </div>
+
             <div class="col-lg-3">
                 <div class="form-group">
-                    <label class="form-control-label">Type Rumah: <span class="tx-danger">*</span></label>
-                    <input class="form-control" type="text" name="type" value="{{$data->type}}"
-                        placeholder="Enter Type Rumah">
+                    <label for="lb">Harga</label>
+                    <input type="text" class="form-control" name="harga" id="harga">
+                    @error('harga')
+                    <strong class="text-danger">{{$message}}</strong>
+                    @enderror
+                </div>
+            </div>
+
+            <div class="col-lg-3">
+                <div class="form-group">
+                    <label for="type">Type</label>
+                    <input type="text" class="form-control" name="type" id="type">
                     @error('type')
                     <strong class="text-danger">{{$message}}</strong>
                     @enderror
                 </div>
-            </div><!-- col-4 -->
+            </div>
+
             <div class="col-lg-3">
                 <div class="form-group">
-                    <label class="form-control-label">Pemilik: <span class="tx-danger">*</span></label>
-                    <select class="form-control" name="list_id" data-placeholder="Choose Category">
+                    <label class="form-control-label">Nama Developer: <span class="tx-danger">*</span></label>
+                    <select class="form-control" name="dev_id" data-placeholder="Choose Category">
                         <option label="Choose Category"></option>
-                        @foreach($listing as $category)
-                        <option value="{{$category->id}}" {{$category->id == $data->list_id ? "selected":""}}>
-                            {{$category->nama_pemilik}}
-                        </option>
+                        @foreach($developer as $list)
+                        <option value="{{$list->id}}">{{$list->nama_dev}}</option>
                         @endforeach
                     </select>
-                    @error('list_id')
+                    @error('dev_id')
                     <strong class="text-danger">{{$message}}</strong>
                     @enderror
                 </div>
             </div><!-- col-4 -->
-        </div>
+
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label for="lokasi">Lokasi</label>
+                    <input type="text" class="form-control" name="lokasi" id="lokasi">
+                    @error('lokasi')
+                    <strong class="text-danger">{{$message}}</strong>
+                    @enderror
+                </div>
+            </div>
+
+
+        </div><!-- /.box-body -->
+
         <div class="row">
+
             <div class="col-lg-3">
                 <div class="form-group">
-                    <label for="exampleInputFile">Faslitas</label>
-                    <textarea name="fasilitas" id="body" cols="20" rows="5"
-                        class="form-control">{{$data->fasilitas}}</textarea>
+                    <label for="fasilitas">Fasilitas</label>
+                    <textarea name="fasilitas" id="fasilitas" cols="20" rows="5" class="form-control"></textarea>
                     @error('fasilitas')
                     <strong class="text-danger">{{$message}}</strong>
                     @enderror
                 </div>
             </div>
+
             <div class="col-lg-9">
                 <div class="form-group">
-                    <label for="exampleInputFile">Deskripsi</label>
-                    <textarea name="description" id="body" cols="20" rows="5"
-                        class="form-control">{{$data->description}}</textarea>
-                    @error('description')
+                    <label for="body">Deskripsi</label>
+                    <textarea name="body" id="body" cols="20" rows="5" class="form-control"></textarea>
+                    @error('body')
                     <strong class="text-danger">{{$message}}</strong>
                     @enderror
                 </div>
             </div>
+
             <div class="col-lg-3">
                 <div class="form-group">
-                    <label class="form-control-label">Image: <span class="tx-danger">*</span></label>
-                    <img src="{{asset($data->image)}}" onclick="triggerClick()" id="profileDisplay">
+                    <label class="form-control-label">Banner Image: <span class="tx-danger">*</span></label>
+                    <!-- <img src="{{asset('uploads')}}/default.png" onclick="triggerClick()"
+                                        id="profileDisplay"> -->
                     <input class="form-control" type="file" name="image" onchange="displayImage(this)"
                         id="profileImage">
                     @error('image')
                     <strong class="text-danger">{{$message}}</strong>
                     @enderror
                 </div>
-            </div><!-- col-4 -->
+            </div>
+
+            <div class="col-lg-3">
+                <div class="form-group">
+                    <label class="form-control-label">Select images: <span class="tx-danger">*</span></label>
+                    <input class="form-control" type="file" name="cover_image[]" multiple>
+                </div>
+            </div>
         </div>
-        <!-- /.box-body -->
 
         <div class="box-footer">
             <button type="submit" class="btn btn-primary">Submit</button>

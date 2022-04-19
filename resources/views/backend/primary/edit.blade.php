@@ -8,9 +8,9 @@
 <!-- Wizard with validation -->
 <div class="card">
     <div class="card-header bg-primary header-elements-inline">
-        <h6 class="card-title">Edit Gallery Developer</h6>
+        <h6 class="card-title">Edit Primary Developer</h6>
     </div>
-    <form class="wizard-form pt-3" action="{{route('gallery.update')}}" method="POST" enctype="multipart/form-data">
+    <form class="wizard-form pt-3" action="{{route('primary.update')}}" method="POST" enctype="multipart/form-data">
         @csrf
         <input type="hidden" name="id" value="{{$data->id}}">
         <div class="row">
@@ -55,16 +55,6 @@
             </div><!-- col-4 -->
             <div class="col-lg-3">
                 <div class="form-group">
-                    <label class="form-control-label">Lokasi: <span class="tx-danger">*</span></label>
-                    <input class="form-control" type="text" name="lokasi" value="{{$data->lokasi}}"
-                        placeholder="Enter Lokasi">
-                    @error('lokasi')
-                    <strong class="text-danger">{{$message}}</strong>
-                    @enderror
-                </div>
-            </div><!-- col-4 -->
-            <div class="col-lg-3">
-                <div class="form-group">
                     <label class="form-control-label">Type Rumah: <span class="tx-danger">*</span></label>
                     <input class="form-control" type="text" name="type" value="{{$data->type}}"
                         placeholder="Enter Type Rumah">
@@ -76,15 +66,25 @@
             <div class="col-lg-3">
                 <div class="form-group">
                     <label class="form-control-label">Pemilik: <span class="tx-danger">*</span></label>
-                    <select class="form-control" name="list_id" data-placeholder="Choose Category">
+                    <select class="form-control" name="dev_id" data-placeholder="Choose Category">
                         <option label="Choose Category"></option>
-                        @foreach($listing as $category)
-                        <option value="{{$category->id}}" {{$category->id == $data->list_id ? "selected":""}}>
-                            {{$category->nama_pemilik}}
+                        @foreach($developer as $category)
+                        <option value="{{$category->id}}" {{$category->id == $data->dev_id ? "selected":""}}>
+                            {{$category->nama_dev}}
                         </option>
                         @endforeach
                     </select>
-                    @error('list_id')
+                    @error('dev_id')
+                    <strong class="text-danger">{{$message}}</strong>
+                    @enderror
+                </div>
+            </div><!-- col-4 -->
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label class="form-control-label">Lokasi: <span class="tx-danger">*</span></label>
+                    <input class="form-control" type="text" name="lokasi" value="{{$data->lokasi}}"
+                        placeholder="Enter Lokasi">
+                    @error('lokasi')
                     <strong class="text-danger">{{$message}}</strong>
                     @enderror
                 </div>

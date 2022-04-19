@@ -19,6 +19,7 @@ class CreateDevelopersTable extends Migration
             $table->text('desc');
             $table->string('dev_slug');
             $table->string('gambar');
+            $table->integer('status')->default(1);
             $table->timestamps();
         });
     }

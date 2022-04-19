@@ -94,6 +94,18 @@ Route::group(['middleware' => 'is_admin'], function () {
     Route::post('admin/gallery/image/update', 'GalleryItemController@update')->name('gallery.image.update');
     Route::get('admin/gallery/image/delete/{id}', 'GalleryItemController@delete')->name('gallery.image.delete');
 
+    //coba galeri
+    Route::get('admin/primary', 'PrimaryController@index')->name('primary.index');
+    Route::post('admin/store-primary', 'PrimaryController@store')->name('primary.store');
+    Route::post('admin/primary/update', 'PrimaryController@update')->name('primary.update');
+    Route::get('admin/add-primary', 'PrimaryController@add')->name('primary.add');
+    Route::get('admin/primary/delete/{id}', 'PrimaryController@delete')->name('primary.delete');
+    Route::get('admin/primary/getByID/{id}', 'PrimaryController@getByID')->name('primary.getByID');
+    Route::get('admin/primary/images/{id}', 'PrimaryItemController@index')->name('primary.images');
+    Route::post('admin/primary/image/store', 'PrimaryItemController@store')->name('primary.image.store');
+    Route::post('admin/primary/image/update', 'PrimaryItemController@update')->name('primary.image.update');
+    Route::get('admin/primary/image/delete/{id}', 'PrimaryItemController@delete')->name('primary.image.delete');
+
     //video
     Route::get('admin/video', 'Admin\VideoController@index')->name('video.index');
     Route::get('admin/add-video', 'Admin\VideoController@add')->name('add.video');

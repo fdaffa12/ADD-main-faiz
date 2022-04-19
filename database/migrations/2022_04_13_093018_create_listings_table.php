@@ -33,6 +33,7 @@ class CreateListingsTable extends Migration
             $table->string('marketing');
             $table->string('referal');
             $table->string('gambar');
+            $table->integer('status')->default(1);
             $table->timestamps();
         });
     }
