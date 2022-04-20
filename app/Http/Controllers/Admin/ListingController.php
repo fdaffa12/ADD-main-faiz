@@ -28,7 +28,7 @@ class ListingController extends Controller
     {
         $request->validate([
             'nama_pemilik' => 'required',
-            'ktp' => 'required',
+            'ktp',
             'alamat' => 'required',
             'nohp' => 'required',
             'unit' => 'required',
@@ -39,11 +39,12 @@ class ListingController extends Controller
             'spesifikasi' => 'required',
             'harga' => 'required',
             'nego' => 'required',
-            'ketentuan' => 'required',
-            'no_listing' => 'required',
+            'ketentuan',
+            'no_listing',
             'jenis_listing' => 'required',
             'marketing' => 'required',
-            'referal' => 'required',
+            'komisi' => 'required',
+            'referal',
         ]);
 
         $data['nama_pemilik'] = $request->nama_pemilik;
@@ -62,6 +63,7 @@ class ListingController extends Controller
         $data['no_listing'] = $request->no_listing;
         $data['jenis_listing'] = $request->jenis_listing;
         $data['marketing'] = $request->marketing;
+        $data['komisi'] = $request->komisi;
         $data['referal'] = $request->referal;
         $data['created_at'] = date('Y-m-d H:i:s');
         $data['updated_at'] = date('Y-m-d H:i:s');
@@ -90,7 +92,7 @@ class ListingController extends Controller
     {
         $request->validate([
             'nama_pemilik' => 'required',
-            'ktp' => 'required',
+            'ktp',
             'alamat' => 'required',
             'nohp' => 'required',
             'unit' => 'required',
@@ -101,11 +103,12 @@ class ListingController extends Controller
             'spesifikasi' => 'required',
             'harga' => 'required',
             'nego' => 'required',
-            'ketentuan' => 'required',
-            'no_listing' => 'required',
+            'ketentuan',
+            'no_listing',
             'jenis_listing' => 'required',
             'marketing' => 'required',
-            'referal' => 'required',
+            'komisi' => 'required',
+            'referal',
         ]);
 
         $data['nama_pemilik'] = $request->nama_pemilik;
@@ -124,6 +127,7 @@ class ListingController extends Controller
         $data['no_listing'] = $request->no_listing;
         $data['jenis_listing'] = $request->jenis_listing;
         $data['marketing'] = $request->marketing;
+        $data['komisi'] = $request->komisi;
         $data['referal'] = $request->referal;
         // $data['created_at'] = date('Y-m-d H:i:s');
         $data['updated_at'] = date('Y-m-d H:i:s');
@@ -144,5 +148,17 @@ class ListingController extends Controller
     {
         Listing::find($list_id)->delete();
         return redirect()->back()->with('warning', 'Developer deleted');
+    }
+
+    public function draft($list_id)
+    {
+        Listing::findOrFail($list_id)->update(['status' => 0]);
+        return redirect()->back()->withToastWarning('Berhasil Dimasukan Ke Dalam Draft');
+    }
+
+    public function publish($list_id)
+    {
+        Listing::findOrFail($list_id)->update(['status' => 1]);
+        return redirect()->back()->withToastInfo('Berhasil Dipublish');
     }
 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Developer;
 use App\Category;
 use App\CategoryItem;
+use App\Listing;
 use App\Setting;
 use App\Post;
 use App\Primary;
@@ -16,7 +17,7 @@ class DashboardController extends Controller
 
     public function __construct()
     {
-        $developer = Developer::orderBy('created_at', 'desc')->paginate(7);
+        $developer = Developer::orderBy('created_at', 'desc')->where('status', '1')->paginate(7);
         $setting = Setting::first();
         if ($setting) {
             $setting->social = explode(',', $setting->social);
@@ -34,7 +35,7 @@ class DashboardController extends Controller
     public function index()
     {
         $banners = Post::where('postcat_id', 'LIKE', '%3%')->orderby('id', 'DESC')->paginate(1);
-        $data = Developer::orderBy('created_at', 'desc')->paginate(3);
+        $data = Developer::orderBy('created_at', 'desc')->where('status', '1')->paginate(3);
 
         return view('dashboard.home', compact('banners', 'data'));
     }
@@ -42,14 +43,16 @@ class DashboardController extends Controller
 
     public function dashboardev()
     {
-        $data = Developer::orderBy('created_at', 'desc')->paginate(7);
+        $data = Developer::orderBy('created_at', 'desc')->where('status', '1')->paginate(7);
 
-        return view('dashboard.catacont', compact('data'));
+        $secondary = Category::orderBy('created_at', 'desc')->where('status', '1')->paginate(7);
+
+        return view('dashboard.catacont', compact('data', 'secondary'));
     }
 
     public function devitem($id)
     {
-        $categoryitems = Primary::where('dev_id', $id)->orderBy('created_at', 'desc')->paginate(6);
+        $categoryitems = Primary::where('dev_id', $id)->where('status', '1')->orderBy('created_at', 'desc')->paginate(6);
         $data = Developer::find($id);
 
         return view('dashboard.dev-item', compact('categoryitems', 'data'));
@@ -63,10 +66,19 @@ class DashboardController extends Controller
         return view('dashboard.catadet', compact('categoryitems', 'data'));
     }
 
+    public function detailsec($id)
+    {
+        $categoryitems = CategoryItem::where('category_id', $id)->orderBy('created_at', 'desc')->paginate(6);
+        $data = Category::where('id', $id)->first();
+
+        return view('dashboard.catadetsec', compact('categoryitems', 'data'));
+    }
+
     public function search(Request $request)
     {
         $query = $request->input('query');
-        $categoryitems = Primary::where('title', 'LIKE', "%$query%")->orderby('id', 'DESC')->get();
-        return view('dashboard.show', compact('categoryitems'));
+        $categoryitems = Primary::where('title', 'LIKE', "%$query%")->where('status', '1')->orderby('id', 'DESC')->get();
+        $cats = Category::Where('title', 'LIKE', "%$query%")->where('status', '1')->orderby('id', 'DESC')->get();
+        return view('dashboard.show', compact('categoryitems', 'cats'));
     }
 }

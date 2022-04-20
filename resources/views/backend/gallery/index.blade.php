@@ -18,6 +18,7 @@
                         <th style="width: 150px">Type</th>
                         <th style="width: 150px">Fasilitas</th>
                         <th>Description</th>
+                        <th>Status</th>
                         <th class="text-center" style="width: 20px;">Action</th>
                     </tr>
                 </thead>
@@ -34,6 +35,13 @@
                         <td>{{$dt->type}}</td>
                         <td>{{$dt->fasilitas}}</td>
                         <td>{!! substr($dt->description,0,90) !!}</td>
+                        <td>
+                            @if( $dt->status == 0 )
+                            <label class="label label-info">Unpublish</label>
+                            @else
+                            <label class="label label-info">Published</label>
+                            @endif
+                        </td>
                         <td class="text-center">
                             <div class="list-icons">
                                 <div class="dropdown">
@@ -51,6 +59,14 @@
                                             onclick="return confirm('Are you sure?')" class="dropdown-item"><i
                                                 class="icon-file-minus"></i> Delete
                                             Developer</a>
+                                        @if( $dt->status == 0 )
+                                        <a href="{{ url('admin/publish-gallery/'.$dt->id) }}" class="dropdown-item"><i
+                                                class="icon-eye"></i>Publish</a>
+                                        @else
+                                        <a href="{{ url('admin/draft-gallery/'.$dt->id) }}" class="dropdown-item"><i
+                                                class="icon-eye-blocked"></i>
+                                            Draft</a>
+                                        @endif
                                     </div>
                                 </div>
                             </div>

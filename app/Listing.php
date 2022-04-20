@@ -24,6 +24,8 @@ class Listing extends Model
         'jenis_listing',
         'marketing',
         'referal',
+        'komisi',
         'gambar',
+        'status',
     ];
 }

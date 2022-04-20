@@ -12,6 +12,7 @@
                         <th style="width: 150px">Developer Name</th>
                         <th style="width: 300px;">Image</th>
                         <th>Description</th>
+                        <th>Status</th>
                         <th class="text-center" style="width: 20px;">Action</th>
                     </tr>
                 </thead>
@@ -22,6 +23,13 @@
                         <td><img src="{{asset($dt->gambar)}}" width="100px;" height="80px;" style="border-radius:10px;"
                                 alt=""></td>
                         <td>{!! substr($dt->desc,0,100) !!}</td>
+                        <td>
+                            @if( $dt->status == 0 )
+                            <label class="label label-info">Unpublish</label>
+                            @else
+                            <label class="label label-info">Published</label>
+                            @endif
+                        </td>
                         <td class="text-center">
                             <div class="list-icons">
                                 <div class="dropdown">
@@ -37,6 +45,14 @@
                                         <a href="{{url('admin/delete-dev/'.$dt->id)}}" class="dropdown-item"><i
                                                 class="icon-file-minus"></i> Delete
                                             Developer</a>
+                                        @if( $dt->status == 0 )
+                                        <a href="{{ url('admin/publish-dev/'.$dt->id) }}" class="dropdown-item"><i
+                                                class="icon-eye"></i>Publish</a>
+                                        @else
+                                        <a href="{{ url('admin/draft-dev/'.$dt->id) }}" class="dropdown-item"><i
+                                                class="icon-eye-blocked"></i>
+                                            Draft</a>
+                                        @endif
                                     </div>
                                 </div>
                             </div>

@@ -132,8 +132,8 @@
                     <div class="form-group">
                         <label class="form-control-label">Jenis Listing: <span class="tx-danger">*</span></label>
                         <select name="jenis_listing" class="form-control">
-                            <option value="Ya" {{($list->jenis_listing === 'Ya') ? 'Selected' : ''}}>Ya</option>
-                            <option value="Tidak" {{($list->jenis_listing === 'Tidak') ? 'Selected' : ''}}>Tidak
+                            <option value="Open" {{($list->jenis_listing === 'Open') ? 'Selected' : ''}}>Open</option>
+                            <option value="Exclusive" {{($list->jenis_listing === 'Tidak') ? 'Selected' : ''}}>Tidak
                             </option>
                         </select>
                         @error('jenis_listing')
@@ -182,12 +182,22 @@
                     <div class="form-group">
                         <label class="form-control-label">Negosiasi: <span class="tx-danger">*</span></label>
                         <select name="nego" class="form-control">
-                            <option value="Jual" {{($list->nego === 'Jual') ? 'Selected' : ''}}>Jual
+                            <option value="Ya" {{($list->nego === 'Ya') ? 'Selected' : ''}}>Ya
                             </option>
-                            <option value="Sewa" {{($list->nego === 'Sewa') ? 'Selected' : ''}}>Sewa
+                            <option value="Tidak" {{($list->nego === 'Tidak') ? 'Selected' : ''}}>Tidak
                             </option>
                         </select>
                         @error('nego')
+                        <strong class="text-danger">{{$message}}</strong>
+                        @enderror
+                    </div>
+                </div><!-- col-4 -->
+                <div class="col-lg-3">
+                    <div class="form-group">
+                        <label class="form-control-label">Komisi: <span class="tx-danger">*</span></label>
+                        <input class="form-control" type="text" name="komisi" value="{{$list->komisi}}"
+                            placeholder="Enter Komisi">
+                        @error('komisi')
                         <strong class="text-danger">{{$message}}</strong>
                         @enderror
                     </div>

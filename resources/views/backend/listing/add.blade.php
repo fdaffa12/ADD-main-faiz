@@ -130,8 +130,8 @@
                     <div class="form-group">
                         <label class="form-control-label">Jenis Listing: <span class="tx-danger">*</span></label>
                         <select name="jenis_listing" class="form-control" value="{{old('jenis_listing')}}">
-                            <option value="Ya" selected>Ya</option>
-                            <option value="Tidak">Tidak</option>
+                            <option value="Open" selected>Open</option>
+                            <option value="Exclusive">Exclusive</option>
                         </select>
                         @error('jenis_listing')
                         <strong class="text-danger">{{$message}}</strong>
@@ -179,8 +179,8 @@
                     <div class="form-group">
                         <label class="form-control-label">Negosiasi: <span class="tx-danger">*</span></label>
                         <select name="nego" class="form-control" value="{{old('nego')}}">
-                            <option value="Jual" selected>Jual</option>
-                            <option value="Sewa">Sewa</option>
+                            <option value="Ya" selected>Ya</option>
+                            <option value="Tidak">Tidak</option>
                         </select>
                         @error('nego')
                         <strong class="text-danger">{{$message}}</strong>
@@ -193,6 +193,16 @@
                         <input class="form-control" type="text" name="marketing" value="{{old('marketing')}}"
                             placeholder="Enter Marketing">
                         @error('marketing')
+                        <strong class="text-danger">{{$message}}</strong>
+                        @enderror
+                    </div>
+                </div><!-- col-4 -->
+                <div class="col-lg-3">
+                    <div class="form-group">
+                        <label class="form-control-label">Komisi Penjualan: <span class="tx-danger">*</span></label>
+                        <input class="form-control" type="text" name="komisi" value="{{old('komisi')}}"
+                            placeholder="Enter Komisi">
+                        @error('komisi')
                         <strong class="text-danger">{{$message}}</strong>
                         @enderror
                     </div>

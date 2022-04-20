@@ -44,7 +44,7 @@
                 </a>
             </div>
             <ul class="navbar-nav navbar-nav-underline flex-row">
-
+                @if (Auth::user()->is_admin == 1)
                 <li class="nav-item nav-item-dropdown-xl dropdown dropdown-user h-100">
                     <a href="#"
                         class="navbar-nav-link navbar-nav-link-toggler d-flex align-items-center h-100 dropdown-toggle"
@@ -63,13 +63,13 @@
                     <a href="#"
                         class="navbar-nav-link navbar-nav-link-toggler d-flex align-items-center h-100 dropdown-toggle"
                         data-toggle="dropdown">
-                        <span class="d-none d-xl-block">Gallery Developer</span>
+                        <span class="d-none d-xl-block">Sec Developer</span>
                     </a>
 
                     <div class="dropdown-menu dropdown-menu-right">
-                        <a href="{{url('admin/gallery')}}" class="dropdown-item">Manage Gallery Developer</a>
+                        <a href="{{url('admin/gallery')}}" class="dropdown-item">Manage Secondary Developer</a>
                         <a href="{{url('admin/add-gallery')}}" class="dropdown-item">Add
-                            Galley Developer</a>
+                            Secondary Developer</a>
                     </div>
                 </li>
                 <li class="nav-item nav-item-dropdown-xl dropdown dropdown-user h-100">
@@ -129,6 +129,34 @@
                             Struktur Perusahaan</a>
                     </div>
                 </li>
+                @else
+                <li class="nav-item nav-item-dropdown-xl dropdown dropdown-user h-100">
+                    <a href="#"
+                        class="navbar-nav-link navbar-nav-link-toggler d-flex align-items-center h-100 dropdown-toggle"
+                        data-toggle="dropdown">
+                        <span class="d-none d-xl-block">Sec Developer</span>
+                    </a>
+
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <a href="{{url('admin/gallery')}}" class="dropdown-item">Manage Secondary Developer</a>
+                        <a href="{{url('admin/add-gallery')}}" class="dropdown-item">Add
+                            Secondary Developer</a>
+                    </div>
+                </li>
+                <li class="nav-item nav-item-dropdown-xl dropdown dropdown-user h-100">
+                    <a href="#"
+                        class="navbar-nav-link navbar-nav-link-toggler d-flex align-items-center h-100 dropdown-toggle"
+                        data-toggle="dropdown">
+                        <span class="d-none d-xl-block">Listing</span>
+                    </a>
+
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <a href="{{url('admin/listing')}}" class="dropdown-item">Manage Listing</a>
+                        <a href="{{url('admin/add-listing')}}" class="dropdown-item">Add
+                            Listing</a>
+                    </div>
+                </li>
+                @endif
             </ul>
 
         </div>

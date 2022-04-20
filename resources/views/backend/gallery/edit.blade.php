@@ -65,9 +65,9 @@
             </div><!-- col-4 -->
             <div class="col-lg-3">
                 <div class="form-group">
-                    <label class="form-control-label">Type Rumah: <span class="tx-danger">*</span></label>
+                    <label class="form-control-label">Type: <span class="tx-danger">*</span></label>
                     <input class="form-control" type="text" name="type" value="{{$data->type}}"
-                        placeholder="Enter Type Rumah">
+                        placeholder="Enter Type">
                     @error('type')
                     <strong class="text-danger">{{$message}}</strong>
                     @enderror

@@ -159,4 +159,16 @@ class PrimaryController extends Controller
         }
         return redirect()->back()->with('success', 'Sukses Menghapus');
     }
+
+    public function draft($id)
+    {
+        Primary::findOrFail($id)->update(['status' => 0]);
+        return redirect()->back()->withToastWarning('Berhasil Dimasukan Ke Dalam Draft');
+    }
+
+    public function publish($id)
+    {
+        Primary::findOrFail($id)->update(['status' => 1]);
+        return redirect()->back()->withToastInfo('Berhasil Dipublish');
+    }
 }

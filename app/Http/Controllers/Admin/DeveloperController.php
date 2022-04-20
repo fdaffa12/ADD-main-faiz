@@ -86,4 +86,16 @@ class DeveloperController extends Controller
         Developer::find($developer_id)->delete();
         return redirect()->back()->with('warning', 'Developer deleted');
     }
+
+    public function draft($developer_id)
+    {
+        Developer::findOrFail($developer_id)->update(['status' => 0]);
+        return redirect()->back()->withToastWarning('Berhasil Dimasukan Ke Dalam Draft');
+    }
+
+    public function publish($developer_id)
+    {
+        Developer::findOrFail($developer_id)->update(['status' => 1]);
+        return redirect()->back()->withToastInfo('Berhasil Dipublish');
+    }
 }
