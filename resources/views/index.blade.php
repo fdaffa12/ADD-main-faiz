@@ -46,7 +46,7 @@
     <div class="navbar navbar-expand-xl navbar-dark bg-primary-800   navbar-component rounded mb-0">
         <div class="navbar-brand wmin-0 mr-5">
             <a href="{{'home'}}" class="d-inline-block">
-                <img src="{{ asset('assets/images/logo_text.png') }}" alt="">
+                <img src="{{$setting->image}}" alt="" style="height: 1.625rem;">
             </a>
         </div>
 

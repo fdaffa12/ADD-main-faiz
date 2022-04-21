@@ -26,6 +26,16 @@
     <script src="{{ asset('assets/js/app.js') }}"></script>
     <!-- /theme JS files -->
 
+    <style>
+    .hero {
+        max-inline-size: 100%;
+        block-size: auto;
+        aspect-ratio: 2/1;
+        object-fit: cover;
+        object-position: top center;
+    }
+    </style>
+
 </head>
 
 <body>
@@ -35,8 +45,8 @@
         <div class="d-flex flex-1 pl-3">
             <div class="navbar-brand wmin-0 mr-1">
                 <a href="index.html" class="d-inline-block">
-                    <img src="assets/images/logo_text.png" class="d-none d-sm-block d-sm-none" alt="">
-                    <img src="assets/images/logo_text.png" class="d-sm-none" alt="">
+                    <img src="{{$setting->image}}" class="d-none d-sm-block d-sm-none" alt="" style="height: 1.625rem;">
+                    <img src="{{$setting->image}}" class="d-sm-none" alt="" style="height: 1.625rem;">
                 </a>
             </div>
         </div>
@@ -135,7 +145,7 @@
                         <div class="col-lg-4">
                             <div class="card">
                                 <a href="{{url('dashboard-dev/item/'.$dt->id)}}">
-                                    <img class="card-img-top img-fluid" src="{{asset($dt->gambar)}}" alt=""></a>
+                                    <img class="hero" src="{{asset($dt->gambar)}}" alt=""></a>
 
                                 <div class="card-body">
                                     <h5 class="card-title">{{$dt->nama_dev}}</h5>

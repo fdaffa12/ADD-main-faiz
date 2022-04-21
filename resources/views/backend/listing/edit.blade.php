@@ -69,6 +69,8 @@
                             <option value="Ruko" {{($list->unit === 'Ruko') ? 'Selected' : ''}}>Ruko</option>
                             <option value="Kaveling" {{($list->unit === 'Kaveling') ? 'Selected' : ''}}>Kaveling
                             </option>
+                            <option value="Lain-lain" {{($list->unit === 'Lain-lain') ? 'Selected' : ''}}>Lain-lain
+                            </option>
                         </select>
                         @error('unit')
                         <strong class="text-danger">{{$message}}</strong>

@@ -17,7 +17,8 @@ class DashboardController extends Controller
 
     public function __construct()
     {
-        $developer = Developer::orderBy('created_at', 'desc')->where('status', '1')->paginate(7);
+        $developer = Developer::orderBy('created_at', 'desc')->where('status', '1')->paginate(4);
+        $secondary = Category::orderBy('created_at', 'desc')->where('status', '1')->paginate(4);
         $setting = Setting::first();
         if ($setting) {
             $setting->social = explode(',', $setting->social);
@@ -29,7 +30,7 @@ class DashboardController extends Controller
         } else {
             $icons = [];
         }
-        view()->share(['setting' => $setting, 'icons' => $icons, 'developer' => $developer]);
+        view()->share(['setting' => $setting, 'icons' => $icons, 'developer' => $developer, 'secondary' => $secondary]);
     }
 
     public function index()

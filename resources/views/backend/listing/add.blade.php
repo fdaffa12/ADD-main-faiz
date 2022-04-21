@@ -67,6 +67,7 @@
                             <option value="Rumah" selected>Rumah</option>
                             <option value="Ruko">Ruko</option>
                             <option value="Kaveling">Kaveling</option>
+                            <option value="Lain-lain">Lain-lain</option>
                         </select>
                         @error('unit')
                         <strong class="text-danger">{{$message}}</strong>

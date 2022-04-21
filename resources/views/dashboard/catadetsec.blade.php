@@ -54,7 +54,7 @@
                     <h6 class="font-weight-semibold"><i class="icon-office"></i> Fasilitas :
                         {{$data->fasilitas}}
                     </h6>
-                    <a href="https://wa.me/+6282214549435" class="btn btn-success"><i class="fa fa-whatsapp"></i>
+                    <a href="https://wa.me/628111160311" class="btn btn-success"><i class="fa fa-whatsapp"></i>
                         Contact Us
                     </a>
                     <h5 class="font-weight-semibold">Deskripsi Rumah :

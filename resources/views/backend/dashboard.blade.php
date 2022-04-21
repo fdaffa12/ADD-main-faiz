@@ -34,22 +34,24 @@
 
 <body>
 
-    <!-- Main navbar -->
-    <div class="navbar navbar-expand-xl navbar-light navbar-static px-0">
-        <div class="d-flex flex-1 pl-3">
-            <div class="navbar-brand wmin-0 mr-1">
-                <a href="index.html" class="d-inline-block">
-                    <img src="{{asset('assets/images/logo_text.png')}}" class="d-none d-sm-block d-sm-none" alt="">
-                    <img src="{{asset('assets/images/logo_text.png')}}" class="d-sm-none" alt="">
-                </a>
-            </div>
-            <ul class="navbar-nav navbar-nav-underline flex-row">
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="{{url('admin/home')}}">
+            <img src="{{asset('assets/images/log.png')}}" class="d-none d-sm-block d-sm-none" alt=""
+                style="height: 2.125rem;">
+            <img src="{{asset('assets/images/log.png')}}" class="d-sm-none" alt="" style="height: 2.125rem;">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="nav navbar-nav mr-auto">
                 @if (Auth::user()->is_admin == 1)
-                <li class="nav-item nav-item-dropdown-xl dropdown dropdown-user h-100">
-                    <a href="#"
-                        class="navbar-nav-link navbar-nav-link-toggler d-flex align-items-center h-100 dropdown-toggle"
-                        data-toggle="dropdown">
-                        <span class="d-none d-xl-block">Developer</span>
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Developer
                     </a>
 
                     <div class="dropdown-menu dropdown-menu-right">
@@ -59,11 +61,10 @@
                             Developer</a>
                     </div>
                 </li>
-                <li class="nav-item nav-item-dropdown-xl dropdown dropdown-user h-100">
-                    <a href="#"
-                        class="navbar-nav-link navbar-nav-link-toggler d-flex align-items-center h-100 dropdown-toggle"
-                        data-toggle="dropdown">
-                        <span class="d-none d-xl-block">Sec Developer</span>
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Sec Developer
                     </a>
 
                     <div class="dropdown-menu dropdown-menu-right">
@@ -72,11 +73,10 @@
                             Secondary Developer</a>
                     </div>
                 </li>
-                <li class="nav-item nav-item-dropdown-xl dropdown dropdown-user h-100">
-                    <a href="#"
-                        class="navbar-nav-link navbar-nav-link-toggler d-flex align-items-center h-100 dropdown-toggle"
-                        data-toggle="dropdown">
-                        <span class="d-none d-xl-block">Primary Developer</span>
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Primary Developer
                     </a>
 
                     <div class="dropdown-menu dropdown-menu-right">
@@ -85,11 +85,10 @@
                             Primary Developer</a>
                     </div>
                 </li>
-                <li class="nav-item nav-item-dropdown-xl dropdown dropdown-user h-100">
-                    <a href="#"
-                        class="navbar-nav-link navbar-nav-link-toggler d-flex align-items-center h-100 dropdown-toggle"
-                        data-toggle="dropdown">
-                        <span class="d-none d-xl-block">Listing</span>
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Listing
                     </a>
 
                     <div class="dropdown-menu dropdown-menu-right">
@@ -98,29 +97,26 @@
                             Listing</a>
                     </div>
                 </li>
-                <li class="nav-item nav-item-dropdown-xl dropdown dropdown-user h-100">
-                    <a href="{{url('admin/setting')}}"
-                        class="navbar-nav-link navbar-nav-link-toggler d-flex align-items-center h-100">
-                        <span class="d-none d-xl-block">Setting</span>
+                <li class="nav-item">
+                    <a href="{{url('admin/setting')}}" class="nav-link">
+                        Setting
                     </a>
                 </li>
-                <li class="nav-item nav-item-dropdown-xl dropdown dropdown-user h-100">
-                    <a href="{{url('admin/publikasi')}}"
-                        class="navbar-nav-link navbar-nav-link-toggler d-flex align-items-center h-100">
-                        <span class="d-none d-xl-block">Publikasi</span>
+                <li class="nav-item">
+                    <a href="{{url('admin/publikasi')}}" class="nav-link">
+                        Publikasi
                     </a>
                 </li>
-                <!-- <li class="nav-item nav-item-dropdown-xl dropdown dropdown-user h-100">
+                <!-- <li class="nav-item">
                     <a href="{{url('admin/index-pages')}}"
                         class="navbar-nav-link navbar-nav-link-toggler d-flex align-items-center h-100">
-                        <span class="d-none d-xl-block">Pages</span>
+                        Pages
                     </a>
                 </li> -->
-                <li class="nav-item nav-item-dropdown-xl dropdown dropdown-user h-100">
-                    <a href="#"
-                        class="navbar-nav-link navbar-nav-link-toggler d-flex align-items-center h-100 dropdown-toggle"
-                        data-toggle="dropdown">
-                        <span class="d-none d-xl-block">Struktur</span>
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Struktur
                     </a>
 
                     <div class="dropdown-menu dropdown-menu-right">
@@ -130,11 +126,10 @@
                     </div>
                 </li>
                 @else
-                <li class="nav-item nav-item-dropdown-xl dropdown dropdown-user h-100">
-                    <a href="#"
-                        class="navbar-nav-link navbar-nav-link-toggler d-flex align-items-center h-100 dropdown-toggle"
-                        data-toggle="dropdown">
-                        <span class="d-none d-xl-block">Sec Developer</span>
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Sec Developer
                     </a>
 
                     <div class="dropdown-menu dropdown-menu-right">
@@ -143,11 +138,10 @@
                             Secondary Developer</a>
                     </div>
                 </li>
-                <li class="nav-item nav-item-dropdown-xl dropdown dropdown-user h-100">
-                    <a href="#"
-                        class="navbar-nav-link navbar-nav-link-toggler d-flex align-items-center h-100 dropdown-toggle"
-                        data-toggle="dropdown">
-                        <span class="d-none d-xl-block">Listing</span>
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Listing
                     </a>
 
                     <div class="dropdown-menu dropdown-menu-right">
@@ -158,19 +152,11 @@
                 </li>
                 @endif
             </ul>
-
-        </div>
-
-        <div class="d-flex flex-xl-1 justify-content-xl-end order-0 order-xl-1 pr-3">
-            <ul class="navbar-nav navbar-nav-underline flex-row">
-
-                <li class="nav-item nav-item-dropdown-xl dropdown dropdown-user h-100">
-                    <a href="#"
-                        class="navbar-nav-link navbar-nav-link-toggler d-flex align-items-center h-100 dropdown-toggle"
-                        data-toggle="dropdown">
-                        <img src="{{asset('assets/images/placeholders/placeholder.jpg')}}"
-                            class="rounded-circle mr-xl-2" height="38" alt="">
-                        <span class="d-none d-xl-block">Fadlil Muhammad</span>
+            <ul class="nav navbar-nav ml-auto">
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        {{Auth::user()->name}}
                     </a>
 
                     <div class="dropdown-menu dropdown-menu-right">
@@ -180,8 +166,9 @@
                 </li>
             </ul>
         </div>
-    </div>
-    <!-- /main navbar -->
+    </nav>
+
+
 
 
     <!-- Page content -->

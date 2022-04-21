@@ -92,12 +92,21 @@
 
                     <!-- Layout -->
                     <li class="nav-item-header">
-                        <div class="text-uppercase font-size-xs line-height-xs">Perumahan</div> <i class="icon-menu"
-                            title="Layout options"></i>
+                        <div class="text-uppercase font-size-xs line-height-xs">Developer Primary</div> <i
+                            class="icon-menu" title="Layout options"></i>
                     </li>
                     @foreach($developer as $dev)
                     <li class="nav-item"><a href="{{url('dashboard-dev/item/'.$dev->id)}}" class="nav-link"><i
                                 class="icon-radio-unchecked"></i> <span>{{$dev->nama_dev}}</span></a></li>
+                    @endforeach
+
+                    <li class="nav-item-header">
+                        <div class="text-uppercase font-size-xs line-height-xs">Developer Secondary</div> <i
+                            class="icon-menu" title="Layout options"></i>
+                    </li>
+                    @foreach($secondary as $dev)
+                    <li class="nav-item"><a href="{{url('dashboard-sec/detail/'.$dev->id)}}" class="nav-link"><i
+                                class="icon-radio-unchecked"></i> <span>{{$dev->title}}</span></a></li>
                     @endforeach
                     <!-- <li class="nav-item nav-item-submenu">
                         <a href="#" class="nav-link"><i class="icon-radio-unchecked"></i> <span>Rolling Hills</span></a>
