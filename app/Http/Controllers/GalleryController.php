@@ -153,13 +153,11 @@ class GalleryController extends Controller
     public function delete($id)
     {
 
-        try {
-            Category::where('id', $id)->delete();
+        $image = Category::findOrFail($id);
+        $img_one = $image->image;
+        unlink($img_one);
 
-            \Session::flash('sukses', 'Data berhasil dihapus');
-        } catch (\Exception $e) {
-            \Session::flash('gagal', $e->getMessage());
-        }
+        Category::findOrFail($id)->delete();
         return redirect()->back()->with('success', 'Sukses Menghapus');
     }
 

@@ -119,6 +119,7 @@
                             <div class="card">
                                 <div class="embed-responsive embed-responsive-4by3">
                                     <iframe class="embed-responsive-item" src="{{asset($banner->image)}}"></iframe>
+                                    <!-- <img src="{{asset($banner->image)}}" class="hero" alt=""> -->
                                 </div>
                             </div>
                         </div>

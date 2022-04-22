@@ -94,13 +94,11 @@ class PrimaryItemController extends Controller
     //delete category item images
     public function delete($id)
     {
-        try {
-            PrimaryItem::where('id', $id)->delete();
+        $image = PrimaryItem::findOrFail($id);
+        $img_one = $image->cover_image;
+        unlink("uploads/gallery/" . $img_one);
 
-            \Session::flash('sukses', 'Data berhasil dihapus');
-        } catch (\Exception $e) {
-            \Session::flash('gagal', $e->getMessage());
-        }
+        PrimaryItem::findOrFail($id)->delete();
         return redirect()->back()->with('success', 'Sukses Menghapus');
     }
 }

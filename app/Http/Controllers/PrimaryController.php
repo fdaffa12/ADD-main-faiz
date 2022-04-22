@@ -150,13 +150,11 @@ class PrimaryController extends Controller
     public function delete($id)
     {
 
-        try {
-            Primary::where('id', $id)->delete();
+        $image = Primary::findOrFail($id);
+        $img_one = $image->image;
+        unlink($img_one);
 
-            \Session::flash('sukses', 'Data berhasil dihapus');
-        } catch (\Exception $e) {
-            \Session::flash('gagal', $e->getMessage());
-        }
+        Primary::findOrFail($id)->delete();
         return redirect()->back()->with('success', 'Sukses Menghapus');
     }
 
