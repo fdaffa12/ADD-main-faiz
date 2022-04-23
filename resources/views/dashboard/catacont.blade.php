@@ -32,6 +32,7 @@
                 <!-- <p>{!! substr($category->desc,0,600) !!}</p> -->
             </div>
         </div>
+        <!-- <a href="">View All Primary Develper</a> -->
     </div>
     @endforeach
 </div>
@@ -42,8 +43,8 @@
         <div class="header-elements">
         </div>
     </div>
-    @foreach($secondary as $category)
     <div class="card-body">
+        @foreach($secondary as $category)
         <div class="media align-items-center align-items-lg-start text-center text-lg-left flex-column flex-lg-row">
             <div class="mr-lg-3 mb-3 mb-lg-0">
                 <a href="{{url('dashboard-sec/detail/'.$category->id)}}" data-popup="lightbox">
@@ -63,7 +64,8 @@
                 <!-- <p>{!! substr($category->desc,0,600) !!}</p> -->
             </div>
         </div>
+        @endforeach
+        {{ $secondary->links() }}
     </div>
-    @endforeach
 </div>
 @endsection

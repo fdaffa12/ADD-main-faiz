@@ -71,6 +71,16 @@ Route::group(['middleware' => 'is_admin'], function () {
     Route::get('admin/draft-potensi/{potensi_id}', 'Admin\PotensiController@draftPotensi');
     Route::get('admin/publish-potensi/{potensi_id}', 'Admin\PotensiController@publishPotensi');
 
+    //prospek
+    Route::get('admin/prospek', 'Admin\ProspekController@index')->name('prospek');
+    Route::get('admin/add-prospek', 'Admin\ProspekController@addProspek')->name('add.prospek');
+    Route::post('admin/prospek-store', 'Admin\ProspekController@storeProspek')->name('store.prospek');
+    Route::get('admin/edit-prospek/{prospek_id}', 'Admin\ProspekController@editProspek');
+    Route::post('admin/update-prospek', 'Admin\ProspekController@updateprospek')->name('update.prospek');
+    Route::get('admin/delete-prospek/{prospek_id}', 'Admin\ProspekController@destroy');
+    Route::get('admin/draft-prospek/{prospek_id}', 'Admin\ProspekController@draft');
+    Route::get('admin/publish-prospek/{prospek_id}', 'Admin\ProspekController@publish');
+
 
     //struktur
     Route::get('admin/struktur', 'Admin\StrukturController@index')->name('struktur');

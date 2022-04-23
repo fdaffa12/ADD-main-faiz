@@ -100,14 +100,15 @@
                                 class="icon-radio-unchecked"></i> <span>{{$dev->nama_dev}}</span></a></li>
                     @endforeach
 
-                    <li class="nav-item-header">
+                    <!-- <li class="nav-item-header">
                         <div class="text-uppercase font-size-xs line-height-xs">Developer Secondary</div> <i
                             class="icon-menu" title="Layout options"></i>
                     </li>
                     @foreach($secondary as $dev)
                     <li class="nav-item"><a href="{{url('dashboard-sec/detail/'.$dev->id)}}" class="nav-link"><i
                                 class="icon-radio-unchecked"></i> <span>{{$dev->title}}</span></a></li>
-                    @endforeach
+                    @endforeach -->
+
                     <!-- <li class="nav-item nav-item-submenu">
                         <a href="#" class="nav-link"><i class="icon-radio-unchecked"></i> <span>Rolling Hills</span></a>
                         <ul class="nav nav-group-sub" data-submenu-title="Navbars">

@@ -46,7 +46,7 @@ class DashboardController extends Controller
     {
         $data = Developer::orderBy('created_at', 'desc')->where('status', '1')->paginate(7);
 
-        $secondary = Category::orderBy('created_at', 'desc')->where('status', '1')->paginate(7);
+        $secondary = Category::orderBy('created_at', 'desc')->where('status', '1')->paginate(3);
 
         return view('dashboard.catacont', compact('data', 'secondary'));
     }
