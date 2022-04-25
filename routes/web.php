@@ -71,16 +71,6 @@ Route::group(['middleware' => 'is_admin'], function () {
     Route::get('admin/draft-potensi/{potensi_id}', 'Admin\PotensiController@draftPotensi');
     Route::get('admin/publish-potensi/{potensi_id}', 'Admin\PotensiController@publishPotensi');
 
-    //prospek
-    Route::get('admin/prospek', 'Admin\ProspekController@index')->name('prospek');
-    Route::get('admin/add-prospek', 'Admin\ProspekController@addProspek')->name('add.prospek');
-    Route::post('admin/prospek-store', 'Admin\ProspekController@storeProspek')->name('store.prospek');
-    Route::get('admin/edit-prospek/{prospek_id}', 'Admin\ProspekController@editProspek');
-    Route::post('admin/update-prospek', 'Admin\ProspekController@updateprospek')->name('update.prospek');
-    Route::get('admin/delete-prospek/{prospek_id}', 'Admin\ProspekController@destroy');
-    Route::get('admin/draft-prospek/{prospek_id}', 'Admin\ProspekController@draft');
-    Route::get('admin/publish-prospek/{prospek_id}', 'Admin\ProspekController@publish');
-
 
     //struktur
     Route::get('admin/struktur', 'Admin\StrukturController@index')->name('struktur');
@@ -172,6 +162,16 @@ Route::post('admin/gallery/image/update', 'GalleryItemController@update')->name(
 Route::get('admin/gallery/image/delete/{id}', 'GalleryItemController@delete')->name('gallery.image.delete');
 Route::get('admin/draft-gallery/{gallery_id}', 'GalleryController@draft');
 Route::get('admin/publish-gallery/{gallery_id}', 'GalleryController@publish');
+
+//prospek
+Route::get('admin/prospek', 'Admin\ProspekController@index')->name('prospek');
+Route::get('admin/add-prospek', 'Admin\ProspekController@addProspek')->name('add.prospek');
+Route::post('admin/prospek-store', 'Admin\ProspekController@storeProspek')->name('store.prospek');
+Route::get('admin/edit-prospek/{prospek_id}', 'Admin\ProspekController@editProspek');
+Route::post('admin/update-prospek', 'Admin\ProspekController@updateprospek')->name('update.prospek');
+Route::get('admin/delete-prospek/{prospek_id}', 'Admin\ProspekController@destroy');
+Route::get('admin/draft-prospek/{prospek_id}', 'Admin\ProspekController@draft');
+Route::get('admin/publish-prospek/{prospek_id}', 'Admin\ProspekController@publish');
 //
 // Route::view('/primary', 'dashboard/primary');
 // Route::view('/secondary', 'dashboard/secondary');

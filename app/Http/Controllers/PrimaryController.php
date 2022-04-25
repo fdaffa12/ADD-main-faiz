@@ -38,11 +38,11 @@ class PrimaryController extends Controller
 
         $this->validate($request, [
             'title' => 'required',
-            'body' => 'required',
+            'body',
             'fasilitas' => 'required',
             'lb' => 'required',
             'lt' => 'required',
-            'type' => 'required',
+            'type',
             'lokasi' => 'required',
             'harga' => 'required',
             'image' => 'required',
@@ -113,11 +113,11 @@ class PrimaryController extends Controller
     {
         $request->validate([
             'title' => 'required|max:255',
-            'description' => 'required',
+            'description',
             'fasilitas' => 'required',
             'lt' => 'required',
             'lb' => 'required',
-            'type' => 'required',
+            'type',
             'lokasi' => 'required',
             'harga' => 'required',
         ], [

@@ -31,10 +31,8 @@
                 <div class="row">
                     @foreach($categoryitems as $category)
                     <div class="mr-lg-3 mb-3 mb-lg-0">
-                        <a href="assets/images/placeholders/cover.jpg" data-popup="lightbox">
-                            <img class="img-responsive img-thumbnail ratio-4-3"
-                                src="{{asset('uploads/gallery/'.$category->cover_image)}}" alt="">
-                        </a>
+                        <img class="img-responsive img-thumbnail ratio-4-3"
+                            src="{{asset('uploads/gallery/'.$category->cover_image)}}" alt="">
                     </div>
                     @endforeach
                 </div>

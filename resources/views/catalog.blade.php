@@ -7,28 +7,28 @@
 <div class="navbar-collapse collapse" id="navbar-id">
     <ul class="navbar-nav ml-xl-auto">
         <li class="nav-item">
-            <a href="{{'/'}}" class="navbar-nav-link">
+            <a href="{{url('/')}}" class="navbar-nav-link">
                 <i class="icon-home2 mr-2"></i>
                 Beranda
             </a>
         </li>
 
         <li class="nav-item">
-            <a href="{{'dashboard-dev'}}" class="navbar-nav-link active">
+            <a href="{{url('dashboard-dev')}}" class="navbar-nav-link active">
                 <i class="icon-city mr-2"></i>
                 Katalog Produk
             </a>
         </li>
 
         <li class="nav-item">
-            <a href="{{'/'}}" class="navbar-nav-link">
+            <a href="{{url('/')}}" class="navbar-nav-link">
                 <i class="icon-cube3 mr-2"></i>
                 Profil
             </a>
         </li>
 
         <li class="nav-item">
-            <a href="{{'/'}}" class="navbar-nav-link">
+            <a href="{{url('/')}}" class="navbar-nav-link">
                 <i class="icon-notebook mr-2"></i>
                 Kontak
             </a>

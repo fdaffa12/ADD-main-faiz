@@ -12,6 +12,7 @@
         type="text/css">
     <link href="{{ asset('assets/css/icons/icomoon/styles.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('assets/css/darkview/all.min.css') }}" rel="stylesheet" type="text/css">
+    <link rel="shortcut icon" href="{{asset('assets/images/logobaru.png')}}" type="image/x-icon" />
 
     <!-- /global stylesheets -->
 
@@ -36,9 +37,9 @@
 
     <nav class="navbar navbar-expand-lg navbar-light">
         <a class="navbar-brand" href="{{url('admin/home')}}">
-            <img src="{{asset('assets/images/log.png')}}" class="d-none d-sm-block d-sm-none" alt=""
+            <img src="{{asset('assets/images/logobaru.png')}}" class="d-none d-sm-block d-sm-none" alt=""
                 style="height: 2.125rem;">
-            <img src="{{asset('assets/images/log.png')}}" class="d-sm-none" alt="" style="height: 2.125rem;">
+            <img src="{{asset('assets/images/logobaru.png')}}" class="d-sm-none" alt="" style="height: 2.125rem;">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

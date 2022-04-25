@@ -37,8 +37,9 @@ class DashboardController extends Controller
     {
         $banners = Post::where('postcat_id', 'LIKE', '%3%')->orderby('id', 'DESC')->paginate(1);
         $data = Developer::orderBy('created_at', 'desc')->where('status', '1')->paginate(3);
+        $secondary = Category::orderBy('created_at', 'desc')->where('status', '1')->paginate(3);
 
-        return view('dashboard.home', compact('banners', 'data'));
+        return view('dashboard.home', compact('banners', 'data', 'secondary'));
     }
 
 

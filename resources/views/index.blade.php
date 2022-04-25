@@ -45,8 +45,9 @@
     <!-- Main navbar -->
     <div class="navbar navbar-expand-xl navbar-dark bg-primary-800   navbar-component rounded mb-0">
         <div class="navbar-brand wmin-0 mr-5">
-            <a href="{{'home'}}" class="d-inline-block">
-                <img src="{{$setting->image}}" alt="" style="height: 1.625rem;">
+            <a href="{{url('/')}}" class="d-inline-block">
+                <img src="{{$setting->image}}" class="d-none d-sm-block d-sm-none" alt="" style="height: 2.025rem;">
+                <img src="{{$setting->image}}" class="d-sm-none" alt="" style="height: 2.025rem;">
             </a>
         </div>
 
@@ -80,7 +81,7 @@
         <div class="breadcrumb-line breadcrumb-line-light header-elements-md-inline">
             <div class="d-flex">
                 <div class="breadcrumb">
-                    <a href="{{('/')}}" class="breadcrumb-item"><i class="icon-home2 mr-2"></i> Beranda</a>
+                    <a href="{{url('/')}}" class="breadcrumb-item"><i class="icon-home2 mr-2"></i> Beranda</a>
                     @yield('navigation')
                 </div>
 
