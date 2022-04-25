@@ -77,13 +77,18 @@
 
             <div class="card-footer d-flex justify-content-start">
                 <div>
-                    <i class="icon-location3 mr-2"></i>
-                    Lokasi
+                    <a href="{{$category->link_lokasi}}"><i class="icon-location3 mr-2"></i>
+                        {{$category->lokasi}}</a>
                 </div>
             </div>
         </div>
     </div>
     @endforeach
+</div>
+<div class="d-flex">
+    <div class="mx-auto">
+        {{ $subdata->links() }}
+    </div>
 </div>
 <!-- /content cards -->
 @endsection
