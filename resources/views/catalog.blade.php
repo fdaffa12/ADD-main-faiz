@@ -1,8 +1,8 @@
 @extends('index')
 @section('')
 @endsection
-@section('pgtitle','Katalog Developer')
-@section('title','Katalog Developer')
+@section('pgtitle','Katalog Produk')
+@section('title','Katalog Produk')
 @section('navbar')
 <div class="navbar-collapse collapse" id="navbar-id">
     <ul class="navbar-nav ml-xl-auto">
@@ -35,102 +35,133 @@
         </li>
     </ul>
 </div>
+
 @endsection
 @section('search')
-<div class="header-elements d-none bg-transparent py-0 border-0 mb-3 mb-md-0">
+<div class="header-elements d-none py-0 mb-3 mb-lg-0">
     <form action="{{url('search-catalog')}}" method="get">
         <div class="form-group form-group-feedback form-group-feedback-right">
             <input type="text" id="query" name="query" value="{{ request()->input('query') }}"
-                class="form-control wmin-md-250" placeholder="Search">
-            <div class="form-control-feedback">
+                class="form-control bg-light-100 text-white placeholder-light border-transparent rounded-pill shadow-none wmin-lg-300"
+                placeholder="Search">
+            <div class="form-control-feedback text-white">
                 <i class="icon-search4 font-size-sm opacity-50"></i>
             </div>
         </div>
     </form>
 </div>
 @endsection
-@section('content')
-<div class="sidebar sidebar-light sidebar-main sidebar-expand-md align-self-start">
-    <!-- Sidebar mobile toggler -->
-    <div class="sidebar-mobile-toggler text-center">
-        <a href="#" class="sidebar-mobile-main-toggle">
-            <i class="icon-arrow-left8"></i>
-        </a>
-        <span class="font-weight-semibold">Main sidebar</span>
-        <a href="#" class="sidebar-mobile-expand">
-            <i class="icon-screen-full"></i>
-            <i class="icon-screen-normal"></i>
-        </a>
+@section('breadcrumb')
+<div class="breadcrumb-line breadcrumb-line-light container-boxed">
+    <div class="d-flex ">
+        <div class="breadcrumb">
+            <a href="#" class="breadcrumb-item"><i class="icon-home2 mr-2"></i> Beranda</a>
+            @yield('navigation')
+        </div>
     </div>
-    <!-- /sidebar mobile toggler -->
-
+</div>
+@endsection
+@section('content')
+<div class="sidebar sidebar-light sidebar-main sidebar-expand-lg align-self-start">
 
     <!-- Sidebar content -->
     <div class="sidebar-content">
-        <div class="card card-sidebar-mobile">
 
-            <!-- Header -->
-            <div class="card-header header-elements-inline">
-                <h6 class="card-title">Navigation</h6>
+        <!-- Header -->
+        <div class="sidebar-section sidebar-header">
+            <div class="sidebar-section-body d-flex align-items-center justify-content-center pb-0">
+                <h6 class="sidebar-resize-hide flex-1 mb-0">Navigation</h6>
+                <div>
+                    <button type="button"
+                        class="btn btn-outline-light text-body border-transparent btn-icon rounded-pill btn-sm sidebar-control sidebar-main-resize d-none d-lg-inline-flex">
+                        <i class="icon-transmission"></i>
+                    </button>
+
+                    <button type="button"
+                        class="btn btn-outline-light text-body border-transparent btn-icon rounded-pill btn-sm sidebar-mobile-main-toggle d-lg-none">
+                        <i class="icon-cross2"></i>
+                    </button>
+                </div>
             </div>
-
-            <!-- Main navigation -->
-            <div class="card-body p-0">
-                <ul class="nav nav-sidebar" data-nav-type="accordion">
-
-                    <!-- Main -->
-                    <li class="nav-item">
-                        <a href="{{'/'}}" class="nav-link">
-                            <i class="icon-home4"></i>
-                            <span>
-                                Dashboard
-                                <!-- <span class="d-block font-weight-normal opacity-50">No active orders</span> -->
-                            </span>
-                        </a>
-                    </li>
-                    <!-- /main -->
-
-                    <!-- Layout -->
-                    <li class="nav-item-header">
-                        <div class="text-uppercase font-size-xs line-height-xs">Developer Primary</div> <i
-                            class="icon-menu" title="Layout options"></i>
-                    </li>
-                    @foreach($developer as $dev)
-                    <li class="nav-item"><a href="{{url('dashboard-dev/item/'.$dev->id)}}" class="nav-link"><i
-                                class="icon-radio-unchecked"></i> <span>{{$dev->nama_dev}}</span></a></li>
-                    @endforeach
-
-                    <!-- <li class="nav-item-header">
-                        <div class="text-uppercase font-size-xs line-height-xs">Developer Secondary</div> <i
-                            class="icon-menu" title="Layout options"></i>
-                    </li>
-                    @foreach($secondary as $dev)
-                    <li class="nav-item"><a href="{{url('dashboard-sec/detail/'.$dev->id)}}" class="nav-link"><i
-                                class="icon-radio-unchecked"></i> <span>{{$dev->title}}</span></a></li>
-                    @endforeach -->
-
-                    <!-- <li class="nav-item nav-item-submenu">
-                        <a href="#" class="nav-link"><i class="icon-radio-unchecked"></i> <span>Rolling Hills</span></a>
-                        <ul class="nav nav-group-sub" data-submenu-title="Navbars">
-                            <li class="nav-item nav-item-submenu">
-                                <a href="#" class="nav-link">Tipe 1</a>
-                                <ul class="nav nav-group-sub">
-                                    <li class="nav-item"><a href="#" class="nav-link">Tipe 1a</a></li>
-                                    <li class="nav-item"><a href="#" class="nav-link">Tipe 1b</a></li>
-                                </ul>
-                            </li>
-                            <li class="nav-item-divider"></li>
-                            <li class="nav-item"><a href="#" class="nav-link">Tipe 2</a></li>
-                            <li class="nav-item"><a href="#" class="nav-link">Tipe 3</a></li>
-                        </ul>
-                    </li> -->
-                    <!-- /layout -->
-
-                </ul>
-            </div>
-            <!-- /main navigation -->
-
         </div>
+        <!-- /header -->
+
+
+        <!-- Main navigation -->
+        <div class="sidebar-section">
+            <ul class="nav nav-sidebar" data-nav-type="accordion">
+
+                <!-- Main -->
+                <li class="nav-item">
+                    <a href="{{url('/')}}" class="nav-link">
+                        <i class="icon-home4"></i>
+                        <span>
+                            Dashboard
+                            <!-- <span class="d-block font-weight-normal opacity-50">No active orders</span> -->
+                        </span>
+                    </a>
+                </li>
+
+                <!-- /main -->
+
+                <!-- Komersil -->
+                <li class="nav-item-header">
+                    <div class="text-uppercase font-size-xs line-height-xs">Komersil</div> <i class="icon-menu"
+                        title="Layout options"></i>
+                </li>
+                <!-- <li class="nav-item">
+                    <a href="#" class="nav-link"><i class="icon-radio-unchecked"></i>
+                        <span>Placeholder Hot</span>
+                        <span class="badge badge-danger align-self-center ml-auto">HOT</span>
+                    </a>
+                </li> -->
+                @foreach($developer as $dev)
+                <li class="nav-item nav-item">
+                    <a href="{{url('dashboard-dev/item/'.$dev->id)}}" class=" nav-link"><i
+                            class="icon-radio-unchecked"></i> <span>{{$dev->nama_dev}}</span></a>
+                </li>
+                @endforeach
+                <!-- <li class="nav-item nav-item-submenu">
+                    <a href="#" class="nav-link"><i class="icon-radio-unchecked"></i> <span>Rolling
+                            Hills</span></a>
+                    <ul class="nav nav-group-sub" data-submenu-title="Navbars">
+                        <li class="nav-item nav-item-submenu">
+                            <a href="#" class="nav-link">Tipe 1</a>
+                            <ul class="nav nav-group-sub">
+                                <li class="nav-item"><a href="#" class="nav-link">Tipe 1a</a></li>
+                                <li class="nav-item"><a href="#" class="nav-link">Tipe 1b</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item-divider"></li>
+                        <li class="nav-item"><a href="#" class="nav-link">Tipe 2</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link">Tipe 3</a></li>
+                    </ul>
+                </li> -->
+                <!-- /Komersil -->
+
+                <!-- Subsidi -->
+                <li class="nav-item-header">
+                    <div class="text-uppercase font-size-xs line-height-xs">Subsidi</div> <i class="icon-menu"
+                        title="Layout options"></i>
+                </li>
+                @foreach($subdeveloper as $dev)
+                <li class="nav-item nav-item">
+                    <a href="{{url('dashboard-dev/item/'.$dev->id)}}" class=" nav-link"><i
+                            class="icon-radio-unchecked"></i> <span>{{$dev->nama_dev}}</span></a>
+                </li>
+                @endforeach
+                <!-- <li class="nav-item"><a href="#" class="nav-link"><i class="icon-radio-unchecked"></i>
+                        <span>Kurnia Puri Harmoni</span></a></li>
+                <li class="nav-item"><a href="#" class="nav-link"><i class="icon-radio-unchecked"></i>
+                        <span>Griya Indah Cikampek</span></a></li>
+                <li class="nav-item"><a href="#" class="nav-link"><i class="icon-radio-unchecked"></i>
+                        <span>Najwa Residence</span></a></li> -->
+                <!-- /Subsidi -->
+
+            </ul>
+        </div>
+        <!-- /main navigation -->
+
     </div>
     <!-- /sidebar content -->
 
@@ -143,9 +174,10 @@
 
     <!-- Content area -->
     <div class="content">
-        <!-- Sidebars overview -->
+
+        <!-- Info alert -->
         @yield('catacont')
-        <!-- /sidebars overview -->
+        <!-- /content cards -->
 
     </div>
     <!-- /content area -->

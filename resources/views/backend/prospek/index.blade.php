@@ -30,9 +30,9 @@
                         <td>{{$dt->created_at->format('m/d/Y')}}</td>
                         <td>
                             @if( $dt->status == 0 )
-                            <label class="label label-info">Belum Lengkap</label>
+                            <label class="label label-info">Belum Cocok</label>
                             @else
-                            <label class="label label-info">Sudah Lengkap</label>
+                            <label class="label label-info">Bagus</label>
                             @endif
                         </td>
                         <td class="text-center">
@@ -45,11 +45,11 @@
                                             Media</a> -->
                                         @if( $dt->status == 0 )
                                         <a href="{{ url('admin/publish-prospek/'.$dt->id) }}" class="dropdown-item"><i
-                                                class="icon-eye"></i>Lengkap</a>
+                                                class="icon-eye"></i>Bagus</a>
                                         @else
                                         <a href="{{ url('admin/draft-prospek/'.$dt->id) }}" class="dropdown-item"><i
                                                 class="icon-eye-blocked"></i>
-                                            Belum Lengkap</a>
+                                            Belum Cocok</a>
                                         @endif
                                         <a href="{{url('admin/edit-prospek/'.$dt->id)}}" class="dropdown-item"><i
                                                 class="icon-file-text2"></i> Edit

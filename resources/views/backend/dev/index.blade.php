@@ -11,6 +11,7 @@
                     <tr>
                         <th style="width: 150px">Developer Name</th>
                         <th style="width: 300px;">Image</th>
+                        <th>Lokasi</th>
                         <th>Description</th>
                         <th>Status</th>
                         <th class="text-center" style="width: 20px;">Action</th>
@@ -22,12 +23,13 @@
                         <td><span class="text-default font-weight-semibold">{{ $dt->nama_dev }}</span></td>
                         <td><img src="{{asset($dt->gambar)}}" width="100px;" height="80px;" style="border-radius:10px;"
                                 alt=""></td>
+                        <td>{{$dt->lokasi}}</td>
                         <td>{!! substr($dt->desc,0,100) !!}</td>
                         <td>
                             @if( $dt->status == 0 )
-                            <label class="label label-info">Unpublish</label>
+                            <label class="label label-info">Subsidi</label>
                             @else
-                            <label class="label label-info">Published</label>
+                            <label class="label label-info">Komersil</label>
                             @endif
                         </td>
                         <td class="text-center">
@@ -47,11 +49,11 @@
                                             Developer</a>
                                         @if( $dt->status == 0 )
                                         <a href="{{ url('admin/publish-dev/'.$dt->id) }}" class="dropdown-item"><i
-                                                class="icon-eye"></i>Publish</a>
+                                                class="icon-eye"></i>Komersil</a>
                                         @else
                                         <a href="{{ url('admin/draft-dev/'.$dt->id) }}" class="dropdown-item"><i
                                                 class="icon-eye-blocked"></i>
-                                            Draft</a>
+                                            Subsidi</a>
                                         @endif
                                     </div>
                                 </div>

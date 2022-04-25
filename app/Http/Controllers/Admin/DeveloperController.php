@@ -29,10 +29,14 @@ class DeveloperController extends Controller
         $request->validate([
             'nama_dev' => 'required|max:255',
             'desc' => 'required',
+            'lokasi',
+            'link_lokasi',
         ]);
 
         $data['nama_dev'] = $request->nama_dev;
         $data['desc'] = $request->desc;
+        $data['lokasi'] = $request->lokasi;
+        $data['link_lokasi'] = $request->link_lokasi;
         $data['dev_slug'] = strtolower(str_replace(' ', '-', $request->nama_dev));
         $data['created_at'] = date('Y-m-d H:i:s');
         $data['updated_at'] = date('Y-m-d H:i:s');
@@ -61,10 +65,14 @@ class DeveloperController extends Controller
         $request->validate([
             'nama_dev' => 'required|max:255',
             'desc' => 'required',
+            'lokasi',
+            'link_lokasi',
         ]);
 
         $data['nama_dev'] = $request->nama_dev;
         $data['desc'] = $request->desc;
+        $data['lokasi'] = $request->lokasi;
+        $data['link_lokasi'] = $request->link_lokasi;
         $data['dev_slug'] = strtolower(str_replace(' ', '-', $request->nama_dev));
         // $data['created_at'] = date('Y-m-d H:i:s');
         $data['updated_at'] = date('Y-m-d H:i:s');

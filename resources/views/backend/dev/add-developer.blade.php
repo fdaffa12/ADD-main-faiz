@@ -9,13 +9,33 @@
 <div class="card">
     <form action="{{route('store.dev')}}" method="POST" enctype="multipart/form-data">
         @csrf
-        <div class="box-body">
+        <div class="row">
             <div class="col-lg-4">
                 <div class="form-group">
                     <label class="form-control-label">Nama Developer: <span class="tx-danger">*</span></label>
                     <input class="form-control" type="text" name="nama_dev" value="{{old('nama_dev')}}"
                         placeholder="Enter Nama Developer">
                     @error('nama_dev')
+                    <strong class="text-danger">{{$message}}</strong>
+                    @enderror
+                </div>
+            </div><!-- col-4 -->
+            <div class="col-lg-4">
+                <div class="form-group">
+                    <label class="form-control-label">Lokasi: <span class="tx-danger">*</span></label>
+                    <input class="form-control" type="text" name="lokasi" value="{{old('lokasi')}}"
+                        placeholder="Enter Lokasi">
+                    @error('lokasi')
+                    <strong class="text-danger">{{$message}}</strong>
+                    @enderror
+                </div>
+            </div><!-- col-4 -->
+            <div class="col-lg-4">
+                <div class="form-group">
+                    <label class="form-control-label">Link Lokasi: <span class="tx-danger">*</span></label>
+                    <input class="form-control" type="text" name="link_lokasi" value="{{old('link_lokasi')}}"
+                        placeholder="Enter Link Lokasi">
+                    @error('link_lokasi')
                     <strong class="text-danger">{{$message}}</strong>
                     @enderror
                 </div>

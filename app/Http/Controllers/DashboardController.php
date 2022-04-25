@@ -17,7 +17,8 @@ class DashboardController extends Controller
 
     public function __construct()
     {
-        $developer = Developer::orderBy('created_at', 'desc')->where('status', '1')->paginate(4);
+        $developer = Developer::orderBy('created_at', 'desc')->where('status', '1')->get();
+        $subdeveloper = Developer::orderBy('created_at', 'desc')->where('status', '0')->get();
         $secondary = Category::orderBy('created_at', 'desc')->where('status', '1')->paginate(4);
         $setting = Setting::first();
         if ($setting) {
@@ -30,7 +31,7 @@ class DashboardController extends Controller
         } else {
             $icons = [];
         }
-        view()->share(['setting' => $setting, 'icons' => $icons, 'developer' => $developer, 'secondary' => $secondary]);
+        view()->share(['setting' => $setting, 'icons' => $icons, 'developer' => $developer, 'secondary' => $secondary, 'subdeveloper' => $subdeveloper]);
     }
 
     public function index()
@@ -45,11 +46,12 @@ class DashboardController extends Controller
 
     public function dashboardev()
     {
-        $data = Developer::orderBy('created_at', 'desc')->where('status', '1')->paginate(7);
+        $data = Developer::orderBy('created_at', 'desc')->where('status', '1')->paginate(2);
+        $subdata = Developer::orderBy('created_at', 'desc')->where('status', '0')->paginate(2);
 
-        $secondary = Category::orderBy('created_at', 'desc')->where('status', '1')->paginate(3);
+        $secondary = Category::orderBy('created_at', 'desc')->where('status', '1')->paginate(2);
 
-        return view('dashboard.catacont', compact('data', 'secondary'));
+        return view('dashboard.catadev', compact('data', 'secondary', 'subdata'));
     }
 
     public function devitem($id)

@@ -46,14 +46,15 @@
         <div class="d-flex flex-1 pl-3">
             <div class="navbar-brand wmin-0 mr-1">
                 <a href="{{url('/')}}" class="d-inline-block">
-                    <img src="{{$setting->image}}" class="d-none d-sm-block d-sm-none" alt="" style="height: 2.025rem;">
-                    <img src="{{$setting->image}}" class="d-sm-none" alt="" style="height: 2.025rem;">
+                    <img src="{{asset($setting->image)}}" class="d-none d-sm-block d-sm-none" alt=""
+                        style="height: 2.825rem;">
+                    <img src="{{asset($setting->image)}}" class="d-sm-none" alt="" style="height: 2.825rem;">
                 </a>
             </div>
         </div>
 
         <div
-            class="d-flex w-100 w-xl-auto overflow-auto overflow-xl-visible scrollbar-hidden border-top border-top-xl-0 order-1 order-xl-0">
+            class="d-flex w-100 w-xl-auto p-2 overflow-auto overflow-xl-visible scrollbar-hidden border-top border-top-xl-0 order-1 order-xl-0">
             <ul class="navbar-nav navbar-nav-underline flex-row text-nowrap mx-auto">
                 <li class="nav-item">
                     <a href="{{url('/')}}" class="navbar-nav-link active">
