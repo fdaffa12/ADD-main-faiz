@@ -10,10 +10,12 @@
     <!-- Global stylesheets -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet"
         type="text/css">
-    <link href="assets/css/icons/icomoon/styles.min.css" rel="stylesheet" type="text/css">
-    <link href="{{ asset('assets/css/lightview/all.min.css') }}" rel="stylesheet" type="text/css">
-    <link rel="shortcut icon" href="{{$setting->image}}" type="image/x-icon" />
+    <link href="{{ asset('assets/css/icons/icomoon/styles.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('assets/css/all.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('assets/css/colors.min.css') }}" rel="stylesheet" type="text/css">
 
+
+    <link rel="shortcut icon" href="{{$setting->image}}" type="image/x-icon" />
     <!-- /global stylesheets -->
 
     <!-- Core JS files -->
@@ -262,11 +264,13 @@
 
 
                 <!-- Footer -->
-                <div class="navbar navbar-expand-lg navbar-light border-bottom-0 border-top">
-                    <div class="navbar-collapse collapse" id="navbar-footer">
-                        <span class="navbar-text">
-                            &copy; 2020 - 2021. <a href="#">Rudi Prima Persada</a>
-                        </span>
+                <div class="content container pt-0">
+                    <div class="navbar navbar-expand-lg navbar-light border-bottom-0 border-top">
+                        <div class="navbar-collapse collapse" id="navbar-footer">
+                            <span class="navbar-text">
+                                &copy; 2020 - 2021. <a href="#">Rudi Prima Persada</a>
+                            </span>
+                        </div>
                     </div>
                 </div>
                 <!-- /footer -->

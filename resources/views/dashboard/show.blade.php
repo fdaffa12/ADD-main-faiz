@@ -29,7 +29,10 @@
                     <a href="#">{{$cat->title}}</a>
                 </h6>
 
-                <p>{{$cat->description}}</p>
+                <h4 style="color:orange;">Harga Rp. {{$cat->harga}}</h4>
+                <p>Luas Bangunan : {{ $cat->lb }}</p>
+                <p>Luas Tanah : {{ $cat->lt }}</p>
+                <p>Fasilitas : {{ $cat->fasilitas }}</p>
             </div>
         </div>
     </div>
@@ -49,7 +52,10 @@
                     <a href="#">{{$cat->title}}</a>
                 </h6>
 
-                <p>{{$cat->description}}</p>
+                <h4 style="color:orange;">Harga Rp. {{$cat->harga}}</h4>
+                <p>Luas Bangunan : {{ $cat->lb }}</p>
+                <p>Luas Tanah : {{ $cat->lt }}</p>
+                <p>Fasilitas : {{ $cat->fasilitas }}</p>
             </div>
         </div>
     </div>
