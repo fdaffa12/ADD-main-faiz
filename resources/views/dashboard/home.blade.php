@@ -47,14 +47,15 @@
             <div class="navbar-brand wmin-0 mr-1">
                 <a href="{{url('/')}}" class="d-inline-block">
                     <img src="{{asset($setting->image)}}" class="d-none d-sm-block d-sm-none" alt=""
-                        style="height: 2.825rem;">
-                    <img src="{{asset($setting->image)}}" class="d-sm-none" alt="" style="height: 2.825rem;">
+                        style="height:50px; margin-top:-15px; margin-bottom:-50px; margin-left:60px">
+                    <img src="{{asset($setting->image)}}" class="d-sm-none" alt=""
+                        style="height:35px; margin-top:-40px; margin-bottom:-40px;">
                 </a>
             </div>
         </div>
 
         <div
-            class="d-flex w-100 w-xl-auto p-2 overflow-auto overflow-xl-visible scrollbar-hidden border-top border-top-xl-0 order-1 order-xl-0">
+            class="d-flex w-100 w-xl-auto overflow-auto overflow-xl-visible scrollbar-hidden border-top border-top-xl-0 order-1 order-xl-0">
             <ul class="navbar-nav navbar-nav-underline flex-row text-nowrap mx-auto">
                 <li class="nav-item">
                     <a href="{{url('/')}}" class="navbar-nav-link active">
@@ -118,12 +119,14 @@
                     @foreach ($banners as $banner)
                     <div class="row">
                         <div class="col-lg-8">
-                            <!-- <div class="card">
-                                <div class="embed-responsive embed-responsive-4by3"> -->
-                            <!-- <iframe class="embed-responsive-item" src="{{asset($banner->image)}}"></iframe> -->
-                            <img src="{{asset($banner->image)}}" class="hero" alt="">
-                            <!-- </div>
-                            </div> -->
+                            <div class="card">
+                                <!-- <div class="embed-responsive embed-responsive-4by3"> -->
+                                <!-- <iframe class="card-img-top img-fluid aspect-ratio--3x4"
+                                        src="{{asset($banner->image)}}"></iframe> -->
+                                <img src="{{asset($banner->image)}}" class="card-img-top img-fluid aspect-ratio--3x4"
+                                    alt="">
+                                <!-- </div> -->
+                            </div>
                         </div>
                         <div class="col-lg-4">
                             <div class="card">
@@ -148,7 +151,8 @@
                         <div class="col-lg-4">
                             <div class="card">
                                 <a href="{{url('dashboard-dev/item/'.$dt->id)}}">
-                                    <img class="hero" src="{{asset($dt->gambar)}}" alt=""></a>
+                                    <img class="card-img-top img-fluid aspect-ratio--3x4" src="{{asset($dt->gambar)}}"
+                                        alt=""></a>
 
                                 <div class="card-body">
                                     <h5 class="card-title"><a

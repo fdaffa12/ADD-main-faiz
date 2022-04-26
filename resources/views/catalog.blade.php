@@ -150,6 +150,18 @@
                             class="icon-radio-unchecked"></i> <span>{{$dev->nama_dev}}</span></a>
                 </li>
                 @endforeach
+
+
+                <!-- secondary -->
+                <li class="nav-item-header">
+                    <div class="text-uppercase font-size-xs line-height-xs">Rumah Secondary</div> <i class="icon-menu"
+                        title="Layout options"></i>
+                </li>
+                <li class="nav-item nav-item">
+                    <a href="{{url('dashboard-sec')}}" class=" nav-link"><i class="icon-radio-unchecked"></i>
+                        <span>Lihat Semua Rumah
+                            Secondary</span></a>
+                </li>
                 <!-- <li class="nav-item"><a href="#" class="nav-link"><i class="icon-radio-unchecked"></i>
                         <span>Kurnia Puri Harmoni</span></a></li>
                 <li class="nav-item"><a href="#" class="nav-link"><i class="icon-radio-unchecked"></i>

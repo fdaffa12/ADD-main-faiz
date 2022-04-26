@@ -181,6 +181,7 @@ Route::get('admin/publish-prospek/{prospek_id}', 'Admin\ProspekController@publis
 //dashboard
 Route::get('search-catalog', 'DashboardController@search');
 Route::get('dashboard-dev', 'DashboardController@dashboardev');
+Route::get('dashboard-sec', 'DashboardController@dashboarsec');
 Route::get('dashboard-dev/item/{id}', 'DashboardController@devitem');
 Route::get('dashboard-dev/detail/{id}', 'DashboardController@detail');
 Route::get('dashboard-sec/detail/{id}', 'DashboardController@detailsec');

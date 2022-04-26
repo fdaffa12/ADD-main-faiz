@@ -8,7 +8,7 @@
 <span class="breadcrumb-item active">{{$data->nama_dev}}</span>
 @endsection
 @section('catacont')
-<div class="card">
+<!-- <div class="card">
     <div class="card-header header-elements-inline">
         <h5 class="card-title">Developer {{$data->nama_dev}}</h5>
         <div class="header-elements">
@@ -29,6 +29,40 @@
                 </h6>
 
                 <p>{{$category->description}}</p>
+            </div>
+        </div>
+    </div>
+    @endforeach
+</div> -->
+<!-- content cards -->
+<div class="mb-3">
+    <h6 class="mb-0 font-weight-semibold">
+        {{$data->nama_dev}}
+    </h6>
+    <!-- <span class="text-muted d-block">adalah bla bla bla</span> -->
+</div>
+<div class="row">
+    @foreach($categoryitems as $category)
+    <div class="col-lg-6">
+        <div class="card">
+            <a href="{{url('dashboard-dev/detail/'.$category->id)}}"><img
+                    class="card-img-top img-fluid aspect-ratio--3x4" src="{{asset($category->image)}}" alt=""></a>
+
+            <div class="card-body">
+                <a href="{{url('dashboard-dev/detail/'.$category->id)}}">
+                    <h5 class="card-title">{{$category->title}}</h5>
+                </a>
+                <h6 class="font-weight-semibold">Harga Rp.
+                    {{$category->harga}}
+                </h6>
+                <p class="card-text">{{$category->description}}</p>
+            </div>
+
+            <div class="card-footer d-flex justify-content-start">
+                <div>
+                    <a href="{{$category->developer->link_lokasi}}"><i class="icon-location3 mr-2"></i>
+                        {{$category->developer->lokasi}}</a>
+                </div>
             </div>
         </div>
     </div>

@@ -46,12 +46,19 @@ class DashboardController extends Controller
 
     public function dashboardev()
     {
-        $data = Developer::orderBy('created_at', 'desc')->where('status', '1')->paginate(2);
-        $subdata = Developer::orderBy('created_at', 'desc')->where('status', '0')->paginate(2);
+        $data = Developer::orderBy('created_at', 'desc')->where('status', '1')->paginate(2, ['*'], 'data');
+        $subdata = Developer::orderBy('created_at', 'desc')->where('status', '0')->paginate(2, ['*'], 'subdata');
 
         $secondary = Category::orderBy('created_at', 'desc')->where('status', '1')->paginate(2);
 
         return view('dashboard.catadev', compact('data', 'secondary', 'subdata'));
+    }
+
+    public function dashboarsec()
+    {
+        $secondary = Category::orderBy('created_at', 'desc')->where('status', '1')->paginate(2);
+
+        return view('dashboard.catacont', compact('secondary'));
     }
 
     public function devitem($id)

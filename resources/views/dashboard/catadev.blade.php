@@ -4,16 +4,16 @@
 @section('pgtitle','Developer 1')
 @section('title2', '- Developer 1')
 @section('navigation')
-<a href="components_page_header.html" class="breadcrumb-item">Katalog Produk</a>
-<span class="breadcrumb-item active">Developer 1</span>
+<a href="#" class="breadcrumb-item">Katalog Produk</a>
+<span class="breadcrumb-item active">Developer</span>
 @endsection
 @section('catacont')
 <!-- Info alert -->
-<div class="alert alert-info bg-white alert-styled-left alert-arrow-left alert-dismissible">
+<!-- <div class="alert alert-info bg-white alert-styled-left alert-arrow-left alert-dismissible">
     <button type="button" class="close" data-dismiss="alert"><span>&times;</span></button>
     <h6 class="alert-heading font-weight-semibold mb-1">Info</h6>
     Pin point lokasi bisa diklik, gambar resolusi 4:3, komersil dan subsidi kalau bisa pagination nya dipisah
-</div>
+</div> -->
 <!-- /info alert -->
 
 
@@ -28,8 +28,8 @@
     @foreach($data as $category)
     <div class="col-lg-6">
         <div class="card">
-            <a href="{{url('dashboard-dev/item/'.$category->id)}}"><img class="card-img-top img-fluid"
-                    src="{{asset($category->gambar)}}" alt="" style="height: 300px; width: 100%;"></a>
+            <a href="{{url('dashboard-dev/item/'.$category->id)}}"><img class="card-img-top img-fluid aspect-ratio--3x4"
+                    src="{{asset($category->gambar)}}" alt=""></a>
 
             <div class="card-body">
                 <a href="{{url('dashboard-dev/item/'.$category->id)}}">
@@ -50,7 +50,7 @@
 </div>
 <div class="d-flex">
     <div class="mx-auto">
-        {{ $data->links() }}
+        {{ $data->appends(['data' => $data->currentPage()])->links() }}
     </div>
 </div>
 
@@ -65,8 +65,8 @@
     @foreach($subdata as $category)
     <div class="col-lg-6">
         <div class="card">
-            <a href="{{url('dashboard-dev/item/'.$category->id)}}"><img class="card-img-top img-fluid"
-                    src="{{asset($category->gambar)}}" alt="" style="height: 300px; width: 100%;"></a>
+            <a href="{{url('dashboard-dev/item/'.$category->id)}}"><img class="card-img-top img-fluid aspect-ratio--3x4"
+                    src="{{asset($category->gambar)}}" alt=""></a>
 
             <div class="card-body">
                 <a href="{{url('dashboard-dev/item/'.$category->id)}}">
@@ -87,7 +87,7 @@
 </div>
 <div class="d-flex">
     <div class="mx-auto">
-        {{ $subdata->links() }}
+        {{ $subdata->appends(['subdata' => $subdata->currentPage()])->links() }}
     </div>
 </div>
 <!-- /content cards -->
