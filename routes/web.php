@@ -24,7 +24,7 @@ Route::get('admin/logout', 'HomeController@Logout')->name('admin.logout');
 // Route::get('primary', [dashnav::class, 'dashprim']);
 // Route::get('secondary', [dashnav::class, 'dashsec']);
 Route::view('/primary', 'dashboard/primary');
-// Route::view('/secondary', 'dashboard/secondary');
+Route::view('/secondary', 'dashboard/secondary');
 // Route::view('/input', 'dashboard/inputsec');
 
 Auth::routes();
@@ -176,9 +176,10 @@ Route::get('admin/publish-prospek/{prospek_id}', 'Admin\ProspekController@publis
 // Route::view('/primary', 'dashboard/primary');
 // Route::view('/secondary', 'dashboard/secondary');
 // Route::view('/input', 'dashboard/inputsec');
-// Route::view('/media', 'dashboard/mediamgr');
+Route::view('/media', 'dashboard/mediamgr');
 
 //dashboard
+Route::get('kebijakan-privasi', 'DashboardController@kebijakan');
 Route::get('search-catalog', 'DashboardController@search');
 Route::get('dashboard-dev', 'DashboardController@dashboardev');
 Route::get('dashboard-sec', 'DashboardController@dashboarsec');

@@ -14,6 +14,28 @@
         <div class="row">
             <div class="col-lg-4">
                 <div class="form-group">
+                    <label class="form-control-label">Leads BY: <span class="tx-danger">*</span></label>
+                    <select name="leads_by" class="form-control">
+                        <option value="FB Inbox" {{($prospek->leads_by === 'FB Inbox') ? 'Selected' : ''}}>FB Inbox
+                        </option>
+                        <option value="FB Comment" {{($prospek->leads_by === 'FB Comment') ? 'Selected' : ''}}>FB
+                            Comment
+                        </option>
+                        <option value="IG Inbox" {{($prospek->leads_by === 'IG Inbox') ? 'Selected' : ''}}>IG Inbox
+                        </option>
+                        <option value="IG Comment" {{($prospek->leads_by === 'IG Comment') ? 'Selected' : ''}}>IG
+                            Comment
+                        </option>
+                        <option value="WhatsApp" {{($prospek->leads_by === 'WhatsApp') ? 'Selected' : ''}}>WhatsApp
+                        </option>
+                    </select>
+                    @error('leads_by')
+                    <strong class="text-danger">{{$message}}</strong>
+                    @enderror
+                </div>
+            </div><!-- col-4 -->
+            <div class="col-lg-4">
+                <div class="form-group">
                     <label class="form-control-label">Nama: <span class="tx-danger">*</span></label>
                     <input class="form-control" type="text" name="nama" value="{{$prospek->nama}}"
                         placeholder="Enter Nama">
@@ -44,20 +66,40 @@
             </div><!-- col-4 -->
             <div class="col-lg-4">
                 <div class="form-group">
-                    <label class="form-control-label">NIK: <span class="tx-danger">*</span></label>
-                    <input class="form-control" type="text" name="nik" value="{{$prospek->nik}}"
-                        placeholder="Enter NIK">
-                    @error('nik')
+                    <label class="form-control-label">Prospek Status: <span class="tx-danger">*</span></label>
+                    <select name="pr_status" class="form-control">
+                        <option value="Prospect" {{($prospek->pr_status === 'Prospect') ? 'Selected' : ''}}>Prospect
+                        </option>
+                        <option value="Not Good" {{($prospek->pr_status === 'Not Good') ? 'Selected' : ''}}>Not Good
+                        </option>
+                        <option value="Hot Prospect" {{($prospek->pr_status === 'Hot Prospect') ? 'Selected' : ''}}>Hot
+                            Prospect
+                        </option>
+                        <option value="Not Respond" {{($prospek->pr_status === 'Not Respond') ? 'Selected' : ''}}>Not
+                            Respond
+                        </option>
+                    </select>
+                    @error('pr_status')
                     <strong class="text-danger">{{$message}}</strong>
                     @enderror
                 </div>
             </div><!-- col-4 -->
             <div class="col-lg-4">
                 <div class="form-group">
-                    <label class="form-control-label">Unit: <span class="tx-danger">*</span></label>
+                    <label class="form-control-label">Project Ads: <span class="tx-danger">*</span></label>
                     <input class="form-control" type="text" name="rumah" value="{{$prospek->rumah}}"
-                        placeholder="Enter Unit">
+                        placeholder="Enter Project Ads">
                     @error('rumah')
+                    <strong class="text-danger">{{$message}}</strong>
+                    @enderror
+                </div>
+            </div><!-- col-4 -->
+            <div class="col-lg-4">
+                <div class="form-group">
+                    <label class="form-control-label">Note: <span class="tx-danger">*</span></label>
+                    <input class="form-control" type="text" name="note" value="{{$prospek->note}}"
+                        placeholder="Enter Unit">
+                    @error('note')
                     <strong class="text-danger">{{$message}}</strong>
                     @enderror
                 </div>

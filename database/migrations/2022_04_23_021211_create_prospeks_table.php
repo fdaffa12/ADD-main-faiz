@@ -17,9 +17,11 @@ class CreateProspeksTable extends Migration
             $table->id();
             $table->string('nama');
             $table->string('alamat');
-            $table->string('nik');
             $table->string('nohp');
             $table->string('rumah');
+            $table->string('leads_by');
+            $table->string('pr_status');
+            $table->string('note');
             $table->integer('status')->default(1);
             $table->timestamps();
         });

@@ -92,4 +92,9 @@ class DashboardController extends Controller
         $cats = Category::Where('title', 'LIKE', "%$query%")->where('status', '1')->orderby('id', 'DESC')->get();
         return view('dashboard.show', compact('categoryitems', 'cats'));
     }
+
+    public function kebijakan()
+    {
+        return view('dashboard.kebijakan');
+    }
 }

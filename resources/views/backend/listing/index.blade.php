@@ -6,7 +6,7 @@
 <div class="tab-content">
     <div class="tab-pane fade show active" id="solid-rounded-tab1">
         <div class="table-responsive">
-            <table class="table text-nowrap">
+            <table class="table text-nowrap data-table">
                 <thead>
                     <tr>
                         <th style="width: 150px">Nama Pemilik</th>
@@ -18,7 +18,7 @@
                         <th>Alamat Unit</th>
                         <th>Sertifikat</th>
                         <th>LB/LT</th>
-                        <th>Spesifikasi</th>
+                        <th style="width: 50px;">Spesifikasi</th>
                         <th>Negotiable</th>
                         <th>Harga</th>
                         <th>Jenis Listing</th>
@@ -42,7 +42,7 @@
                         <td>{{$list->alamat_unit}}</td>
                         <td>{{$list->sertifikat}}</td>
                         <td>{{$list->lb}} / {{$list->lt}}</td>
-                        <td>{{$list->spesifikasi}}</td>
+                        <td class="text-wrap">{{$list->spesifikasi}}</td>
                         <td>{{$list->nego}}</td>
                         <td>{{$list->harga}}</td>
                         <td>{{$list->jenis_listing}}</td>

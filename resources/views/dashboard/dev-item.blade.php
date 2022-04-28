@@ -56,11 +56,12 @@
                     {{$category->harga}}
                 </h6>
                 <p class="card-text">{{$category->description}}</p>
+                <a href="https://wa.me/+628111160311"><img src="{{asset('assets/images/wa.gif')}}"
+                        style="max-height: 30px;" alt=""> <span style="color: #40c351;">Contact Us</span></a>
             </div>
-
             <div class="card-footer d-flex justify-content-start">
                 <div>
-                    <a href="{{$category->developer->link_lokasi}}"><i class="icon-location3 mr-2"></i>
+                    <a href="#"><i class="icon-location3 mr-2"></i>
                         {{$category->developer->lokasi}}</a>
                 </div>
             </div>

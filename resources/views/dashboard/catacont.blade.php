@@ -31,6 +31,8 @@
                 <p>Luas Bangunan : {{ $category->lb }}</p>
                 <p>Luas Tanah : {{ $category->lt }}</p>
                 <p>Fasilitas : {{ $category->fasilitas }}</p>
+                <a href="https://wa.me/+628111160311"><img src="{{asset('assets/images/wa.gif')}}"
+                        style="max-height: 30px;" alt=""> <span style="color: #40c351;">Contact Us</span></a>
                 <!-- <p>{!! $category->desc !!}</p> -->
                 <!-- <p>{!! substr($category->desc,0,600) !!}</p> -->
             </div>

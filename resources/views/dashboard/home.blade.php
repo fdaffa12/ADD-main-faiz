@@ -184,7 +184,7 @@
                         <h6 class="mb-0 font-weight-semibold">
                             Project Highlight
                         </h6>
-                        <span class="text-muted d-block">Project yang di highlight di menu utama</span>
+                        <span class="text-muted d-block">Project Exclusive Kami</span>
                     </div>
 
                     @foreach ($secondary as $key => $post)

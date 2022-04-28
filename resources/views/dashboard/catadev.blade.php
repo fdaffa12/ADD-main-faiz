@@ -40,7 +40,7 @@
 
             <div class="card-footer d-flex justify-content-start">
                 <div>
-                    <a href="{{$category->link_lokasi}}"><i class="icon-location3 mr-2"></i>
+                    <a href="#"><i class="icon-location3 mr-2"></i>
                         {{$category->lokasi}}</a>
                 </div>
             </div>
@@ -77,7 +77,7 @@
 
             <div class="card-footer d-flex justify-content-start">
                 <div>
-                    <a href="{{$category->link_lokasi}}"><i class="icon-location3 mr-2"></i>
+                    <a href="#"><i class="icon-location3 mr-2"></i>
                         {{$category->lokasi}}</a>
                 </div>
             </div>

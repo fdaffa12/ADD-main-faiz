@@ -29,16 +29,20 @@ class ProspekController extends Controller
         $request->validate([
             'nama' => 'required|max:255',
             'alamat',
-            'nik',
             'nohp',
             'rumah',
+            'leads_by',
+            'pr_status',
+            'note',
         ]);
 
         $data['nama'] = $request->nama;
         $data['alamat'] = $request->alamat;
-        $data['nik'] = $request->nik;
         $data['nohp'] = $request->nohp;
         $data['rumah'] = $request->rumah;
+        $data['leads_by'] = $request->leads_by;
+        $data['pr_status'] = $request->pr_status;
+        $data['note'] = $request->note;
         $data['created_at'] = date('Y-m-d H:i:s');
         $data['updated_at'] = date('Y-m-d H:i:s');
 
@@ -60,16 +64,20 @@ class ProspekController extends Controller
         $request->validate([
             'nama' => 'required|max:255',
             'alamat',
-            'nik',
             'nohp',
             'rumah',
+            'leads_by',
+            'pr_status',
+            'note',
         ]);
 
         $data['nama'] = $request->nama;
         $data['alamat'] = $request->alamat;
-        $data['nik'] = $request->nik;
         $data['nohp'] = $request->nohp;
         $data['rumah'] = $request->rumah;
+        $data['leads_by'] = $request->leads_by;
+        $data['pr_status'] = $request->pr_status;
+        $data['note'] = $request->note;
         // $data['created_at'] = date('Y-m-d H:i:s');
         $data['updated_at'] = date('Y-m-d H:i:s');
 

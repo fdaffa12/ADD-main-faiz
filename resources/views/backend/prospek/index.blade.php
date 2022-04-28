@@ -9,24 +9,31 @@
             <table class="table text-nowrap">
                 <thead>
                     <tr>
+                        <th>No</th>
+                        <th>Leads By</th>
                         <th style="width: 150px">Name</th>
                         <th>Alamat</th>
                         <th>No Handphone</th>
-                        <th>NIK</th>
-                        <th>Unit Yang Dituju</th>
+                        <th>Prospek Status</th>
+                        <th>Project Ads</th>
+                        <th>Note</th>
                         <th>Tanggal</th>
                         <th>Status</th>
                         <th class="text-center" style="width: 20px;">Action</th>
                     </tr>
                 </thead>
                 <tbody>
+                    @php $no = 1; @endphp
                     @foreach ($prospek as $dt)
                     <tr>
+                        <td>{{$no++}}</td>
+                        <td>{{$dt->leads_by}}</td>
                         <td><span class="text-default font-weight-semibold">{{ $dt->nama }}</span></td>
                         <td>{{$dt->alamat}}</td>
                         <td>{{$dt->nohp}}</td>
-                        <td>{{$dt->nik}}</td>
+                        <td>{{$dt->pr_status}}</td>
                         <td>{{$dt->rumah}}</td>
+                        <td>{{$dt->note}}</td>
                         <td>{{$dt->created_at->format('m/d/Y')}}</td>
                         <td>
                             @if( $dt->status == 0 )

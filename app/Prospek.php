@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class Prospek extends Model
 {
     protected $fillable = [
-        'nama', 'alamat', 'nik', 'nohp', 'rumah', 'status'
+        'nama', 'alamat', 'nohp', 'rumah', 'status', 'leads_by', 'pr_status', 'note'
     ];
 }
