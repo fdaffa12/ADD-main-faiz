@@ -39,9 +39,9 @@
             </div>
 
             <div class="card-footer d-flex justify-content-start">
-                <div>
-                    <a href="#"><i class="icon-location3 mr-2"></i>
-                        {{$category->lokasi}}</a>
+                <div style="color:#1565c0">
+                    <i class="icon-location3 mr-2"></i>
+                    {{$category->lokasi}}
                 </div>
             </div>
         </div>
@@ -76,9 +76,9 @@
             </div>
 
             <div class="card-footer d-flex justify-content-start">
-                <div>
-                    <a href="#"><i class="icon-location3 mr-2"></i>
-                        {{$category->lokasi}}</a>
+                <div style="color:#1565c0">
+                    <i class="icon-location3 mr-2"></i>
+                    {{$category->lokasi}}
                 </div>
             </div>
         </div>

@@ -17,6 +17,7 @@
                         <th style="width: 150px">Lokasi</th>
                         <th style="width: 150px">Type</th>
                         <th style="width: 150px">Fasilitas</th>
+                        <th style="width: 150px">Jenis Listing</th>
                         <th>Description</th>
                         <th>Status</th>
                         <th class="text-center" style="width: 20px;">Action</th>
@@ -34,6 +35,7 @@
                         <td>{{$dt->lokasi}}</td>
                         <td>{{$dt->type}}</td>
                         <td>{{$dt->fasilitas}}</td>
+                        <td>{{$dt->listing->jenis_listing}}</td>
                         <td>{!! substr($dt->description,0,90) !!}</td>
                         <td>
                             @if( $dt->status == 0 )

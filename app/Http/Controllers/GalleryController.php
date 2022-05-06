@@ -25,6 +25,11 @@ class GalleryController extends Controller
             $categories = Category::where('title', 'LIKE', '%' . $search . '%')->orWhere('description', 'LIKE', '%' . $search . '%')->orderBy('created_at', 'desc')->paginate(7);
             return view('backend.gallery.index')->with('categories', $categories);
         }
+
+        // $categories = Category::whereHas('listing', function ($q) {
+        //     $q->where('jenis_listing', 'Exclusive');
+        // })->get();
+
         $categories = Category::orderBy('created_at', 'desc')->paginate(7);
 
         return view('backend.gallery.index')->with('categories', $categories);

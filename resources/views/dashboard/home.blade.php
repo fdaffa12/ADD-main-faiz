@@ -13,9 +13,9 @@
     <link href="{{ asset('assets/css/icons/icomoon/styles.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('assets/css/all.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('assets/css/colors.min.css') }}" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-
-    <link rel="shortcut icon" href="{{$setting->image}}" type="image/x-icon" />
+    <link rel="shortcut icon" href="{{asset('uploads/addlog.png')}}" type="image/x-icon" />
     <!-- /global stylesheets -->
 
     <!-- Core JS files -->
@@ -37,11 +37,60 @@
         object-fit: cover;
         object-position: top center;
     }
+
+    .popup {
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, .3);
+        position: fixed;
+        opacity: 0;
+        transition: all .2s ease-in;
+        z-index: 1;
+    }
+
+    .popup__content {
+        width: 300px;
+        text-align: center;
+        position: relative;
+        margin: 20vh auto;
+    }
+
+    .popup__image {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+
+    .popup__dismiss {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 25px;
+    }
+
+    .popup--show {
+        opacity: 1;
+    }
+
+    .popup--close {
+        display: none;
+        transition: all .2s ease-out;
+    }
     </style>
 
 </head>
 
 <body>
+    @foreach ($ads as $banner)
+    <div class="popup">
+        <div class="popup__content">
+            <a href="{{url('dashboard-dev')}}"><img class="popup__image" src="{{asset($banner->image)}}"
+                    alt="Popup Iklan"></a>
+            <i class=" popup__dismiss fa fa-times"></i>
+            <!-- <img class="popup__shop" src="img/btn-shop.png" alt="Shop"> -->
+        </div>
+    </div>
+    @endforeach
 
     <!-- Main navbar -->
     <div class="navbar navbar-expand-xl navbar-dark navbar-static px-0 bg-primary">
@@ -145,7 +194,7 @@
                         <h6 class="mb-0 font-weight-semibold">
                             Developer Highlight
                         </h6>
-                        <span class="text-muted d-block">Developer yang di highlight di menu utama</span>
+                        <!-- <span class="text-muted d-block">Developer yang di highlight di menu utama</span> -->
                     </div>
 
                     <div class="row">
@@ -283,6 +332,28 @@
 
     </div>
     <!-- /page content -->
+    <script>
+    var popup = document.querySelector(".popup");
+    var dismiss = document.querySelector(".popup__dismiss");
+    var shop = document.querySelector(".popup__shop");
+
+    setTimeout(function() {
+        popup.classList.add("popup--show");
+    }, 3000);
+
+    dismiss.addEventListener("click", function() {
+        console.log("kil dismiss");
+        popup.classList.remove("popup--show");
+        popup.classList.add("popup--close");
+    })
+
+    shop.addEventListener("click", function() {
+        console.log("kil shop");
+        popup.classList.remove("popup--show");
+        popup.classList.add("popup--close");
+        alert("Selamat anda dapat diskon");
+    })
+    </script>
 </body>
 
 </html>

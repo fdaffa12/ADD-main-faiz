@@ -16,6 +16,7 @@ class ListingController extends Controller
     public function index()
     {
         $listing = Listing::latest()->get();
+        // $listing = Listing::where('jenis_listing', 'Exclusive')->get();
         return view('backend.listing.index', compact('listing'));
     }
 

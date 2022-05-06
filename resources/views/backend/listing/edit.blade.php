@@ -135,7 +135,8 @@
                         <label class="form-control-label">Jenis Listing: <span class="tx-danger">*</span></label>
                         <select name="jenis_listing" class="form-control">
                             <option value="Open" {{($list->jenis_listing === 'Open') ? 'Selected' : ''}}>Open</option>
-                            <option value="Exclusive" {{($list->jenis_listing === 'Tidak') ? 'Selected' : ''}}>Tidak
+                            <option value="Exclusive" {{($list->jenis_listing === 'Exclusive') ? 'Selected' : ''}}>
+                                Exclusive
                             </option>
                         </select>
                         @error('jenis_listing')

@@ -21,7 +21,7 @@
     <script src="{{ asset('assets/js/main/bootstrap.bundle.min.js') }}"></script>
     <!-- /core JS files -->
 
-    <link rel="shortcut icon" href="{{asset($setting->image)}}" type="image/x-icon" />
+    <link rel="shortcut icon" href="{{asset('uploads/addlog.png')}}" type="image/x-icon" />
 
     <!-- Theme JS files -->
 
