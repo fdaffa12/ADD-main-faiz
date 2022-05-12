@@ -55,6 +55,26 @@
             </div><!-- col-4 -->
             <div class="col-lg-3">
                 <div class="form-group">
+                    <label class="form-control-label">Kamar Tidur: <span class="tx-danger">*</span></label>
+                    <input class="form-control" type="text" name="kt" value="{{$data->kt}}"
+                        placeholder="Enter Kamar Tidur">
+                    @error('kt')
+                    <strong class="text-danger">{{$message}}</strong>
+                    @enderror
+                </div>
+            </div><!-- col-4 -->
+            <div class="col-lg-3">
+                <div class="form-group">
+                    <label class="form-control-label">Kamar Mandi: <span class="tx-danger">*</span></label>
+                    <input class="form-control" type="text" name="km" value="{{$data->km}}"
+                        placeholder="Enter Kamar Mandi">
+                    @error('km')
+                    <strong class="text-danger">{{$message}}</strong>
+                    @enderror
+                </div>
+            </div><!-- col-4 -->
+            <div class="col-lg-3">
+                <div class="form-group">
                     <label class="form-control-label">Lokasi: <span class="tx-danger">*</span></label>
                     <input class="form-control" type="text" name="lokasi" value="{{$data->lokasi}}"
                         placeholder="Enter Lokasi">

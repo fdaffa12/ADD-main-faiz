@@ -59,13 +59,14 @@
     .popup__image {
         width: 100%;
         margin-bottom: 15px;
+        border-radius: 5px;
     }
 
     .popup__dismiss {
         position: absolute;
         top: 0;
-        right: 0;
-        width: 25px;
+        /* right: 0;
+        width: 25px; */
     }
 
     .popup--show {
@@ -166,17 +167,17 @@
 
 
                 <!-- Content area -->
-                <div class="content container pt-0">
+                <!-- <div class="content container pt-0">
                     @foreach ($banners as $banner)
                     <div class="row">
                         <div class="col-lg-8">
                             <div class="card">
-                                <!-- <div class="embed-responsive embed-responsive-4by3"> -->
-                                <!-- <iframe class="card-img-top img-fluid aspect-ratio--3x4"
-                                        src="{{asset($banner->image)}}"></iframe> -->
+                                <div class="embed-responsive embed-responsive-4by3">
+                                <iframe class="card-img-top img-fluid aspect-ratio--3x4"
+                                        src="{{asset($banner->image)}}"></iframe>
                                 <img src="{{asset($banner->image)}}" class="card-img-top img-fluid aspect-ratio--3x4"
                                     alt="">
-                                <!-- </div> -->
+                                </div>
                             </div>
                         </div>
                         <div class="col-lg-4">
@@ -188,7 +189,34 @@
                             </div>
                         </div>
                     </div>
-                    @endforeach
+                    @endforeach -->
+
+                <div class="content container pt-0">
+                    <div class="row">
+                        <div class="col-lg-12 pb-2">
+                            <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                                <div class="carousel-inner">
+                                    @foreach($banners as $key => $banner)
+                                    <div class="carousel-item {{$key == 0 ? 'active' : '' }}">
+                                        <img src="{{asset($banner->image)}}" class="d-block w-100" alt="...">
+                                    </div>
+                                    @endforeach
+                                </div>
+                                <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"> </span>
+                                    <span class="sr-only">Previous</span>
+                                </a>
+                                <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="sr-only">Next</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content container pt-0">
+
                     <!-- Developer Highlight -->
                     <div class="mb-3">
                         <h6 class="mb-0 font-weight-semibold">
@@ -202,13 +230,25 @@
                         <div class="col-lg-4">
                             <div class="card">
                                 <a href="{{url('dashboard-dev/item/'.$dt->id)}}">
-                                    <img class="card-img-top img-fluid aspect-ratio--3x4" src="{{asset($dt->gambar)}}"
-                                        alt=""></a>
+                                    <img class="card-img-top" src="{{asset($dt->gambar)}}" alt=""></a>
 
                                 <div class="card-body">
                                     <h5 class="card-title"><a
                                             href="{{url('dashboard-dev/item/'.$dt->id)}}">{{$dt->nama_dev}}</a></h5>
-                                    <p class="card-text">{!! $dt->desc !!}</p>
+                                    <!-- <p class="card-text">{!! substr($dt->desc,0,100) !!}</p> -->
+                                    @if(strlen($dt->desc) > 100)
+                                    {{substr($dt->desc,0,100)}}
+                                    <span class="read-more-show hide_content">More<i
+                                            class="fa fa-angle-down"></i></span>
+                                    <span class="read-more-content">
+                                        {{substr($dt->desc,100,strlen($dt->desc))}}
+                                        <span class="read-more-hide hide_content">Less <i
+                                                class="fa fa-angle-up"></i></span>
+                                    </span>
+                                    @else
+                                    {{$dt->desc}}
+                                    @endif
+
                                 </div>
 
                                 <!-- <div class="card-footer d-flex justify-content-between">
@@ -226,7 +266,7 @@
                         </div>
                         @endforeach
                     </div>
-                    <!-- /Developer Highlight -->
+                    </ <!-- /Developer Highlight -->
 
                     <!-- Project Highlight -->
                     <div class="mb-3">
@@ -354,6 +394,40 @@
         alert("Selamat anda dapat diskon");
     })
     </script>
+
+    <script type="text/javascript">
+    // Hide the extra content initially:
+    $('.read-more-content').addClass('hide_content')
+    $('.read-more-show, .read-more-hide').removeClass('hide_content')
+
+    // Set up the toggle effect:
+    $('.read-more-show').on('click', function(e) {
+        $(this).next('.read-more-content').removeClass('hide_content');
+        $(this).addClass('hide_content');
+        e.preventDefault();
+    });
+    $('.read-more-hide').on('click', function(e) {
+        var p = $(this).parent('.read-more-content');
+        p.addClass('hide_content');
+        p.prev('.read-more-show').removeClass('hide_content'); // Hide only the preceding "Read More"
+        e.preventDefault();
+    });
+    </script>
+    <style type="text/css">
+    .read-more-show {
+        cursor: pointer;
+        color: #ed8323;
+    }
+
+    .read-more-hide {
+        cursor: pointer;
+        color: #ed8323;
+    }
+
+    .hide_content {
+        display: none;
+    }
+    </style>
 </body>
 
 </html>

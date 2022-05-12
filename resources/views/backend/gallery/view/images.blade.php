@@ -13,7 +13,7 @@
     </button>
 </div>
 
-<table class="table media-library">
+<table class="table datatable-responsive">
     <thead>
         <tr>
             <th>

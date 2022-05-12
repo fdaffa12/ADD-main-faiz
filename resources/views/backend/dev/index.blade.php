@@ -6,7 +6,7 @@
 <div class="tab-content">
     <div class="tab-pane fade show active" id="solid-rounded-tab1">
         <div class="table-responsive">
-            <table class="table text-nowrap">
+            <table class="table datatable-responsive">
                 <thead>
                     <tr>
                         <th style="width: 150px">Developer Name</th>
@@ -23,8 +23,8 @@
                         <td><span class="text-default font-weight-semibold">{{ $dt->nama_dev }}</span></td>
                         <td><img src="{{asset($dt->gambar)}}" width="100px;" height="80px;" style="border-radius:10px;"
                                 alt=""></td>
-                        <td>{{$dt->lokasi}}</td>
-                        <td>{!! substr($dt->desc,0,100) !!}</td>
+                        <td style="white-space: nowrap;">{{$dt->lokasi}}</td>
+                        <td style="white-space: nowrap;">{!! substr($dt->desc,0,100) !!}</td>
                         <td>
                             @if( $dt->status == 0 )
                             <label class="label label-info">Subsidi</label>

@@ -84,6 +84,7 @@ Route::group(['middleware' => 'is_admin'], function () {
 
     //coba galeri
     Route::get('admin/primary', 'PrimaryController@index')->name('primary.index');
+    Route::get('admin/primary-all', 'PrimaryController@primary')->name('primary.index-all');
     Route::post('admin/store-primary', 'PrimaryController@store')->name('primary.store');
     Route::post('admin/primary/update', 'PrimaryController@update')->name('primary.update');
     Route::get('admin/add-primary', 'PrimaryController@add')->name('primary.add');
@@ -95,6 +96,10 @@ Route::group(['middleware' => 'is_admin'], function () {
     Route::get('admin/primary/image/delete/{id}', 'PrimaryItemController@delete')->name('primary.image.delete');
     Route::get('admin/draft-primary/{id}', 'PrimaryController@draft');
     Route::get('admin/publish-primary/{id}', 'PrimaryController@publish');
+    //primary ajax
+    Route::get('admin/primary/fasility/{id}', 'PrimaryController@fasility')->name('primary.fasility');
+    Route::get('admin/primary/detail/{id}', 'PrimaryController@detail')->name('primary.detail');
+    Route::post('/admin/primary/update-fasility', 'PrimaryController@updateFasility')->name('update.fasility');
 
     //video
     Route::get('admin/video', 'Admin\VideoController@index')->name('video.index');

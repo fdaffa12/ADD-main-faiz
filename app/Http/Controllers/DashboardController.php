@@ -36,7 +36,7 @@ class DashboardController extends Controller
 
     public function index()
     {
-        $banners = Post::where('postcat_id', 'LIKE', '%3%')->orderby('id', 'DESC')->paginate(1);
+        $banners = Post::where('postcat_id', 'LIKE', '%3%')->orderby('id', 'DESC')->paginate(2);
         $ads = Post::where('post_title', 'Ads')->orderby('id', 'DESC')->paginate(1);
         $data = Developer::orderBy('created_at', 'desc')->paginate(3);
         // $secondary = Category::orderBy('created_at', 'desc')->where('status', '1')->paginate(3);

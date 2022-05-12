@@ -6,7 +6,7 @@
 <div class="tab-content">
     <div class="tab-pane fade show active" id="solid-rounded-tab1">
         <div class="table-responsive">
-            <table class="table text-nowrap data-table">
+            <table class="table datatable-responsive-row-control">
                 <thead>
                     <tr>
                         <th style="width: 150px">Nama Pemilik</th>
@@ -32,7 +32,7 @@
                 <tbody>
                     @foreach ($listing as $list)
                     <tr>
-                        <td><span class="text-default font-weight-semibold">{{ $list->nama_pemilik }}</span></td>
+                        <td><span class="text-default font-weight-semibold"> {{ $list->nama_pemilik }}</span></td>
                         <td><img src="{{asset($list->gambar)}}" width="100px;" height="80px;"
                                 style="border-radius:10px;" alt=""></td>
                         <td>{{$list->ktp}}</td>

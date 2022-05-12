@@ -6,17 +6,18 @@
 <div class="tab-content">
     <div class="tab-pane fade show active" id="solid-rounded-tab1">
         <div class="table-responsive">
-            <table class="table text-nowrap">
+            <table class="table datatable-responsive-row-control">
                 <thead>
                     <tr>
-                        <th style="width: 300px;">Image</th>
+                        <th></th>
                         <th style="width: 150px">Cluster Name</th>
-                        <th style="width: 150px">Nama Pemilik</th>
-                        <th style="width: 150px">Harga</th>
-                        <th style="width: 150px">LT/LB</th>
-                        <th style="width: 150px">Lokasi</th>
-                        <th style="width: 150px">Type</th>
-                        <th style="width: 150px">Fasilitas</th>
+                        <th style="width: 150px;">Image</th>
+                        <th>Nama Pemilik</th>
+                        <th>Harga</th>
+                        <th>LT/LB</th>
+                        <th>Lokasi</th>
+                        <th>Type</th>
+                        <th style="width: 50px;">Fasilitas</th>
                         <th>Description</th>
                         <th>Status</th>
                         <th class="text-center" style="width: 20px;">Action</th>
@@ -25,16 +26,17 @@
                 <tbody>
                     @foreach ($primaries as $dt)
                     <tr>
+                        <td></td>
+                        <td><span class="text-default font-weight-semibold">{{ $dt->title }}</span></td>
                         <td><img src="{{asset($dt->image)}}" width="100px;" height="80px;" style="border-radius:10px;"
                                 alt=""></td>
-                        <td><span class="text-default font-weight-semibold">{{ $dt->title }}</span></td>
-                        <td>{{$dt->developer->nama_dev}}</td>
+                        <td> {{$dt->developer->nama_dev}}</td>
                         <td>{{$dt->harga}}</td>
                         <td>{{$dt->lt}} / {{$dt->lb}}</td>
-                        <td>{{$dt->lokasi}}</td>
+                        <td style="white-space: nowrap;">{{$dt->lokasi}}</td>
                         <td>{{$dt->type}}</td>
-                        <td>{{$dt->fasilitas}}</td>
-                        <td>{!! substr($dt->description,0,90) !!}</td>
+                        <td style="white-space: nowrap;">{{$dt->fasilitas}}</td>
+                        <td>{{$dt->description}}</td>
                         <td>
                             @if( $dt->status == 0 )
                             <label class="label label-info">Unpublish</label>

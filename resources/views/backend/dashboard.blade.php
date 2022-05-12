@@ -26,8 +26,25 @@
     <script src="{{ asset('assets/js/plugins/forms/inputs/touchspin.min.js') }}"></script>
     <script src="{{ asset('assets/js/plugins/forms/validation/validate.min.js') }}"></script>
     <script src="{{ asset('assets/js/plugins/forms/form_input_groups.js') }}"></script>
+    <!-- datatable -->
+    <script src="{{ asset('assets/js/demo_pages/datatables.min.js') }}"></script>
+    <script src="{{ asset('assets/js/demo_pages/responsive.min.js') }}"></script>
+    <script src="{{ asset('assets/js/demo_pages/datatables_responsive.js') }}"></script>
+    <script src="{{ asset('assets/js/demo_pages/footable.min.js') }}"></script>
+    <script src="{{ asset('assets/js/demo_pages/table_responsive.js') }}"></script>
+    <script src="{{ asset('assets/js/demo_pages/extra_sweetalert.js') }}"></script>
+    <script src="{{ asset('assets/js/demo_pages/sweet_alert.min.js') }}"></script>
+    <script src="{{ asset('assets/js/demo_pages/buttons.min.js') }}"></script>
+    <script src="{{ asset('assets/js/demo_pages/pdfmake.min.js') }}"></script>
+    <script src="{{ asset('assets/js/demo_pages/vfs_fonts.min.js') }}"></script>
+    <script src="{{ asset('assets/js/demo_pages/datatables_extension_buttons_init.js') }}"></script>
 
     <script src="{{ asset('assets/js/app.js') }}"></script>
+
+
+
+    <script type="text/javascript" src="https://unpkg.com/xlsx@0.15.1/dist/xlsx.full.min.js"></script>
+
     @yield('JS')
     <!-- /theme JS files -->
 
@@ -77,6 +94,8 @@
                         <a href="{{url('admin/developer')}}" class="dropdown-item">Manage
                             Developer</a>
                         <a href="{{url('admin/add-developer')}}" class="dropdown-item">Add
+                            Developer</a>
+                        <a href="{{url('admin/primary-full')}}" class="dropdown-item">Add
                             Developer</a>
                     </div>
                 </li>
@@ -238,6 +257,97 @@
 
     </div>
     <!-- /page content -->
+
+    <style>
+    .swal-modal {
+        width: 478px;
+        opacity: 0;
+        pointer-events: none;
+        background-color: #32333a;
+        text-align: center;
+        border-radius: 5px;
+        position: static;
+        margin: 20px auto;
+        display: inline-block;
+        vertical-align: middle;
+        -webkit-transform: scale(1);
+        transform: scale(1);
+        -webkit-transform-origin: 50% 50%;
+        transform-origin: 50% 50%;
+        z-index: 10001;
+        transition: opacity .2s, -webkit-transform .3s;
+        transition: transform .3s, opacity .2s;
+        transition: transform .3s, opacity .2s, -webkit-transform .3s;
+    }
+
+    .swal-title {
+        color: #fff;
+        font-weight: 600;
+        text-transform: none;
+        position: relative;
+        display: block;
+        padding: 13px 16px;
+        font-size: 27px;
+        line-height: normal;
+        text-align: center;
+        margin-bottom: 0;
+    }
+
+    .swal-text {
+        font-size: 16px;
+        position: relative;
+        float: none;
+        line-height: normal;
+        vertical-align: top;
+        text-align: left;
+        display: inline-block;
+        margin: 0;
+        padding: 0 10px;
+        font-weight: 400;
+        color: #fff;
+        max-width: calc(100% - 20px);
+        overflow-wrap: break-word;
+        box-sizing: border-box;
+    }
+
+
+    .swal-button {
+        background-color: #268bd2;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        font-weight: 600;
+        font-size: 14px;
+        padding: 10px 24px;
+        margin: 0;
+        cursor: pointer;
+    }
+
+    .swal-button--cancel {
+        color: #fff;
+        background-color: #4d4d51;
+    }
+    </style>
+
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <script>
+    $('.delete-confirm').on('click', function(event) {
+        event.preventDefault();
+        const url = $(this).attr('href');
+        swal({
+            title: 'Are you sure?',
+            text: 'This record and it`s details will be permanantly deleted!',
+            icon: 'warning',
+            buttons: ["Cancel", "Yes!"],
+        }).then(function(value) {
+            if (value) {
+                window.location.href = url;
+            }
+        });
+    });
+    </script>
 
 </body>
 

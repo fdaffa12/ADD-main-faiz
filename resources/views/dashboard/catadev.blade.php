@@ -35,7 +35,17 @@
                 <a href="{{url('dashboard-dev/item/'.$category->id)}}">
                     <h5 class="card-title">{{$category->nama_dev}}</h5>
                 </a>
-                <p class="card-text">{!! $category->desc !!}</p>
+                <p class="card-text">
+                    @if(strlen($category->desc) > 100)
+                    {{substr($category->desc,0,100)}}
+                    <span class="read-more-show hide_content">More<i class="fa fa-angle-down"></i></span>
+                    <span class="read-more-content">
+                        {{substr($category->desc,100,strlen($category->desc))}}
+                        <span class="read-more-hide hide_content">Less <i class="fa fa-angle-up"></i></span> </span>
+                    @else
+                    {{$category->desc}}
+                    @endif
+                </p>
             </div>
 
             <div class="card-footer d-flex justify-content-start">
@@ -72,7 +82,17 @@
                 <a href="{{url('dashboard-dev/item/'.$category->id)}}">
                     <h5 class="card-title">{{$category->nama_dev}}</h5>
                 </a>
-                <p class="card-text">{!! $category->desc !!}</p>
+                <p class="card-text">
+                    @if(strlen($category->desc) > 100)
+                    {{substr($category->desc,0,100)}}
+                    <span class="read-more-show hide_content">More<i class="fa fa-angle-down"></i></span>
+                    <span class="read-more-content">
+                        {{substr($category->desc,100,strlen($category->desc))}}
+                        <span class="read-more-hide hide_content">Less <i class="fa fa-angle-up"></i></span> </span>
+                    @else
+                    {{$category->desc}}
+                    @endif
+                </p>
             </div>
 
             <div class="card-footer d-flex justify-content-start">
@@ -91,4 +111,37 @@
     </div>
 </div>
 <!-- /content cards -->
+<script type="text/javascript">
+// Hide the extra content initially:
+$('.read-more-content').addClass('hide_content')
+$('.read-more-show, .read-more-hide').removeClass('hide_content')
+
+// Set up the toggle effect:
+$('.read-more-show').on('click', function(e) {
+    $(this).next('.read-more-content').removeClass('hide_content');
+    $(this).addClass('hide_content');
+    e.preventDefault();
+});
+$('.read-more-hide').on('click', function(e) {
+    var p = $(this).parent('.read-more-content');
+    p.addClass('hide_content');
+    p.prev('.read-more-show').removeClass('hide_content'); // Hide only the preceding "Read More"
+    e.preventDefault();
+});
+</script>
+<style type="text/css">
+.read-more-show {
+    cursor: pointer;
+    color: #ed8323;
+}
+
+.read-more-hide {
+    cursor: pointer;
+    color: #ed8323;
+}
+
+.hide_content {
+    display: none;
+}
+</style>
 @endsection

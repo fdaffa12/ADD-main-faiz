@@ -20,6 +20,8 @@ class CreateCategoriesTable extends Migration
             $table->string('fasilitas');
             $table->string('lb');
             $table->string('lt');
+            $table->string('km');
+            $table->string('kt');
             $table->string('lokasi');
             $table->string('harga');
             $table->string('type')->nullable();

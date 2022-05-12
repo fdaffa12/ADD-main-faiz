@@ -45,6 +45,26 @@
 
             <div class="col-lg-3">
                 <div class="form-group">
+                    <label for="kt">Kamar Tidur</label>
+                    <input type="text" class="form-control" name="kt" id="kt">
+                    @error('kt')
+                    <strong class="text-danger">{{$message}}</strong>
+                    @enderror
+                </div>
+            </div>
+
+            <div class="col-lg-3">
+                <div class="form-group">
+                    <label for="km">Kamar Mandi</label>
+                    <input type="text" class="form-control" name="km" id="km">
+                    @error('km')
+                    <strong class="text-danger">{{$message}}</strong>
+                    @enderror
+                </div>
+            </div>
+
+            <div class="col-lg-3">
+                <div class="form-group">
                     <label for="lb">Harga</label>
                     <input type="text" class="form-control" name="harga" id="harga">
                     @error('harga')

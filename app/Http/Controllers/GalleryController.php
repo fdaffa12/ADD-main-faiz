@@ -50,6 +50,8 @@ class GalleryController extends Controller
             'fasilitas' => 'required',
             'lb' => 'required',
             'lt' => 'required',
+            'km' => 'required',
+            'kt' => 'required',
             'type',
             'lokasi' => 'required',
             'harga' => 'required',
@@ -72,6 +74,8 @@ class GalleryController extends Controller
         $category->fasilitas = $request->input('fasilitas');
         $category->lb = $request->input('lb');
         $category->lt = $request->input('lt');
+        $category->km = $request->input('km');
+        $category->kt = $request->input('kt');
         $category->type = $request->input('type');
         $category->lokasi = $request->input('lokasi');
         $category->harga = $request->input('harga');
@@ -125,6 +129,8 @@ class GalleryController extends Controller
             'fasilitas' => 'required',
             'lt' => 'required',
             'lb' => 'required',
+            'km' => 'required',
+            'kt' => 'required',
             'type',
             'lokasi' => 'required',
             'harga' => 'required',
@@ -137,6 +143,8 @@ class GalleryController extends Controller
         $data['fasilitas'] = $request->fasilitas;
         $data['lt'] = $request->lt;
         $data['lb'] = $request->lb;
+        $data['km'] = $request->km;
+        $data['kt'] = $request->kt;
         $data['type'] = $request->type;
         $data['list_id'] = $request->list_id;
         $data['lokasi'] = $request->lokasi;

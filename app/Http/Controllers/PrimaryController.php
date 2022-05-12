@@ -6,6 +6,7 @@ use App\Developer;
 use App\Primary;
 use App\PrimaryItem;
 use Illuminate\Http\Request;
+use Response;
 
 class PrimaryController extends Controller
 {
@@ -27,6 +28,13 @@ class PrimaryController extends Controller
         return view('backend.primary.index')->with('primaries', $primaries);
     }
 
+    public function primary(Request $request)
+    {
+        $primaries = Primary::orderBy('id', 'desc')->get();
+        $developer = Developer::orderBy('id', 'desc')->get();
+        return view('backend.primary.primary', compact('developer', 'primaries'));
+    }
+
     public function add()
     {
         $developer = Developer::orderBy('nama_dev', 'asc')->get();
@@ -42,6 +50,8 @@ class PrimaryController extends Controller
             'fasilitas' => 'required',
             'lb' => 'required',
             'lt' => 'required',
+            'kt' => 'required',
+            'km' => 'required',
             'type',
             'lokasi' => 'required',
             'harga' => 'required',
@@ -64,6 +74,8 @@ class PrimaryController extends Controller
         $category->fasilitas = $request->input('fasilitas');
         $category->lb = $request->input('lb');
         $category->lt = $request->input('lt');
+        $category->kt = $request->input('kt');
+        $category->km = $request->input('km');
         $category->type = $request->input('type');
         $category->lokasi = $request->input('lokasi');
         $category->harga = $request->input('harga');
@@ -117,6 +129,8 @@ class PrimaryController extends Controller
             'fasilitas' => 'required',
             'lt' => 'required',
             'lb' => 'required',
+            'kt' => 'required',
+            'km' => 'required',
             'type',
             'lokasi' => 'required',
             'harga' => 'required',
@@ -129,6 +143,8 @@ class PrimaryController extends Controller
         $data['fasilitas'] = $request->fasilitas;
         $data['lt'] = $request->lt;
         $data['lb'] = $request->lb;
+        $data['kt'] = $request->kt;
+        $data['km'] = $request->km;
         $data['type'] = $request->type;
         $data['dev_id'] = $request->dev_id;
         $data['lokasi'] = $request->lokasi;
@@ -168,5 +184,31 @@ class PrimaryController extends Controller
     {
         Primary::findOrFail($id)->update(['status' => 1]);
         return redirect()->back()->withToastInfo('Berhasil Dipublish');
+    }
+
+    public function fasility($id)
+    {
+        //
+        $primary = Primary::find($id);
+        return response()->json($primary);
+    }
+
+    public function detail($id)
+    {
+        //
+        $detail = Primary::find($id);
+        return response()->json($detail);
+    }
+
+    public function updateFasility(Request $request)
+    {
+        $primary = Primary::find($request->id);
+        $primary->kt = $request->kt;
+        $primary->km = $request->km;
+        $primary->lt = $request->lt;
+        $primary->lb = $request->lb;
+        $primary->save();
+
+        return Response::json($primary);
     }
 }

@@ -12,7 +12,7 @@
 <div class="tab-content">
     <div class="tab-pane fade show active" id="solid-rounded-tab1">
         <div class="table-responsive">
-            <table class="table text-nowrap">
+            <table class="table datatable-responsive">
                 <thead>
                     <tr>
                         <th>Title</th>

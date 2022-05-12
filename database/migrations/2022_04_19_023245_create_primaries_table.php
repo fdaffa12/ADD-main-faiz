@@ -20,6 +20,8 @@ class CreatePrimariesTable extends Migration
             $table->string('fasilitas');
             $table->string('lb');
             $table->string('lt');
+            $table->string('kt');
+            $table->string('km');
             $table->string('lokasi');
             $table->string('harga');
             $table->string('type')->nullable();

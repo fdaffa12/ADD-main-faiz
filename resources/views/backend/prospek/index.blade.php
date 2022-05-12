@@ -6,7 +6,7 @@
 <div class="tab-content">
     <div class="tab-pane fade show active" id="solid-rounded-tab1">
         <div class="table-responsive">
-            <table class="table text-nowrap">
+            <table class="table datatable-button-init-basic">
                 <thead>
                     <tr>
                         <th>No</th>
@@ -32,8 +32,8 @@
                         <td>{{$dt->alamat}}</td>
                         <td>{{$dt->nohp}}</td>
                         <td>{{$dt->pr_status}}</td>
-                        <td>{{$dt->rumah}}</td>
-                        <td>{{$dt->note}}</td>
+                        <td style="white-space: nowrap;">{{$dt->rumah}}</td>
+                        <td style="white-space: nowrap;">{{$dt->note}}</td>
                         <td>{{$dt->created_at->format('m/d/Y')}}</td>
                         <td>
                             @if( $dt->status == 0 )
