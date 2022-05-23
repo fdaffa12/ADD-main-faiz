@@ -40,7 +40,7 @@
             </td>
             <td>
                 <a href="assets/images/placeholders/placeholder.jpg" data-popup="lightbox">
-                    <img src="{{asset('uploads/gallery/'.$item->cover_image)}}" alt="" class="img-preview rounded">
+                    <img src="{{URL::asset('uploads/gallery/'.$item->cover_image)}}" alt="" class="img-preview rounded">
                 </a>
             </td>
             <td>{{$item->primary->title}}</td>

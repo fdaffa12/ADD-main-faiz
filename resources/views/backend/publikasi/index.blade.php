@@ -2,6 +2,11 @@
 @section('')
 @endsection
 @section('dashcontent')
+
+<button type="button" class="btn btn-primary mb-3" data-toggle="modal" data-target="#addModal">
+    Add Post
+</button>
+
 <ul class="nav nav-tabs nav-tabs-solid rounded">
     <li class="nav-item"><a href="{{url('admin/publikasi')}}" class="nav-link rounded-left active">Manage Publikasi</a>
     </li>

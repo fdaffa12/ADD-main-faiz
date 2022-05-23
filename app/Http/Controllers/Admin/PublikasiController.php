@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Publikasi;
 use App\Post;
 use Carbon\Carbon;
+use Response;
 
 class PublikasiController extends Controller
 {
@@ -92,30 +93,47 @@ class PublikasiController extends Controller
             'postcat_id.required' => 'Select categori name',
         ]);
 
-        $data['post_title'] = $request->post_title;
-        $data['description'] = $request->description;
-        $data['postcat_id'] = $request->postcat_id;
-        $data['post_slug'] = strtolower(str_replace(' ', '-', $request->post_title));
-        $data['created_at'] = date('Y-m-d H:i:s');
-        $data['updated_at'] = date('Y-m-d H:i:s');
+
+
+        $post = new Post();
+        $post['post_title'] = $request->post_title;
+        $post['description'] = $request->description;
+        $post['postcat_id'] = $request->postcat_id;
+        $post['post_slug'] = strtolower(str_replace(' ', '-', $request->post_title));
+        $post['created_at'] = date('Y-m-d H:i:s');
+        $post['updated_at'] = date('Y-m-d H:i:s');
 
         //cek poto
         $file = $request->file('image');
         if ($file) {
             $file->move('uploads', $file->getClientOriginalName());
-            $data['image'] = 'uploads/' . $file->getClientOriginalName();
+            $post['image'] = 'uploads/' . $file->getClientOriginalName();
         }
 
-        Post::insert($data);
+        $post->save();
 
-        return redirect()->back()->with('success', 'Post Added');
+        return Response::json($post);
+    }
+
+    public function fetchProducts()
+    {
+        $Posts = Post::orderBy('id', 'desc')->get();
+        $data = \View::make('backend.publikasi.all_products')->with('posts', $Posts)->render();
+        return response()->json(['code' => 1, 'result' => $data]);
+    }
+
+    public function editPostAjax(Request $request)
+    {
+        $posts = Post::find($request->post_id);
+        return response()->json(['code' => 1, 'result' => $posts]);
     }
 
     public function managePost()
     {
         $posts = Post::orderBy('id', 'desc')->get();
+        $publikasi = Publikasi::orderBy('nama', 'asc')->get();
 
-        return view('backend.publikasi.manage-post', compact('posts'));
+        return view('backend.publikasi.manage-post', compact('posts', 'publikasi'));
     }
 
     public function editPost($post_id)

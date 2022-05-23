@@ -2,25 +2,6 @@
 @section('')
 @endsection
 @section('dashcontent')
-<div class="page-header">
-    <div class="page-header-content container header-elements-md-inline">
-        <div class="d-flex">
-            <div class="page-title">
-                <h4 class="font-weight-semibold">Dashboard</h4>
-                <div class="text-muted">Welcome back, Fadlil!</div>
-            </div>
-            <a href="#" class="header-elements-toggle text-body d-md-none"><i class="icon-more"></i></a>
-        </div>
-
-        <div class="header-elements d-none py-0 mb-3 mb-md-0">
-            <button type="button" class="btn btn-primary ml-3"> <i class="icon-plus3 mr-2"></i>
-                Developer</button>
-            <button type="button" class="btn btn-primary ml-3"> <i class="icon-plus3 mr-2"></i>
-                Product</button>
-        </div>
-    </div>
-</div>
-<!-- /page header -->
 
 <!-- Table -->
 <div class="card">
@@ -53,10 +34,9 @@
                                 <td></td>
                                 <td><span class="text-default font-weight-semibold">{{ $dt->nama_dev }}</span>
                                 </td>
-                                <td><img src="{{asset($dt->gambar)}}" width="100px;" height="80px;"
-                                        style="border-radius:10px;" alt=""></td>
-                                <td style="white-space: nowrap;">{{$dt->lokasi}}</td>
-                                <td style="white-space: nowrap;">{!! substr($dt->desc,0,100) !!}</td>
+                                <td><img src="{{asset($dt->gambar)}}" width="100px;" height="80px;" x;" alt=""></td>
+                                <td>{{$dt->lokasi}}</td>
+                                <td style="white-space: nowrap;">{{$dt->desc}}</td>
                                 <td>
                                     @if( $dt->status == 0 )
                                     <label class="label label-info">Subsidi</label>
@@ -305,6 +285,7 @@
 
                 <hr>
 
+                <h6 class="font-weight-semibold">Type : <span id="type"></span></h6>
                 <h6 class="font-weight-semibold">Kamar Tidur : <span id="ktidur"></span></h6>
                 <h6 class="font-weight-semibold">Kamar Mandi : <span id="kmandi"></span></h6>
                 <h6 class="font-weight-semibold">Lokasi : <span id="lokasi"></span></h6>
@@ -340,6 +321,7 @@ function showDetail(id) {
         $("#description").text(detail.description);
         $("#fasilitas").text(detail.fasilitas);
         $("#harga").text(detail.harga);
+        $("#type").text(detail.type);
         $("#lokasi").text(detail.lokasi);
         $("#ktidur").text(detail.kt);
         $("#kmandi").text(detail.km);

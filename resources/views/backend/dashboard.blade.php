@@ -50,9 +50,9 @@
 
 </head>
 
-<body>
+<body class="navbar-top">
 
-    <nav class="navbar navbar-expand-lg navbar-light">
+    <!-- <nav class="navbar navbar-expand-lg navbar-light">
         <a class="navbar-brand" href="{{url('admin/home')}}">
             <img src="{{asset('assets/images/logobaru.png')}}" class="d-none d-sm-block d-sm-none" alt=""
                 style="height: 2.125rem;">
@@ -109,12 +109,6 @@
                         Publikasi
                     </a>
                 </li>
-                <!-- <li class="nav-item">
-                    <a href="{{url('admin/index-pages')}}"
-                        class="navbar-nav-link navbar-nav-link-toggler d-flex align-items-center h-100">
-                        Pages
-                    </a>
-                </li> -->
                 <li class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -183,8 +177,52 @@
                 </li>
             </ul>
         </div>
-    </nav>
+    </nav> -->
 
+
+    <!-- Main navbar -->
+    <div class="navbar navbar-expand-lg navbar-light fixed-top px-lg-0">
+        <div class="d-flex flex-1 flex-wrap container-boxed">
+            <div class="navbar-brand wmin-0 mr-lg-5 order-1 order-lg-0">
+                <a href="index.html" class="d-inline-block">
+                    <img src="{{ asset('assets/images/logo_text.png') }}" class="d-none d-sm-block" alt="">
+                    <img src="{{ asset('assets/images/logo_light2.png') }}" class="d-sm-none" alt="">
+                </a>
+            </div>
+
+            <div class="d-flex flex-1 order-0 order-lg-1">
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-id">
+                    <i class="icon-paragraph-justify3"></i>
+                </button>
+            </div>
+            <ul class="navbar-nav flex-row flex-1 justify-content-end align-items-center order-2">
+
+                <li class="nav-item nav-item-dropdown-lg dropdown dropdown-user h-100">
+                    <a href="#"
+                        class="navbar-nav-link navbar-nav-link-toggler d-inline-flex align-items-center h-100 dropdown-toggle"
+                        data-toggle="dropdown">
+                        <img src="{{ asset('assets/images/placeholders/placeholder.jpg') }}" class="rounded-pill"
+                            height="34" alt="">
+                        <span class="d-none d-lg-inline-block ml-2">Fadlil</span>
+                    </a>
+
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <a href="#" class="dropdown-item"><i class="icon-user-plus"></i> My profile</a>
+                        <a href="#" class="dropdown-item"><i class="icon-cog5"></i> Account settings</a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item"><i class="icon-switch2"></i> Logout</a>
+                    </div>
+                </li>
+            </ul>
+
+            <div class="navbar-collapse collapse" id="navbar-id">
+                <ul class="navbar-nav navbar-nav-underline ml-xl-auto">
+                    @yield('navbar')
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /main navbar -->
 
 
 
@@ -205,6 +243,11 @@
                                 <h4 class="font-weight-semibold">Dashboard</h4>
                                 <div class="text-muted">Welcome back, Fadlil!</div>
                             </div>
+                            <a href="#" class="header-elements-toggle text-body d-md-none"><i class="icon-more"></i></a>
+                        </div>
+
+                        <div class="header-elements d-none py-0 mb-3 mb-md-0">
+                            @yield('headbutton')
                         </div>
                     </div>
                 </div>
@@ -215,12 +258,12 @@
                 <div class="content container pt-0">
 
                     <!-- Latest orders -->
-                    <div class="card">
-                        <div class="card-body">
-                            @yield('dashcontent')
-                        </div>
+                    <!-- <div class="card">
+                        <div class="card-body"> -->
+                    @yield('dashcontent')
+                    <!-- </div>
 
-                    </div>
+                    </div> -->
                     <!-- /latest orders -->
 
                     <!-- Facility modal -->

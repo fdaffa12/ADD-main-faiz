@@ -53,9 +53,12 @@ Route::group(['middleware' => 'is_admin'], function () {
     Route::get('admin/publish-publikasi/{publikasi_id}', 'Admin\PublikasiController@publish');
     Route::get('admin/post', 'Admin\PublikasiController@post')->name('post');
     Route::get('admin/add-post', 'Admin\PublikasiController@addPost')->name('add.post');
-    Route::post('admin/store-post', 'Admin\PublikasiController@storePost')->name('store.post');
+    Route::post('/admin/store-post', 'Admin\PublikasiController@storePost')->name('store.post');
+    // Route::get('admin/store-post', 'Admin\PublikasiController@storePost')->name('store.post');
     Route::get('admin/manage-post', 'Admin\PublikasiController@managePost')->name('manage.post');
-    Route::get('admin/edit-posts/{post_id}', 'Admin\PublikasiController@editPost');
+    Route::get('admin/read-post', 'Admin\PublikasiController@fetchProducts')->name('get.post');
+    Route::get('admin/edit-post', 'Admin\PublikasiController@editPostAjax')->name('editPost.ajax');
+    // Route::get('admin/edit-posts/{post_id}', 'Admin\PublikasiController@editPost');
     Route::post('admin/update-post', 'Admin\PublikasiController@updatePost')->name('update.post');
     Route::get('admin/delete-posts/{post_id}', 'Admin\PublikasiController@destroyPost');
     Route::get('admin/draft-posts/{post_id}', 'Admin\PublikasiController@draftPost');
@@ -181,7 +184,26 @@ Route::get('admin/publish-prospek/{prospek_id}', 'Admin\ProspekController@publis
 // Route::view('/primary', 'dashboard/primary');
 // Route::view('/secondary', 'dashboard/secondary');
 // Route::view('/input', 'dashboard/inputsec');
-Route::view('/media', 'dashboard/mediamgr');
+
+//Digital
+//campaign
+Route::get('admin/digital', 'Admin\DigitalMarketingController@index');
+Route::post('admin/digital/store-campaign', 'Admin\DigitalMarketingController@storeCampaign')->name('store.campaign');
+Route::get('admin/read-digital', 'Admin\DigitalMarketingController@fetchCampaign')->name('get.campaign');
+Route::get('admin/digital/spreadsheet', 'Admin\DigitalMarketingController@spreadsheet');
+//leads
+Route::get('admin/digital/detail/{id}', 'Admin\DigitalMarketingController@digidet')->name('digital.detail');
+Route::post('admin/digital/store-leads', 'Admin\DigitalMarketingController@storeLeads')->name('store.leads');
+Route::get('admin/read-leads', 'Admin\DigitalMarketingController@fetchLeads')->name('get.leads');
+Route::get('admin/leads/detail/{id}', 'Admin\DigitalMarketingController@detailLeads')->name('leads.detail');
+Route::get('admin/leads/info/{id}', 'Admin\DigitalMarketingController@infoLeads')->name('info.detail');
+Route::get('admin/followup/{leds_id}', 'Admin\DigitalMarketingController@followup');
+Route::get('admin/closing/{leds_id}', 'Admin\DigitalMarketingController@closing');
+Route::get('admin/berminat/{leds_id}', 'Admin\DigitalMarketingController@berminat');
+Route::get('admin/repurpose/{leds_id}', 'Admin\DigitalMarketingController@repurpose');
+Route::get('admin/notint/{leds_id}', 'Admin\DigitalMarketingController@notint');
+//message
+Route::post('admin/digital/store-message', 'Admin\DigitalMarketingController@storeMessage')->name('store.message');
 
 //dashboard
 Route::get('kebijakan-privasi', 'DashboardController@kebijakan');
