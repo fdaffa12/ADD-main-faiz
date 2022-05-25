@@ -351,19 +351,6 @@
                 </div>
                 <!-- /content area -->
 
-
-                <!-- Footer -->
-                <div class="content container pt-0">
-                    <div class="navbar navbar-expand-lg navbar-light border-bottom-0 border-top">
-                        <div class="navbar-collapse collapse" id="navbar-footer">
-                            <span class="navbar-text">
-                                &copy; 2020 - 2021. <a href="#">Rudi Prima Persada</a>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-                <!-- /footer -->
-
             </div>
             <!-- /inner content -->
 
@@ -372,6 +359,24 @@
 
     </div>
     <!-- /page content -->
+
+    <!-- Footer -->
+    <div class="navbar navbar-expand-lg navbar-light">
+        <div class="text-center d-lg-none w-100">
+            <button type="button" class="navbar-toggler dropdown-toggle" data-toggle="collapse"
+                data-target="#navbar-footer">
+                <i class="icon-unfold mr-2"></i>
+                Footer
+            </button>
+        </div>
+
+        <div class="navbar-collapse collapse" id="navbar-footer">
+            <span class="navbar-text">
+                &copy; 2020 - 2021. <a href="#">Rudi Prima Persada</a>
+            </span>
+        </div>
+    </div>
+    <!-- /footer -->
     <script>
     var popup = document.querySelector(".popup");
     var dismiss = document.querySelector(".popup__dismiss");

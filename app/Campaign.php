@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Campaign extends Model
 {
     protected $fillable = [
-        'nama_iklan', 'durasi', 'sosmed', 'gambar', 'developer_id', 'project_id', 'budget'
+        'nama_iklan', 'durasi', 'sosmed', 'gambar', 'developer_id', 'project_id', 'budget', 'status'
     ];
 
     public function developer()

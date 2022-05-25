@@ -62,7 +62,7 @@
 
                 <p>Project : {{$post->project->title}}</p>
 
-                <p>Budget : {{$post->budget}}</p>
+                <p>Budget : @currency($post->budget)</p>
 
                 <!-- Fasilitas:
                 </br>Dekat dengan Neraka</br>Penjagaan 24/7 Oleh malaikat</br>Akses menuju <a href="#">[...]</a> -->
@@ -224,7 +224,8 @@
                     <td>
                         <div class="d-flex align-items-center">
                             <div class="mr-3">
-                                <a href="#" class="btn btn-teal rounded-pill btn-icon btn-sm">
+                                <a href="{{route('info.detail', $post->id)}}"
+                                    class="btn btn-teal rounded-pill btn-icon btn-sm">
                                     <span class="letter-icon"></span>
                                 </a>
                             </div>
@@ -268,7 +269,8 @@
                     <td>
                         <div class="d-flex align-items-center">
                             <div class="mr-3">
-                                <a href="#" class="btn btn-warning rounded-pill btn-icon btn-sm">
+                                <a href="{{route('info.detail', $post->id)}}"
+                                    class="btn btn-warning rounded-pill btn-icon btn-sm">
                                     <span class="letter-icon"></span>
                                 </a>
                             </div>
@@ -322,12 +324,13 @@
                     <td>
                         <div class="d-flex align-items-center">
                             <div class="mr-3">
-                                <a href="#" class="btn btn-success rounded-pill btn-icon btn-sm">
+                                <a href="{{route('info.detail', $post->id)}}"
+                                    class="btn btn-success rounded-pill btn-icon btn-sm">
                                     <span class="letter-icon"></span>
                                 </a>
                             </div>
                             <div>
-                                <a href="#"
+                                <a href="{{route('info.detail', $post->id)}}"
                                     class="text-body font-weight-semibold letter-icon-title">{{$post->nama_cus}}</a>
                                 <div class="text-muted font-size-sm"><span
                                         class="badge badge-mark border-success mr-1"></span>
@@ -365,12 +368,13 @@
                     <td>
                         <div class="d-flex align-items-center">
                             <div class="mr-3">
-                                <a href="#" class="btn btn-pink rounded-pill btn-icon btn-sm">
+                                <a href="{{route('info.detail', $post->id)}}"
+                                    class="btn btn-pink rounded-pill btn-icon btn-sm">
                                     <span class="letter-icon"></span>
                                 </a>
                             </div>
                             <div>
-                                <a href="#"
+                                <a href="{{route('info.detail', $post->id)}}"
                                     class="text-body font-weight-semibold letter-icon-title">{{$post->nama_cus}}</a>
                                 <div class="text-muted font-size-sm"><span
                                         class="badge badge-mark border-success mr-1"></span>
@@ -419,12 +423,13 @@
                     <td>
                         <div class="d-flex align-items-center">
                             <div class="mr-3">
-                                <a href="#" class="btn btn-warning rounded-pill btn-icon btn-sm">
+                                <a href="{{route('info.detail', $post->id)}}"
+                                    class="btn btn-warning rounded-pill btn-icon btn-sm">
                                     <span class="letter-icon"></span>
                                 </a>
                             </div>
                             <div>
-                                <a href="#"
+                                <a href="{{route('info.detail', $post->id)}}"
                                     class="text-body font-weight-semibold letter-icon-title">{{$post->nama_cus}}</a>
                                 <div class="text-muted font-size-sm"><span
                                         class="badge badge-mark border-warning mr-1"></span>
@@ -463,12 +468,13 @@
                     <td>
                         <div class="d-flex align-items-center">
                             <div class="mr-3">
-                                <a href="#" class="btn btn-indigo rounded-pill btn-icon btn-sm">
+                                <a href="{{route('info.detail', $post->id)}}"
+                                    class="btn btn-indigo rounded-pill btn-icon btn-sm">
                                     <span class="letter-icon"></span>
                                 </a>
                             </div>
                             <div>
-                                <a href="#"
+                                <a href="{{route('info.detail', $post->id)}}"
                                     class="text-body font-weight-semibold letter-icon-title">{{$post->nama_cus}}</a>
                                 <div class="text-muted font-size-sm"><span
                                         class="badge badge-mark border-danger mr-1"></span>
@@ -534,6 +540,17 @@
                             </div>
 
                             <div class="form-group">
+                                <label>Leads From:</label>
+                                <select name="leads_by" class="form-control" value="{{old('leads_by')}}">
+                                    <option value="FB Inbox" selected>FB Inbox</option>
+                                    <option value="FB Comment">FB Comment</option>
+                                    <option value="IG Inbox">IG Inbox</option>
+                                    <option value="IG Comment">IG Comment</option>
+                                    <option value="WhatsApp">WhatsApp</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
                                 <label>Kota Asal:</label>
                                 <input type="text" name="kota" class="form-control">
                             </div>
@@ -586,26 +603,6 @@
                             </a>
                         </tr>
                         <tr>
-                            <td><i class="icon-circles2 mr-2"></i> Status:</td>
-                            <td class="text-right">
-                                <div class="btn-group">
-                                    <a href="#" class="badge badge-primary dropdown-toggle"
-                                        data-toggle="dropdown">Baru</a>
-                                    <div class="dropdown-menu dropdown-menu-right">
-                                        <a href="#" class="dropdown-item"><span
-                                                class="badge badge-mark mr-2 bg-yellow border-yellow"></span> Follow
-                                            up</a>
-                                        <a href="#" class="dropdown-item"><span
-                                                class="badge badge-mark mr-2 bg-success border-success"></span>
-                                            Berminat</a>
-                                        <a href="#" class="dropdown-item"><span
-                                                class="badge badge-mark mr-2 bg-danger border-danger"></span> Tidak
-                                            Tertarik</a>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
                             <td><i class="icon-user mr-2"></i> Nama:</td>
                             <td class="text-right"><span id="nama_cus"></span></td>
                         </tr>
@@ -620,245 +617,6 @@
                     </tbody>
                 </table>
                 <!-- /Consumer Data -->
-
-                <!-- Uploaded Files -->
-                <div class="media-title d-flex">
-                    <h6 class="font-weight-semibold">Uploaded files</h6>
-                    <!-- <span class="font-size-sm text-muted ml-auto mr-3">edit</span> -->
-                    <span class="ml-auto mr-3">
-                        <div class="list-icons">
-                            <div class="dropdown">
-                                <a href="#" class="list-icons-item" data-toggle="dropdown"><i
-                                        class="icon-menu7"></i></a>
-                                <div class="dropdown-menu dropdown-menu-right">
-                                    <a href="#" class="dropdown-item"><i class="icon-upload"></i> Upload</a>
-                                    <a href="#" class="dropdown-item"><i class="icon-pencil7"></i> Edit</a>
-                                </div>
-                            </div>
-                        </div>
-                    </span>
-                </div>
-                <div class="card-body">
-                    <ul class="media-list">
-                        <li class="media">
-                            <div class="mr-3 align-self-center">
-                                <i class="icon-file-picture icon-2x text-indigo top-0"></i>
-                            </div>
-
-                            <div class="media-body">
-                                <a href="#" class="font-weight-semibold text-white">SeharusnyaNamaFile.npg</a>
-                                <div class="text-muted font-size-sm">Size: 1.2Mb</div>
-                            </div>
-
-                            <div class="ml-3">
-                                <div class="list-icons">
-                                    <a href="#" class="list-icons-item"><i class="icon-download"></i></a>
-                                </div>
-                            </div>
-                        </li>
-
-                        <li class="media">
-                            <div class="mr-3 align-self-center">
-                                <i class="icon-file-picture icon-2x text-indigo top-0"></i>
-                            </div>
-
-                            <div class="media-body">
-                                <a href="#" class="font-weight-semibold text-white">iniJugaSeharusnyaNamaFile.pjg</a>
-                                <div class="text-muted font-size-sm">Size: 0.9Mb</div>
-                            </div>
-
-                            <div class="ml-3">
-                                <div class="list-icons">
-                                    <a href="#" class="list-icons-item"><i class="icon-download"></i></a>
-                                </div>
-                            </div>
-                        </li>
-
-                        <li class="media">
-                            <div class="mr-3 align-self-center">
-                                <i class="icon-file-pdf icon-2x text-warning top-0"></i>
-                            </div>
-
-                            <div class="media-body">
-                                <a href="#" class="font-weight-semibold text-white">sayaSiapa?.ST.MH</a>
-                                <div class="text-muted font-size-sm">Size: 14.9Mb</div>
-                            </div>
-
-                            <div class="ml-3">
-                                <div class="list-icons">
-                                    <a href="#" class="list-icons-item"><i class="icon-download"></i></a>
-                                </div>
-                            </div>
-                        </li>
-
-                        <li class="media">
-                            <div class="mr-3 align-self-center">
-                                <i class="icon-file-pdf icon-2x text-warning top-0"></i>
-                            </div>
-
-                            <div class="media-body">
-                                <a href="#" class="font-weight-semibold text-white">Drs.Ir.iniNamaFileKan?</a>
-                                <div class="text-muted font-size-sm">Size: 9Tb</div>
-                            </div>
-
-                            <div class="ml-3">
-                                <div class="list-icons">
-                                    <a href="#" class="list-icons-item"><i class="icon-download"></i></a>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                <!-- /Uploaded Files -->
-
-                Messages
-                <h6 class="font-weight-semibold">Messages</h6>
-                <div class="media-chat-scrollable mb-3">
-                    <ul class="media-list">
-                        <li class="media content-divider justify-content-center text-muted mx-0">
-                            <span class="px-2">Monday, Feb 12</span>
-                        </li>
-                        <li class="media">
-                            <div class="mr-3"><img src="../../../../global_assets/images/placeholders/placeholder.jpg"
-                                    class="rounded-circle" width="40" height="40" alt=""></div>
-                            <div class="media-body">
-                                <ul class="media-title list-inline list-inline-dotted">
-                                    <li class="list-inline-item"><a href="#"
-                                            class="font-weight-semibold">Telemarketing</a></li>
-                                    <li class="list-inline-item"><span class="font-size-sm text-muted">1:23 pm</span>
-                                    </li>
-                                </ul>
-                                Follow up, Follow up, Follow up,
-                            </div>
-                        </li>
-
-                        <li class="media">
-                            <div class="mr-3"><img src="../../../../global_assets/images/placeholders/placeholder.jpg"
-                                    class="rounded-circle" width="40" height="40" alt=""></div>
-                            <div class="media-body">
-                                <ul class="media-title list-inline list-inline-dotted">
-                                    <li class="list-inline-item"><a href="#"
-                                            class="font-weight-semibold">Telemarketing</a></li>
-                                    <li class="list-inline-item"><span class="font-size-sm text-muted dotted">4:56
-                                            pm</span></li>
-                                </ul>
-                                Follow up, Follow up, Follow up, Follow up, Follow up, Follow up,
-                            </div>
-                        </li>
-
-                        <li class="media content-divider justify-content-center text-muted mx-0">
-                            <span class="px-2">Doomsday, Feb 30</span>
-                        </li>
-
-                        <li class="media">
-                            <div class="mr-3"><img src="../../../../global_assets/images/placeholders/placeholder.jpg"
-                                    class="rounded-circle" width="40" height="40" alt=""></div>
-                            <div class="media-body">
-                                <ul class="media-title list-inline list-inline-dotted">
-                                    <li class="list-inline-item"><a href="#"
-                                            class="font-weight-semibold">Telemarketing</a></li>
-                                    <li class="list-inline-item"><span class="font-size-sm text-muted">2:03 pm</span>
-                                    </li>
-                                </ul>
-                                Follow up, Follow up, Follow up, Follow up, Follow up,
-                            </div>
-                        </li>
-
-                        <li class="media">
-                            <div class="mr-3"><img src="../../../../global_assets/images/placeholders/placeholder.jpg"
-                                    class="rounded-circle" width="40" height="40" alt=""></div>
-                            <div class="media-body">
-                                <ul class="media-title list-inline list-inline-dotted">
-                                    <li class="list-inline-item"><a href="#"
-                                            class="font-weight-semibold">Telemarketing</a></li>
-                                    <li class="list-inline-item"><span class="font-size-sm text-muted dotted">5:14
-                                            pm</span></li>
-                                </ul>
-                                Follow up, Follow up, Follow up, Follow up, Follow up, Follow up, Follow up, Follow up,
-                                Follow up,
-                            </div>
-                        </li>
-
-                        <li class="media content-divider justify-content-center text-muted mx-0">
-                            <span class="text-muted px-2">Yesterday</span>
-                        </li>
-
-                        <li class="media">
-                            <div class="mr-3"><img src="../../../../global_assets/images/placeholders/placeholder.jpg"
-                                    class="rounded-circle" width="40" height="40" alt=""></div>
-                            <div class="media-body">
-                                <ul class="media-title list-inline list-inline-dotted">
-                                    <li class="list-inline-item"><a href="#"
-                                            class="font-weight-semibold">Telemarketing</a></li>
-                                    <li class="list-inline-item"><span class="font-size-sm text-muted dotted">2:29
-                                            am</span></li>
-                                </ul>
-                                Follow up, Follow up, Follow up, Follow up, Follow up, Follow up, Follow up, Follow up,
-                                Follow up, Follow up, Follow up, Follow up, Follow up, Follow up, Follow up,
-                            </div>
-                        </li>
-
-                        <li class="media">
-                            <div class="mr-3"><img src="../../../../global_assets/images/placeholders/placeholder.jpg"
-                                    class="rounded-circle" width="40" height="40" alt=""></div>
-                            <div class="media-body">
-                                <ul class="media-title list-inline list-inline-dotted">
-                                    <li class="list-inline-item"><a href="#"
-                                            class="font-weight-semibold">Telemarketing</a></li>
-                                    <li class="list-inline-item"><span class="font-size-sm text-muted dotted">8:20
-                                            am</span></li>
-                                </ul>
-                                Follow up, Follow up, Follow up,
-                            </div>
-                        </li>
-
-                        <li class="media content-divider justify-content-center text-muted mx-0">
-                            <span class="text-muted px-2">Today</span>
-                        </li>
-
-                        <li class="media">
-                            <div class="mr-3"><img src="../../../../global_assets/images/placeholders/placeholder.jpg"
-                                    class="rounded-circle" width="40" height="40" alt=""></div>
-                            <div class="media-body">
-                                <ul class="media-title list-inline list-inline-dotted">
-                                    <li class="list-inline-item"><a href="#"
-                                            class="font-weight-semibold">Telemarketing</a></li>
-                                    <li class="list-inline-item"><span class="font-size-sm text-muted dotted">9:00
-                                            am</span></li>
-                                </ul>
-                                Follow up, Follow up, Follow up, Follow up,
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-
-                <form action="{{route('store.message')}}" method="post">
-                    @csrf
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="form-group">
-                                <input type="hidden" id="id_leads" name="id">
-                            </div>
-                        </div>
-                        <div class="col-lg-12">
-                            <div class="form-group">
-                                <input type="text" name="judul" placeholder="Masukan Judul" class="form-control">
-                            </div>
-                        </div>
-
-                        <div class="col-lg-12">
-                            <div class="form-group">
-                                <textarea name="pesan" class="form-control mb-3" rows="3" cols="1"
-                                    placeholder="Enter your message..."></textarea>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="d-flex align-items-center">
-                        <button type="submit" class="btn btn-indigo btn-labeled btn-labeled-right ml-auto"><b><i
-                                    class="icon-paperplane"></i></b> Send message</button>
-                    </div>
-                </form>
 
             </div>
         </div>

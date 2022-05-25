@@ -6,7 +6,7 @@
 @endsection
 @section('dashcontent')
 <!-- Wizard with validation -->
-<div class="card">
+<div class="card col-12">
     <div class="card-header bg-primary header-elements-inline">
         <h6 class="card-title">Setting Profile</h6>
     </div>

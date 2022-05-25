@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Lead extends Model
 {
     protected $fillable = [
-        'nama_cus', 'kota', 'tanggal', 'status', 'nohp', 'minat', 'image', 'keterangan', 'campaign_id'
+        'nama_cus', 'kota', 'tanggal', 'status', 'nohp', 'minat', 'keterangan', 'campaign_id', 'leads_by'
     ];
 
     public function campaign()
@@ -17,6 +17,6 @@ class Lead extends Model
 
     public function message()
     {
-        return $this->hasMany('App\Message');
+        return $this->belongsTo('App\Message');
     }
 }

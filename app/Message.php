@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Message extends Model
 {
-    protected $fillable = ['leads_id', 'judul', 'pesan'];
+    protected $fillable = ['leads_id', 'file', 'pesan'];
 
     public function leads()
     {

@@ -13,6 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Route::get('create-admin',function(){
+//     \DB::table('users')->insert([
+//         'name' => 'Telemarketing',
+//         'email' => 'tele@marketing.com',
+//         'is_admin' => '0',
+//         'password' => bcrypt('addpro123'),
+//     ]);
+// });
+
 Route::get('/', 'DashboardController@index')->name('home.route');
 
 Route::get('admin/home', 'HomeController@adminHome')->name('admin.home')->middleware('is_admin');
@@ -191,10 +200,15 @@ Route::get('admin/digital', 'Admin\DigitalMarketingController@index');
 Route::post('admin/digital/store-campaign', 'Admin\DigitalMarketingController@storeCampaign')->name('store.campaign');
 Route::get('admin/read-digital', 'Admin\DigitalMarketingController@fetchCampaign')->name('get.campaign');
 Route::get('admin/digital/spreadsheet', 'Admin\DigitalMarketingController@spreadsheet');
+Route::get('admin/campaign/active/{camp_id}', 'Admin\DigitalMarketingController@active');
+Route::get('admin/campaign/inactive/{camp_id}', 'Admin\DigitalMarketingController@inactive');
+Route::get('admin/campaign/edit/{camp_id}', 'Admin\DigitalMarketingController@editCampaign');
+Route::post('admin/campaign/update', 'Admin\DigitalMarketingController@updateCampaign')->name('update.campaign');
+Route::get('admin/campaign/delete/{camp_id}', 'Admin\DigitalMarketingController@deleteCampaign');
 //leads
 Route::get('admin/digital/detail/{id}', 'Admin\DigitalMarketingController@digidet')->name('digital.detail');
 Route::post('admin/digital/store-leads', 'Admin\DigitalMarketingController@storeLeads')->name('store.leads');
-Route::get('admin/read-leads', 'Admin\DigitalMarketingController@fetchLeads')->name('get.leads');
+Route::get('admin/read-leads/', 'Admin\DigitalMarketingController@fetchLeads')->name('get.leads');
 Route::get('admin/leads/detail/{id}', 'Admin\DigitalMarketingController@detailLeads')->name('leads.detail');
 Route::get('admin/leads/info/{id}', 'Admin\DigitalMarketingController@infoLeads')->name('info.detail');
 Route::get('admin/followup/{leds_id}', 'Admin\DigitalMarketingController@followup');
@@ -202,8 +216,11 @@ Route::get('admin/closing/{leds_id}', 'Admin\DigitalMarketingController@closing'
 Route::get('admin/berminat/{leds_id}', 'Admin\DigitalMarketingController@berminat');
 Route::get('admin/repurpose/{leds_id}', 'Admin\DigitalMarketingController@repurpose');
 Route::get('admin/notint/{leds_id}', 'Admin\DigitalMarketingController@notint');
+Route::get('admin/leads/edit/{leds_id}', 'Admin\DigitalMarketingController@editLeads');
+Route::post('admin/update/leads', 'Admin\DigitalMarketingController@updateLeads')->name('update.leads');
 //message
 Route::post('admin/digital/store-message', 'Admin\DigitalMarketingController@storeMessage')->name('store.message');
+Route::post('admin/digital/store-file', 'Admin\DigitalMarketingController@storeFile')->name('store.file');
 
 //dashboard
 Route::get('kebijakan-privasi', 'DashboardController@kebijakan');

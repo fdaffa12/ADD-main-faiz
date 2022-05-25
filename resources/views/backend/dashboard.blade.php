@@ -50,9 +50,9 @@
 
 </head>
 
-<body class="navbar-top">
+<body>
 
-    <!-- <nav class="navbar navbar-expand-lg navbar-light">
+    <nav class="navbar navbar-expand-lg navbar-light">
         <a class="navbar-brand" href="{{url('admin/home')}}">
             <img src="{{asset('assets/images/logobaru.png')}}" class="d-none d-sm-block d-sm-none" alt=""
                 style="height: 2.125rem;">
@@ -133,6 +133,12 @@
                             Prospek</a>
                     </div>
                 </li>
+
+                <li class="nav-item dropdown">
+                    <a href="{{url('admin/digital')}}" class="nav-link">
+                        Digital
+                    </a>
+                </li>
                 @else
                 <li class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
@@ -161,6 +167,12 @@
                             Prospek</a>
                     </div>
                 </li>
+
+                <li class="nav-item dropdown">
+                    <a href="{{url('admin/digital')}}" class="nav-link">
+                        Digital
+                    </a>
+                </li>
                 @endif
             </ul>
             <ul class="nav navbar-nav ml-auto">
@@ -177,11 +189,11 @@
                 </li>
             </ul>
         </div>
-    </nav> -->
+    </nav>
 
 
     <!-- Main navbar -->
-    <div class="navbar navbar-expand-lg navbar-light fixed-top px-lg-0">
+    <!-- <div class="navbar navbar-expand-lg navbar-light fixed-top px-lg-0">
         <div class="d-flex flex-1 flex-wrap container-boxed">
             <div class="navbar-brand wmin-0 mr-lg-5 order-1 order-lg-0">
                 <a href="index.html" class="d-inline-block">
@@ -221,7 +233,7 @@
                 </ul>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- /main navbar -->
 
 
@@ -273,25 +285,6 @@
                 </div>
                 <!-- /content area -->
 
-
-                <!-- Footer -->
-                <div class="navbar navbar-expand-lg navbar-light">
-                    <div class="text-center d-lg-none w-100">
-                        <button type="button" class="navbar-toggler dropdown-toggle" data-toggle="collapse"
-                            data-target="#navbar-footer">
-                            <i class="icon-unfold mr-2"></i>
-                            Footer
-                        </button>
-                    </div>
-
-                    <div class="navbar-collapse collapse" id="navbar-footer">
-                        <span class="navbar-text">
-                            &copy; 2020 - 2021. <a href="#">Rudi Prima Persada</a>
-                        </span>
-                    </div>
-                </div>
-                <!-- /footer -->
-
             </div>
             <!-- /inner content -->
 
@@ -300,6 +293,24 @@
 
     </div>
     <!-- /page content -->
+
+    <!-- Footer -->
+    <div class="navbar navbar-expand-lg navbar-light">
+        <div class="text-center d-lg-none w-100">
+            <button type="button" class="navbar-toggler dropdown-toggle" data-toggle="collapse"
+                data-target="#navbar-footer">
+                <i class="icon-unfold mr-2"></i>
+                Footer
+            </button>
+        </div>
+
+        <div class="navbar-collapse collapse" id="navbar-footer">
+            <span class="navbar-text">
+                &copy; 2020 - 2021. <a href="#">Rudi Prima Persada</a>
+            </span>
+        </div>
+    </div>
+    <!-- /footer -->
 
     <style>
     .swal-modal {

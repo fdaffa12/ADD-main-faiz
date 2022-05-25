@@ -23,8 +23,11 @@
 </li>
 @endsection
 @section('headbutton')
+@if (Auth::user()->email == 'admin@admin.com')
 <button type="button" class="btn btn-primary ml-3" data-toggle="modal" data-target="#addModal"> <i
         class="icon-plus3 mr-2"></i> New Campaign</button>
+@elseif (Auth::user()->email == 'tele@marketing.com')
+@endif
 @endsection
 @section('js')
 <script src="{{ asset('assets/js/pages/developer_datatable.js') }}"></script>
@@ -34,7 +37,7 @@
     <div class="card-header header-elements-sm-inline">
         <h6 class="card-title">Marketing campaigns</h6>
         <div class="header-elements">
-            <span class="badge badge-success badge-pill">28 active</span>
+            <span class="badge badge-success badge-pill">{{$activecampaign}} active</span>
             <div class="list-icons ml-3">
                 <div class="dropdown">
                     <a href="#" class="list-icons-item dropdown-toggle" data-toggle="dropdown"><i
@@ -67,7 +70,7 @@
                 <i class="icon-profile"></i>
             </a>
             <div class="ml-3">
-                <h5 class="font-weight-semibold mb-0">1,132</h5>
+                <h5 class="font-weight-semibold mb-0">{{$jumlahleads}}</h5>
                 <span class="text-muted">Leads</span>
             </div>
         </div>
