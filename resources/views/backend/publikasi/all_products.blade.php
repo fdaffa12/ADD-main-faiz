@@ -32,12 +32,12 @@
                         <div class="dropdown-menu dropdown-menu-right">
                             <!-- <a href="#" class="dropdown-item"><i class="icon-file-picture"></i> Manage
                                             Media</a> -->
-                            <!-- <a href="{{url('admin/edit-posts/'.$post->id)}}" class="dropdown-item"><i
-                                    class="icon-file-text2"></i> Edit
-                                Post</a> -->
-                            <button class="dropdown-item" data-id="{{$post->id}}" id="editBtn"><i
+                            <a href="javascript:void(0)" onclick="editDetailLeads({{$post->id}})" data-toggle="modal"
+                                data-target="#modal_facility" class="dropdown-item"><i class="icon-file-text2"></i> Edit
+                                Post</a>
+                            <!-- <button class="dropdown-item" data-id="{{$post->id}}" id="editBtn"><i
                                     class="icon-file-text2"></i>
-                                Edit Post</button>
+                                Edit Post</button> -->
                             <div class="dropdown-divider"></div>
                             <a href="{{url('admin/delete-posts/'.$post->id)}}" onclick="return confirm('Are you sure?')"
                                 class="dropdown-item"><i class="icon-file-minus"></i> Delete

@@ -1,4 +1,5 @@
 @extends('catalog')
+@section('sec') active @endsection
 @section('')
 @endsection
 @section('pgtitle','Katalog Developer - Detail')
@@ -37,24 +38,36 @@
                     @endforeach
                 </div>
                 <div class="mt-1 mb-4">
-                    <h6 class="font-weight-semibold"><i class="icon-cash"></i> Harga Mulai Dari Rp.
+                    <h6 class="font-weight-semibold"><span class="badge badge-primary badge-icon"><i
+                                class="icon-cash"></i></span> Harga Mulai Dari Rp.
                         {{$data->harga}}
                     </h6>
                     <!-- <h4 class="font-weight-semibold">Harga :
                         {{$data->harga}}
                     </h4> -->
-                    <h6 class="font-weight-semibold"><i class="icon-bookmarks"></i> Luas Tanah :
+                    <h6 class="font-weight-semibold"><span class="badge badge-primary badge-icon"><i
+                                class="icon-square"></i></span> Luas Tanah :
                         {{$data->lt}}
                     </h6>
-                    <h6 class="font-weight-semibold"><i class="icon-bookmarks"></i> Luas Bangunan :
+                    <h6 class="font-weight-semibold"><span class="badge badge-primary badge-icon"><i
+                                class="icon-checkbox-partial"></i></span> Luas Bangunan :
                         {{$data->lb}}
                     </h6>
-                    <h6 class="font-weight-semibold"><i class="icon-office"></i> Fasilitas :
+                    <h6 class="font-weight-semibold"><span class="badge badge-primary badge-icon"><i
+                                class="icon-bed2"></i></span> Kamar Tidur :
+                        {{$data->kt}}
+                    </h6>
+                    <h6 class="font-weight-semibold"><span class="badge badge-primary badge-icon"><i
+                                class="icon-man-woman"></i></span> Kamar Mandi :
+                        {{$data->km}}
+                    </h6>
+                    <h6 class="font-weight-semibold"><span class="badge badge-primary badge-icon"><i
+                                class="icon-office"></i></span> Fasilitas :
                         {{$data->fasilitas}}
                     </h6>
                     <a href="https://wa.me/+628111160311"><img src="{{asset('assets/images/wa.gif')}}"
                             style="max-height: 30px;" alt=""> <span style="color: #40c351;">Contact Us</span></a>
-                    <!-- <a href="https://wa.me/628111160311" class="btn btn-success"><i class="fa fa-whatsapp"></i>
+                    <!-- <a href="https://wa.me/+6282214549435" class="btn btn-success"><i class="fa fa-whatsapp"></i>
                         Contact Us
                     </a> -->
                     <h5 class="font-weight-semibold">Deskripsi Rumah :

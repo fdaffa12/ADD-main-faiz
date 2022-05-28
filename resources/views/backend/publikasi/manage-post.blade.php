@@ -154,20 +154,20 @@
 </div>
 
 <!-- edit -->
-<div class="modal fade editPostModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
+<div class="modal fade editPostModal" id="leadsEditModal" tabindex="-1" role="dialog"
+    aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-body">
-                <form id="update_form" method="post" enctype="multipart/form-data">
+                <form id="update_form" action="{{route('update.post')}}" method="post" enctype="multipart/form-data">
                     @csrf
-                    <input type="hidden" name="id">
+                    <input type="hidden" name="id" id="id">
                     <div class="row">
                         <div class="col-lg-4">
                             <div class="form-group">
                                 <label class="form-control-label">Judul: <span class="tx-danger">*</span></label>
-                                <input class="form-control" type="text" id="post_title" name="post_title"
-                                    value="{{old('title')}}" placeholder="Enter Judul">
+                                <input class="form-control" type="text" id="title" name="post_title"
+                                    placeholder="Enter Judul">
                                 @error('post_title')
                                 <strong class="text-danger">{{$message}}</strong>
                                 @enderror
@@ -176,7 +176,7 @@
                         <div class="col-lg-4">
                             <div class="form-group">
                                 <label class="form-control-label">Publikasi: <span class="tx-danger">*</span></label>
-                                <select class="form-control" name="postcat_id" id="postcat_id"
+                                <select class="form-control" name="postcat_id" id="postcat"
                                     data-placeholder="Choose Category">
                                     <option label="Choose Category"></option>
                                     @foreach($publikasi as $category)
@@ -201,7 +201,7 @@
                         <div class="col-lg-12">
                             <div class="form-group">
                                 <label for="exampleInputFile">Description</label>
-                                <textarea class="form-control" name="description" id="description" rows="10"
+                                <textarea class="form-control" name="description" id="desc" rows="10"
                                     cols="80"></textarea>
                                 @error('description')
                                 <strong class="text-danger">{{$message}}</strong>
@@ -280,29 +280,62 @@ $(function() {
     //Fetch all products
     fetchAllProducts();
 
+    $('#update_form').on('submit', function(e) {
+        e.preventDefault();
+        var form = this;
+        $.ajax({
+            url: $(form).attr('action'),
+            method: $(form).attr('method'),
+            data: new FormData(form),
+            processData: false,
+            dataType: 'json',
+            contentType: false,
+            beforeSend: function() {
+                $(form).find('span.error-text').text('');
+            },
+            success: function(data) {
+                if (data.code == 0) {
+                    $.each(data.error, function(prefix, val) {
+                        $(form).find('span.' + prefix + '_error').text(val[0]);
+                    });
+                } else {
+                    $("#leadsEditModal").modal("hide");
+                    $('#update_form')[0].reset();
+                    // alert(data.msg);
+                    fetchAllProducts();
+                }
+            }
+        });
+    });
+
     function fetchAllProducts() {
         $.get('{{route("get.post")}}', {}, function(data) {
             $('#AllProducts').html(data.result);
         }, 'json');
     }
 
-    //edit
-    $(document).on('click', '#editBtn', function() {
-        var post_id = $(this).data('id');
-        var url = '{{route("editPost.ajax")}}';
-        $.get(url, {
-            post_id: post_id
-        }, function(data) {
-            // alert(data.result.post_title);
-            var post_modal = $('.editPostModal');
-            $(post_modal).find('form').find('input[name="id"]').val(data.result.id);
-            $(post_modal).find('form').find('input[name="post_title"]').val(data.result
-                .post_title);
-
-            $(post_modal).modal('show');
-        }, 'json');
-    })
-
 })
+
+//When click edit primary
+function editDetailLeads(id) {
+    $.get('/admin/edit-posts/' + id, function(leads) {
+        // $.each(leads.postcat_id, function(key, value) {
+        //     //value.id == city id
+        //     //i.city_id == locations city_id
+        //     if (value.id == i.postcat_id) {
+        //         $('select[name="postcat_id"]').append('<option value="' + value.id +
+        //             '" selected>' + value.nama + '</option>');
+        //     } else {
+        //         $('select[name="postcat_id"]').append('<option value="' + value.id + '">' +
+        //             value.nama + '</option>');
+        //     }
+        // });
+        $("#id").val(leads.id);
+        $("#title").val(leads.post_title);
+        $("#postcat").val(leads.postcat_id);
+        $("#desc").val(leads.description);
+        $("#leadsEditModal").modal("toggle");
+    });
+}
 </script>
 @endsection

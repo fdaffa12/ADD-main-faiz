@@ -40,7 +40,7 @@
                             style="text-transform:capitalize">{{$post->sosmed}} - {{$post->nama_iklan}}</a>
                         <div class="text-muted font-size-sm">
                             <span class="badge badge-mark border-primary mr-1"></span>
-                            {{$post->durasi}}
+                            {{date('j-F',strtotime($post->durasi))}} - {{date('j-F',strtotime($post->akhir_durasi))}}
                         </div>
                     </div>
                 </div>
@@ -70,11 +70,11 @@
                                     class="icon-unlocked2"></i> Active </a>
                             @else
                             <a href="{{ url('admin/campaign/inactive/'.$post->id) }}" class="dropdown-item"><i
-                                    class="icon-file-locked"></i> Disable
-                                campaign</a>
+                                    class="icon-file-locked"></i> Campaign Completed</a>
                             @endif
                             <div class="dropdown-divider"></div>
-                            <a href="#" class="dropdown-item"><i class="icon-eraser3"></i> Delete</a>
+                            <a href="{{ url('admin/campaign/delete/'.$post->id) }}"
+                                class="dropdown-item delete-confirm"><i class="icon-eraser3"></i> Delete</a>
                             @elseif (Auth::user()->email == 'tele@marketing.com')
                             @endif
                         </div>
@@ -111,11 +111,11 @@
                         @endif
                     </div>
                     <div>
-                        <a href="{{route('digital.detail', $post->id)}}"
-                            class="text-body font-weight-semibold">{{$post->sosmed}} - {{$post->nama_iklan}}</a>
+                        <a href="{{route('digital.detail', $post->id)}}" class="text-body font-weight-semibold"
+                            style="text-transform:capitalize">{{$post->sosmed}} - {{$post->nama_iklan}}</a>
                         <div class="text-muted font-size-sm">
                             <span class="badge badge-mark border-primary mr-1"></span>
-                            {{$post->durasi}}
+                            {{date('j-F',strtotime($post->durasi))}} - {{date('j-F',strtotime($post->akhir_durasi))}}
                         </div>
                     </div>
                 </div>

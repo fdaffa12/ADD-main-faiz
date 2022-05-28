@@ -14,13 +14,20 @@
         </li>
 
         <li class="nav-item">
-            <a href="{{url('dashboard-dev')}}" class="navbar-nav-link active">
+            <a href="{{url('dashboard-dev')}}" class="navbar-nav-link @yield('dev')">
                 <i class="icon-city mr-2"></i>
                 Katalog Produk
             </a>
         </li>
 
         <li class="nav-item">
+            <a href="{{url('dashboard-sec')}}" class="navbar-nav-link @yield('sec')">
+                <i class="icon-office mr-2"></i>
+                Katalog Secondary
+            </a>
+        </li>
+
+        <!-- <li class="nav-item">
             <a href="{{url('/')}}" class="navbar-nav-link">
                 <i class="icon-cube3 mr-2"></i>
                 Profil
@@ -32,7 +39,7 @@
                 <i class="icon-notebook mr-2"></i>
                 Kontak
             </a>
-        </li>
+        </li> -->
     </ul>
 </div>
 

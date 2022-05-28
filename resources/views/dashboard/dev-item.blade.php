@@ -1,4 +1,5 @@
 @extends('catalog')
+@section('dev') active @endsection
 @section('')
 @endsection
 @section('pgtitle','Developer Item')

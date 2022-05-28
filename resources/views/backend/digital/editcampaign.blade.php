@@ -31,8 +31,8 @@
                 </div><!-- col-4 -->
                 <div class="col-lg-4">
                     <div class="form-group">
-                        <label class="form-control-label">Durasi: <span class="tx-danger">*</span></label>
-                        <input class="form-control" type="text" name="durasi" value="{{$detail->durasi}}"
+                        <label class="form-control-label">Tanggal Awal Iklan: <span class="tx-danger">*</span></label>
+                        <input class="form-control" type="date" name="durasi" value="{{$detail->durasi}}"
                             placeholder="Enter Durasi">
                         @error('durasi')
                         <strong class="text-danger">{{$message}}</strong>
@@ -41,13 +41,23 @@
                 </div><!-- col-4 -->
                 <div class="col-lg-4">
                     <div class="form-group">
+                        <label class="form-control-label">Tanggal Akhir Iklan: <span class="tx-danger">*</span></label>
+                        <input class="form-control" type="date" name="akhir_durasi" value="{{$detail->akhir_durasi}}"
+                            placeholder="Enter Durasi">
+                        @error('akhir_durasi')
+                        <strong class="text-danger">{{$message}}</strong>
+                        @enderror
+                    </div>
+                </div><!-- col-4 -->
+                <div class="col-lg-4">
+                    <div class="form-group">
                         <label class="form-control-label">Platform: <span class="tx-danger">*</span></label>
                         <select name="sosmed" class="form-control">
-                            <option value="instagram" {{($detail->sosmed === 'Instagram') ? 'Selected' : ''}}>Instagram
+                            <option value="instagram" {{($detail->sosmed === 'instagram') ? 'Selected' : ''}}>Instagram
                             </option>
-                            <option value="facebook" {{($detail->sosmed === 'Facebook') ? 'Selected' : ''}}>Facebook
+                            <option value="facebook" {{($detail->sosmed === 'facebook') ? 'Selected' : ''}}>Facebook
                             </option>
-                            <option value="google" {{($detail->sosmed === 'Google') ? 'Selected' : ''}}>Google
+                            <option value="google" {{($detail->sosmed === 'google') ? 'Selected' : ''}}>Google
                             </option>
                         </select>
                         @error('sosmed')

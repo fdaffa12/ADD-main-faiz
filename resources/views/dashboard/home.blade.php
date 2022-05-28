@@ -50,10 +50,13 @@
     }
 
     .popup__content {
-        width: 300px;
+        width: 400px;
         text-align: center;
         position: relative;
-        margin: 20vh auto;
+        margin-top: 20vh;
+        margin-right: auto;
+        margin-bottom: 10vh;
+        margin-left: auto;
     }
 
     .popup__image {

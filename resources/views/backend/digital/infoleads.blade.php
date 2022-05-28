@@ -315,6 +315,17 @@
                                     <label>No HP:</label>
                                     <input type="text" name="nohp" id="nohp" class="form-control">
                                 </div>
+                                <div class="form-group">
+                                    <label>Leads BY:</label>
+                                    <select class="form-control" name="leads_by" id="leads_by"
+                                        data-placeholder="Choose Category">
+                                        <option value="FB Inbox" selected>FB Inbox</option>
+                                        <option value="FB Comment">FB Comment</option>
+                                        <option value="IG Inbox">IG Inbox</option>
+                                        <option value="IG Comment">IG Comment</option>
+                                        <option value="WhatsApp">WhatsApp</option>
+                                    </select>
+                                </div>
                             </div>
                         </div>
                         &nbsp;
@@ -375,6 +386,7 @@ function editDetailLeads(id) {
         $("#nama_cus").val(leads.nama_cus);
         $("#kota").val(leads.kota);
         $("#nohp").val(leads.nohp);
+        $("#leads_by").val(leads.leads_by);
         $("#leadsEditModal").modal("toggle");
     });
 }

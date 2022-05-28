@@ -37,6 +37,10 @@
     <script src="{{ asset('assets/js/demo_pages/buttons.min.js') }}"></script>
     <script src="{{ asset('assets/js/demo_pages/pdfmake.min.js') }}"></script>
     <script src="{{ asset('assets/js/demo_pages/vfs_fonts.min.js') }}"></script>
+    <script src="{{ asset('assets/js/demo_pages/moment.min.js') }}"></script>
+    <script src="{{ asset('assets/js/demo_pages/daterangepicker.js') }}"></script>
+    <script src="{{ asset('assets/js/demo_pages/picker_date.js') }}"></script>
+    <script src="{{ asset('assets/js/demo_pages/leads_chart.js') }}"></script>
     <script src="{{ asset('assets/js/demo_pages/datatables_extension_buttons_init.js') }}"></script>
 
     <script src="{{ asset('assets/js/app.js') }}"></script>
@@ -88,15 +92,14 @@
                     </a>
 
                     <div class="dropdown-menu dropdown-menu-right">
-                        <a href="{{url('admin/primary')}}" class="dropdown-item">Manage Primary Developer</a>
+                        <!-- <a href="{{url('admin/primary')}}" class="dropdown-item">Manage Primary Developer</a> -->
                         <a href="{{url('admin/add-primary')}}" class="dropdown-item">Add
                             Primary Developer</a>
-                        <a href="{{url('admin/developer')}}" class="dropdown-item">Manage
-                            Developer</a>
+                        <!-- <a href="{{url('admin/developer')}}" class="dropdown-item">Manage
+                            Developer</a> -->
                         <a href="{{url('admin/add-developer')}}" class="dropdown-item">Add
                             Developer</a>
-                        <a href="{{url('admin/primary-full')}}" class="dropdown-item">Add
-                            Developer</a>
+                        <a href="{{url('admin/primary-all')}}" class="dropdown-item">Primary</a>
                     </div>
                 </li>
                 <li class="nav-item">
@@ -253,7 +256,7 @@
                         <div class="d-flex">
                             <div class="page-title">
                                 <h4 class="font-weight-semibold">Dashboard</h4>
-                                <div class="text-muted">Welcome back, Fadlil!</div>
+                                <div class="text-muted">Welcome back, {{Auth::user()->name}}!</div>
                             </div>
                             <a href="#" class="header-elements-toggle text-body d-md-none"><i class="icon-more"></i></a>
                         </div>

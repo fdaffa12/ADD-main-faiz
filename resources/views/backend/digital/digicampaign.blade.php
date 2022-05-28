@@ -76,7 +76,8 @@
         </div>
 
         <div>
-            <a href="#" class="btn btn-indigo"><i class="icon-statistics mr-2"></i> View report</a>
+            <a href="{{url('admin/digital/spreadsheet')}}" class="btn btn-indigo"><i class="icon-statistics mr-2"></i>
+                View report</a>
         </div>
     </div>
 
@@ -116,10 +117,20 @@
                         </div><!-- col-4 -->
                         <div class="col-lg-4">
                             <div class="form-group">
-                                <label class="form-control-label">Durasi: <span class="tx-danger">*</span></label>
-                                <input class="form-control" type="text" id="durasi" name="durasi"
-                                    value="{{old('durasi')}}" placeholder="Enter Durasi">
+                                <label class="form-control-label">Mulai: <span class="tx-danger">*</span></label>
+                                <input class="form-control" type="date" id="durasi" name="durasi"
+                                    value="{{old('durasi')}}" placeholder="Enter Tanggal Mulai">
                                 @error('durasi')
+                                <strong class="text-danger">{{$message}}</strong>
+                                @enderror
+                            </div>
+                        </div><!-- col-4 -->
+                        <div class="col-lg-4">
+                            <div class="form-group">
+                                <label class="form-control-label">Berakhir: <span class="tx-danger">*</span></label>
+                                <input class="form-control" type="date" id="akhir_durasi" name="akhir_durasi"
+                                    value="{{old('akhir_durasi')}}" placeholder="Enter Tanggal Berakhir ">
+                                @error('akhir_durasi')
                                 <strong class="text-danger">{{$message}}</strong>
                                 @enderror
                             </div>

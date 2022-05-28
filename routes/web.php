@@ -66,8 +66,8 @@ Route::group(['middleware' => 'is_admin'], function () {
     // Route::get('admin/store-post', 'Admin\PublikasiController@storePost')->name('store.post');
     Route::get('admin/manage-post', 'Admin\PublikasiController@managePost')->name('manage.post');
     Route::get('admin/read-post', 'Admin\PublikasiController@fetchProducts')->name('get.post');
-    Route::get('admin/edit-post', 'Admin\PublikasiController@editPostAjax')->name('editPost.ajax');
-    // Route::get('admin/edit-posts/{post_id}', 'Admin\PublikasiController@editPost');
+    // Route::get('admin/edit-post', 'Admin\PublikasiController@editPostAjax')->name('editPost.ajax');
+    Route::get('admin/edit-posts/{post_id}', 'Admin\PublikasiController@editPost');
     Route::post('admin/update-post', 'Admin\PublikasiController@updatePost')->name('update.post');
     Route::get('admin/delete-posts/{post_id}', 'Admin\PublikasiController@destroyPost');
     Route::get('admin/draft-posts/{post_id}', 'Admin\PublikasiController@draftPost');

@@ -6,16 +6,16 @@
 <div class="tab-content">
     <div class="tab-pane fade show active" id="solid-rounded-tab1">
         <div class="table-responsive">
-            <script src="https://sheetdb.io/s/t/8y13p1icwy5vc.js"></script>
+            <script src="https://sheetdb.io/s/t/tpw3841cco7kg.js"></script>
         </div>
     </div>
 
 </div>
 
 <style>
-.table_oiz37o__table {
+.table_tvsxuj__table {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-    font-size: 14px !important;
+    font-size: 11px !important;
     width: 100%;
     background: #2c2d33;
     margin: 0;
@@ -28,7 +28,7 @@
     border-spacing: 0px;
 }
 
-.table_oiz37o__table th {
+.table_tvsxuj__table th {
     background: #2c2d33;
     font-weight: bold;
     color: #ffff;
@@ -36,7 +36,7 @@
     border-bottom: 2px solid #676a77;
 }
 
-.table_oiz37o__table td {
+.table_tvsxuj__table td {
     cursor: auto;
     text-align: inherit;
     color: #ffff;
@@ -49,17 +49,17 @@
     border-left: none;
 }
 
-.table_oiz37o_form_search {
+.table_tvsxuj_form_search {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     appearance: none !important;
-    font-size: 16px !important;
+    font-size: 12px !important;
     display: block !important;
     border-radius: 0.375rem !important;
     background-color: #1d1e21 !important;
     padding: 0.5em 0.75em !important;
     -webkit-appearance: none !important;
     -moz-appearance: none !important;
-    border: 1px solid #43464e;
+    border: 0px solid rgb(209, 213, 219) !important;
     width: 100% !important;
     max-width: 250px !important;
     margin-bottom: 1em !important;

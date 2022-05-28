@@ -54,7 +54,9 @@
 
                     <ul class="list-inline list-inline-dotted text-muted mb-0">
                         <li class="list-inline-item" style="text-transform:capitalize">{{$post->sosmed}}</li>
-                        <li class="list-inline-item">{{$post->durasi}}</li>
+                        <li class="list-inline-item">{{date('j-F',strtotime($post->durasi))}} -
+                            {{date('j-F',strtotime($post->akhir_durasi))}}
+                        </li>
                     </ul>
                 </div>
 
@@ -63,6 +65,18 @@
                 <p>Project : {{$post->project->title}}</p>
 
                 <p>Budget : @currency($post->budget)</p>
+
+                <p>Duration :
+                    <?php
+                    $fdate = $post->durasi;
+                    $tdate = $post->akhir_durasi;
+                    $date1 = new DateTime($fdate);
+                    $date2 = new DateTime($tdate);
+                    $interval = $date1->diff($date2);
+                    $days = $interval->format('%a');
+                    echo $days;
+                    ?> Days
+                </p>
 
                 <!-- Fasilitas:
                 </br>Dekat dengan Neraka</br>Penjagaan 24/7 Oleh malaikat</br>Akses menuju <a href="#">[...]</a> -->
@@ -73,7 +87,7 @@
         <div class="card card-body">
             <div class="media">
                 <div class="media-body">
-                    <h3 class="mb-0">Rp, 9,156,390</h3>
+                    <h3 class="mb-0">@currency($post->budget)</h3>
                     <span class="text-uppercase font-size-xs">Budget</span>
                 </div>
 
@@ -85,7 +99,13 @@
         <div class="card card-body">
             <div class="media">
                 <div class="media-body">
-                    <h3 class="mb-0">Rp, 12,453,-</h3>
+                    <h3 class="mb-0">
+                        @if( $totalleads == 0 )
+                        @currency($post->budget)
+                        @else
+                        @currency($post->budget / $totalleads)
+                        @endif
+                    </h3>
                     <span class="text-uppercase font-size-xs">Cost per Leads</span>
                 </div>
 
@@ -97,8 +117,20 @@
         <div class="card card-body">
             <div class="media">
                 <div class="media-body">
-                    <h3 class="mb-0">Rp, 3,165,153,-</h3>
-                    <span class="text-uppercase font-size-xs">Cost per Day</span>
+                    <h3 class="mb-0">
+                        <?php
+                        $fdate = $post->durasi;
+                        $tdate = $post->akhir_durasi;
+                        $date1 = new DateTime($fdate);
+                        $date2 = new DateTime($tdate);
+                        $interval = $date1->diff($date2);
+                        $days = $interval->format('%a');
+                        $budget = $post->budget;
+                        $totalpd = $budget / $days;
+                        ?>
+                        @currency($totalpd)
+                    </h3>
+                    <span class="text-uppercase font-size-xs">Cost Per Day</span>
                 </div>
 
                 <div class="ml-3 align-self-center">
@@ -109,6 +141,20 @@
     </div>
 </div>
 <!-- /Detail Iklan -->
+
+<!-- Chart Leads -->
+<!-- <div class="card">
+    <div class="card-header">
+        <h5 class="card-title">Leads per Day</h5>
+    </div>
+
+    <div class="card-body">
+        <div class="chart-container">
+            <div class="chart has-fixed-height" id="leads_chart"></div>
+        </div>
+    </div>
+</div> -->
+<!-- /Chart Leads -->
 
 <!-- Leads Iklan -->
 <div class="mb-3">
@@ -242,7 +288,7 @@
                         <a href="javascript:void(0)" onclick="showDetail({{$post->id}})" class="text-body"
                             data-toggle="modal" data-target="#modal_leads">
                             <div class="font-weight-semibold">[#{{$post->id}}] {{$post->minat}}</div>
-                            <span class="text-muted">{{$post->tanggal}}</span>
+                            <span class="text-muted">{{date('j-F-y',strtotime($post->tanggal))}}</span>
                         </a>
                     </td>
                     <td class="text-center">
@@ -287,7 +333,7 @@
                         <a href="javascript:void(0)" onclick="showDetail({{$post->id}})" class="text-body"
                             data-toggle="modal" data-target="#modal_leads">
                             <div class="font-weight-semibold">[#{{$post->id}}] {{$post->minat}}</div>
-                            <span class="text-muted">{{$post->tanggal}}</span>
+                            <span class="text-muted">{{date('j-F-y',strtotime($post->tanggal))}}</span>
                         </a>
                     </td>
                     <td class="text-center">
@@ -342,7 +388,7 @@
                         <a href="javascript:void(0)" onclick="showDetail({{$post->id}})" class="text-body"
                             data-toggle="modal" data-target="#modal_leads">
                             <div class="font-weight-semibold">[#{{$post->id}}] {{$post->minat}}</div>
-                            <span class="text-muted">{{$post->tanggal}}</span>
+                            <span class="text-muted">{{date('j-F-y',strtotime($post->tanggal))}}</span>
                         </a>
                     </td>
                     <td class="text-center">
@@ -441,7 +487,7 @@
                         <a href="javascript:void(0)" onclick="showDetail({{$post->id}})" class="text-body"
                             data-toggle="modal" data-target="#modal_leads">
                             <div class="font-weight-semibold">[#{{$post->id}}] {{$post->minat}}</div>
-                            <span class="text-muted">{{$post->tanggal}}</span>
+                            <span class="text-muted">{{date('j-F-y',strtotime($post->tanggal))}}</span>
                         </a>
                     </td>
                     <td class="text-center">
@@ -486,7 +532,7 @@
                         <a href="javascript:void(0)" onclick="showDetail({{$post->id}})" class="text-body"
                             data-toggle="modal" data-target="#modal_leads">
                             <div class="font-weight-semibold">[#{{$post->id}}] {{$post->minat}}</div>
-                            <span class="text-muted">{{$post->tanggal}}</span>
+                            <span class="text-muted">{{date('j-F-y',strtotime($post->tanggal))}}</span>
                         </a>
                     </td>
                     <td class="text-center">
@@ -495,11 +541,8 @@
                                 <a href="#" class="list-icons-item" data-toggle="dropdown"><i
                                         class="icon-menu7"></i></a>
                                 <div class="dropdown-menu dropdown-menu-right">
-                                    <a href="{{ url('admin/followup/'.$post->id) }}" class="dropdown-item"><i
-                                            class="icon-undo"></i>
-                                        Repurpose</a>
                                     <a href="{{ url('admin/repurpose/'.$post->id) }}" class="dropdown-item"><i
-                                            class="icon-spinner11 text-warning"></i>
+                                            class="icon-undo"></i>
                                         Repurpose</a>
                                 </div>
                             </div>
@@ -558,16 +601,6 @@
                             <div class="form-group">
                                 <label>No HP:</label>
                                 <input type="text" name="nohp" class="form-control">
-                            </div>
-
-                            <div class="form-group">
-                                <label>Keterangan:</label>
-                                <input type="text" name="keterangan" class="form-control">
-                            </div>
-
-                            <div class="form-group">
-                                <label>Minat:</label>
-                                <input type="text" name="minat" class="form-control">
                             </div>
                         </div>
                     </div>

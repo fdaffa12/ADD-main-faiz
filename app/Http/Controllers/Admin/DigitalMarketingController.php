@@ -41,17 +41,18 @@ class DigitalMarketingController extends Controller
         $jumlahni = Lead::where('campaign_id', $id)->where('status', 0)->count();
         $totaltb = $jumlahrp + $jumlahni;
 
-        $new = Lead::where('campaign_id', $id)->where('status', 1)->orderby('id', 'desc')->get();
-        $followup = Lead::where('campaign_id', $id)->where('status', 2)->orderby('id', 'desc')->get();
-        $closing = Lead::where('campaign_id', $id)->where('status', 3)->orderby('id', 'desc')->get();
-        $berminat = Lead::where('campaign_id', $id)->where('status', 4)->orderby('id', 'desc')->get();
-        $repurpose = Lead::where('campaign_id', $id)->where('status', 5)->orderby('id', 'desc')->get();
-        $notin = Lead::where('campaign_id', $id)->where('status', 0)->orderby('id', 'desc')->get();
+        $new = Lead::where('campaign_id', $id)->where('status', 1)->orderby('tanggal', 'desc')->get();
+        $followup = Lead::where('campaign_id', $id)->where('status', 2)->orderby('tanggal', 'desc')->get();
+        $closing = Lead::where('campaign_id', $id)->where('status', 3)->orderby('tanggal', 'desc')->get();
+        $berminat = Lead::where('campaign_id', $id)->where('status', 4)->orderby('tanggal', 'desc')->get();
+        $repurpose = Lead::where('campaign_id', $id)->where('status', 5)->orderby('tanggal', 'desc')->get();
+        $notin = Lead::where('campaign_id', $id)->where('status', 0)->orderby('tanggal', 'desc')->get();
 
         $totalleads = Lead::where('campaign_id', $id)->count();
         $jumlahfu = Lead::where('campaign_id', $id)->where('status', 2)->count();
         $jumlahmt = Lead::where('campaign_id', $id)->where('status', 4)->count();
         $jumlahni = Lead::where('campaign_id', $id)->where('status', 0)->count();
+
         $post = Campaign::find($id);
         return view('backend.digital.digidet', compact(
             'totalleads',
@@ -83,6 +84,7 @@ class DigitalMarketingController extends Controller
         $request->validate([
             'nama_iklan' => 'required|max:255',
             'durasi' => 'required',
+            'akhir_durasi' => 'required',
             'sosmed' => 'required',
             'budget' => 'required',
             'developer_id' => 'required',
@@ -97,6 +99,7 @@ class DigitalMarketingController extends Controller
         $post = new Campaign();
         $post['nama_iklan'] = $request->nama_iklan;
         $post['durasi'] = $request->durasi;
+        $post['akhir_durasi'] = $request->akhir_durasi;
         $post['sosmed'] = $request->sosmed;
         $post['budget'] = $request->budget;
         $post['developer_id'] = $request->developer_id;
@@ -137,6 +140,7 @@ class DigitalMarketingController extends Controller
         $request->validate([
             'nama_iklan' => 'required|max:255',
             'durasi' => 'required',
+            'akhir_durasi' => 'required',
             'sosmed' => 'required',
             'budget' => 'required',
             'developer_id' => 'required',
@@ -149,6 +153,7 @@ class DigitalMarketingController extends Controller
 
         $post['nama_iklan'] = $request->nama_iklan;
         $post['durasi'] = $request->durasi;
+        $post['akhir_durasi'] = $request->akhir_durasi;
         $post['sosmed'] = $request->sosmed;
         $post['budget'] = $request->budget;
         $post['developer_id'] = $request->developer_id;
@@ -376,6 +381,7 @@ class DigitalMarketingController extends Controller
         $leads->nama_cus = $request->nama_cus;
         $leads->nohp = $request->nohp;
         $leads->kota = $request->kota;
+        $leads->leads_by = $request->leads_by;
         $leads->save();
 
         return redirect()->back()->with('success', 'Successfully Updated');

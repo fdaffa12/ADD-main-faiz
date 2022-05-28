@@ -139,9 +139,9 @@ class PublikasiController extends Controller
     public function editPost($post_id)
     {
         $post = Post::find($post_id);
-        $publikasis = Publikasi::latest()->get();
+        // $publikasis = Publikasi::latest()->get();
 
-        return view('backend.publikasi.edit-post', compact('post', 'publikasis'));
+        return response()->json($post);
     }
 
     public function updatePost(Request $request)
@@ -170,7 +170,7 @@ class PublikasiController extends Controller
 
         Post::where('id', $request->id)->update($data);
 
-        return redirect()->back()->with('success', 'Successfully Updated');
+        return Response::json($data);
     }
 
     public function destroyPost($post_id)
