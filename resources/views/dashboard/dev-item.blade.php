@@ -46,8 +46,8 @@
     @foreach($categoryitems as $category)
     <div class="col-lg-6">
         <div class="card">
-            <a href="{{url('dashboard-dev/detail/'.$category->id)}}"><img
-                    class="card-img-top img-fluid aspect-ratio--3x4" src="{{asset($category->image)}}" alt=""></a>
+            <a href="{{url('dashboard-dev/detail/'.$category->id)}}"><img class="card-img-top img-fluid"
+                    src="{{asset($category->image)}}" style="aspect-ratio: 4/3;" alt=""></a>
 
             <div class="card-body">
                 <a href="{{url('dashboard-dev/detail/'.$category->id)}}">

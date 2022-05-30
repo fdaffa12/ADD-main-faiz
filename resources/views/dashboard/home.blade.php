@@ -233,9 +233,10 @@
                         <div class="col-lg-4">
                             <div class="card">
                                 <a href="{{url('dashboard-dev/item/'.$dt->id)}}">
-                                    <img class="card-img-top" src="{{asset($dt->gambar)}}" alt=""></a>
+                                    <img class="card-img-top" src="{{asset($dt->gambar)}}" style="aspect-ratio: 4/3;"
+                                        alt=""></a>
 
-                                <div class="card-body">
+                                <div class=" card-body">
                                     <h5 class="card-title"><a
                                             href="{{url('dashboard-dev/item/'.$dt->id)}}">{{$dt->nama_dev}}</a></h5>
                                     <!-- <p class="card-text">{!! substr($dt->desc,0,100) !!}</p> -->

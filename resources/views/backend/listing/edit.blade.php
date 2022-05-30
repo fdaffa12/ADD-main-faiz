@@ -114,8 +114,8 @@
                     <div class="col-lg-4">
                         <div class="form-group">
                             <label class="form-control-label">Spesifikasi: <span class="tx-danger">*</span></label>
-                            <input class="form-control" type="text" name="spesifikasi" value="{{$list->spesifikasi}}"
-                                placeholder="Enter spesifikasi">
+                            <textarea class="form-control preserveLines'>{{ old('spesifikasi') }}" type="text"
+                                name="spesifikasi" placeholder="Enter spesifikasi">{{$list->spesifikasi}} </textarea>
                             @error('spesifikasi')
                             <strong class="text-danger">{{$message}}</strong>
                             @enderror

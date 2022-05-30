@@ -246,7 +246,8 @@
                             <li class="list-inline-item"><span class="font-size-sm text-muted">{!! date('H:i:s',
                                     strtotime($post->updated_at)) !!}</span></li>
                         </ul>
-                        {{$post->pesan}}
+                        <!-- {!! $post->pesan !!} -->
+                        {!! nl2br(e($post->pesan)) !!}
                     </div>
                 </li>
                 @endforeach
@@ -270,7 +271,9 @@
 
                 <div class="col-md-12">
                     <div class="form-group">
-                        <textarea name="pesan" class="form-control mb-3" rows="3" cols="1"
+                        <!-- <textarea name="pesan" class="form-control mb-3" id="summernote" rows="3" cols="1"
+                            placeholder="Enter your message..."></textarea> -->
+                        <textarea name="pesan" class="form-control" rows="3" cols="1"
                             placeholder="Enter your message..."></textarea>
                     </div>
                 </div>
@@ -319,11 +322,17 @@
                                     <label>Leads BY:</label>
                                     <select class="form-control" name="leads_by" id="leads_by"
                                         data-placeholder="Choose Category">
-                                        <option value="FB Inbox" selected>FB Inbox</option>
+                                        <option value="WhatsApp" selected>WhatsApp</option>
+                                        <option value="FB Inbox">FB Inbox</option>
                                         <option value="FB Comment">FB Comment</option>
+                                        <option value="Form FB">Form FB</option>
                                         <option value="IG Inbox">IG Inbox</option>
                                         <option value="IG Comment">IG Comment</option>
-                                        <option value="WhatsApp">WhatsApp</option>
+                                        <option value="Form Google">Form Google</option>
+                                        <option value="Website">Website</option>
+                                        <option value="Google Bisnis">Google Bisnis</option>
+                                        <option value="Kanvas">Kanvas</option>
+                                        <option value="Walk-In">Walk-In</option>
                                     </select>
                                 </div>
                             </div>
@@ -390,5 +399,8 @@ function editDetailLeads(id) {
         $("#leadsEditModal").modal("toggle");
     });
 }
+$(document).ready(function() {
+    $('#summernote').summernote();
+});
 </script>
 @endsection

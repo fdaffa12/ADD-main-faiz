@@ -29,8 +29,8 @@
     @foreach($data as $category)
     <div class="col-lg-6">
         <div class="card">
-            <a href="{{url('dashboard-dev/item/'.$category->id)}}"><img class="card-img-top img-fluid aspect-ratio--3x4"
-                    src="{{asset($category->gambar)}}" alt=""></a>
+            <a href="{{url('dashboard-dev/item/'.$category->id)}}"><img class="card-img-top img-fluid"
+                    src="{{asset($category->gambar)}}" style="aspect-ratio: 4/3;" alt=""></a>
 
             <div class="card-body">
                 <a href="{{url('dashboard-dev/item/'.$category->id)}}">
@@ -76,8 +76,8 @@
     @foreach($subdata as $category)
     <div class="col-lg-6">
         <div class="card">
-            <a href="{{url('dashboard-dev/item/'.$category->id)}}"><img class="card-img-top img-fluid aspect-ratio--3x4"
-                    src="{{asset($category->gambar)}}" alt=""></a>
+            <a href="{{url('dashboard-dev/item/'.$category->id)}}"><img class="card-img-top img-fluid"
+                    src="{{asset($category->gambar)}}" style="aspect-ratio: 4/3;" alt=""></a>
 
             <div class="card-body">
                 <a href="{{url('dashboard-dev/item/'.$category->id)}}">

@@ -63,7 +63,7 @@
                     </h6>
                     <h6 class="font-weight-semibold"><span class="badge badge-primary badge-icon"><i
                                 class="icon-office"></i></span> Fasilitas :
-                        {{$data->fasilitas}}
+                        {!! nl2br(e($data->fasilitas)) !!}
                     </h6>
                     <a href="https://wa.me/+628111160311"><img src="{{asset('assets/images/wa.gif')}}"
                             style="max-height: 30px;" alt=""> <span style="color: #40c351;">Contact Us</span></a>
@@ -72,7 +72,7 @@
                     </a> -->
                     <h5 class="font-weight-semibold">Deskripsi Rumah :
                     </h5>
-                    <p>{{$data->description}}</p>
+                    <p>{!! nl2br(e($data->description)) !!}</p>
                 </div>
 
 

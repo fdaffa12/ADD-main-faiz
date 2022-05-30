@@ -585,11 +585,17 @@
                             <div class="form-group">
                                 <label>Leads From:</label>
                                 <select name="leads_by" class="form-control" value="{{old('leads_by')}}">
-                                    <option value="FB Inbox" selected>FB Inbox</option>
+                                    <option value="WhatsApp" selected>WhatsApp</option>
+                                    <option value="FB Inbox">FB Inbox</option>
                                     <option value="FB Comment">FB Comment</option>
+                                    <option value="Form FB">Form FB</option>
                                     <option value="IG Inbox">IG Inbox</option>
                                     <option value="IG Comment">IG Comment</option>
-                                    <option value="WhatsApp">WhatsApp</option>
+                                    <option value="Form Google">Form Google</option>
+                                    <option value="Website">Website</option>
+                                    <option value="Google Bisnis">Google Bisnis</option>
+                                    <option value="Kanvas">Kanvas</option>
+                                    <option value="Walk-In">Walk-In</option>
                                 </select>
                             </div>
 

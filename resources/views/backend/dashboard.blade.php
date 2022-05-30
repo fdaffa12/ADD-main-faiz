@@ -16,11 +16,17 @@
 
     <!-- /global stylesheets -->
 
+    <!-- include summernote css/js -->
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+
     <!-- Core JS files -->
     <script src="{{ asset('assets/js/main/jquery.min.js') }}"></script>
     <script src="{{ asset('assets/js/main/bootstrap.bundle.min.js') }}"></script>
     <!-- /core JS files -->
 
+    <script src="{{ asset('assets/js/demo_pages/summernote/summernote.min.js') }}"></script>
+    <script src="{{ asset('assets/js/demo_pages/editor_summernote.js') }}"></script>
     <!-- Theme JS files -->
     <script src="assets/js/plugins/forms/"></script>
     <script src="{{ asset('assets/js/plugins/forms/inputs/touchspin.min.js') }}"></script>
