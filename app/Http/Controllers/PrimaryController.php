@@ -127,10 +127,6 @@ class PrimaryController extends Controller
             'title' => 'required|max:255',
             'description',
             'fasilitas' => 'required',
-            'lt' => 'required',
-            'lb' => 'required',
-            'kt' => 'required',
-            'km' => 'required',
             'type',
             'lokasi' => 'required',
             'harga' => 'required',
@@ -141,10 +137,6 @@ class PrimaryController extends Controller
         $data['title'] = $request->title;
         $data['description'] = $request->description;
         $data['fasilitas'] = $request->fasilitas;
-        $data['lt'] = $request->lt;
-        $data['lb'] = $request->lb;
-        $data['kt'] = $request->kt;
-        $data['km'] = $request->km;
         $data['type'] = $request->type;
         $data['dev_id'] = $request->dev_id;
         $data['lokasi'] = $request->lokasi;
@@ -160,7 +152,15 @@ class PrimaryController extends Controller
 
         Primary::where('id', $request->id)->update($data);
 
-        return redirect()->back()->with('success', 'Gallery Updated');
+        return Response::json($data);
+    }
+
+    public function getPrimary()
+    {
+        $primaries = Primary::orderBy('id', 'desc')->get();
+        $developer = Developer::orderBy('id', 'desc')->get();
+        $data = \View::make('backend.primary.all_primary', ['primaries' => $primaries, 'developer' => $developer])->render();
+        return response()->json(['code' => 1, 'result' => $data]);
     }
 
     public function delete($id)
@@ -189,6 +189,12 @@ class PrimaryController extends Controller
     public function fasility($id)
     {
         //
+        $primary = Primary::find($id);
+        return response()->json($primary);
+    }
+
+    public function editDetail($id)
+    {
         $primary = Primary::find($id);
         return response()->json($primary);
     }

@@ -277,8 +277,7 @@ $(function() {
             $(img_holder).empty();
         }
     });
-    //Fetch all products
-    fetchAllProducts();
+
 
     $('#update_form').on('submit', function(e) {
         e.preventDefault();
@@ -307,6 +306,9 @@ $(function() {
             }
         });
     });
+
+    //Fetch all products
+    fetchAllProducts();
 
     function fetchAllProducts() {
         $.get('{{route("get.post")}}', {}, function(data) {

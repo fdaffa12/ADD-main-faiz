@@ -22,7 +22,7 @@ use Illuminate\Support\Facades\Route;
 //     ]);
 // });
 
-Route::get('/', 'DashboardController@index')->name('home.route');
+Route::get('/', 'FrontendController@index')->name('home.route');
 
 Route::get('admin/home', 'HomeController@adminHome')->name('admin.home')->middleware('is_admin');
 Route::get('admin/logout', 'HomeController@Logout')->name('admin.logout');
@@ -110,8 +110,10 @@ Route::group(['middleware' => 'is_admin'], function () {
     Route::get('admin/publish-primary/{id}', 'PrimaryController@publish');
     //primary ajax
     Route::get('admin/primary/fasility/{id}', 'PrimaryController@fasility')->name('primary.fasility');
+    Route::get('admin/primary/editdetail/{id}', 'PrimaryController@editDetail')->name('primary.edit');
     Route::get('admin/primary/detail/{id}', 'PrimaryController@detail')->name('primary.detail');
     Route::post('/admin/primary/update-fasility', 'PrimaryController@updateFasility')->name('update.fasility');
+    Route::get('admin/read-primary', 'PrimaryController@getPrimary')->name('get.primary');
 
     //video
     Route::get('admin/video', 'Admin\VideoController@index')->name('video.index');
@@ -223,10 +225,12 @@ Route::post('admin/digital/store-message', 'Admin\DigitalMarketingController@sto
 Route::post('admin/digital/store-file', 'Admin\DigitalMarketingController@storeFile')->name('store.file');
 
 //dashboard
-Route::get('kebijakan-privasi', 'DashboardController@kebijakan');
-Route::get('search-catalog', 'DashboardController@search');
-Route::get('dashboard-dev', 'DashboardController@dashboardev');
-Route::get('dashboard-sec', 'DashboardController@dashboarsec');
-Route::get('dashboard-dev/item/{id}', 'DashboardController@devitem');
-Route::get('dashboard-dev/detail/{id}', 'DashboardController@detail');
-Route::get('dashboard-sec/detail/{id}', 'DashboardController@detailsec');
+Route::get('kebijakan-privasi', 'FrontendController@kebijakan');
+Route::get('search-catalog', 'FrontendController@search');
+Route::get('dashboard-dev', 'FrontendController@dashboardev');
+Route::get('dashboard-sec', 'FrontendController@dashboarsec');
+Route::get('dashboard/all-property', 'FrontendController@allPro');
+Route::get('dashboard/all-secondary-property', 'FrontendController@allSecPro');
+Route::get('dashboard-dev/item/{id}', 'FrontendController@devitem');
+Route::get('dashboard-dev/detail/{id}', 'FrontendController@detail');
+Route::get('dashboard-sec/detail/{id}', 'FrontendController@detailsec');

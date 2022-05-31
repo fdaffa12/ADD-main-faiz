@@ -82,73 +82,9 @@
 
             <div class="tab-pane fade" id="solid-rounded-tab2">
                 <div class="table-responsive">
-                    <table class="table datatable-button-init-basic">
-                        <thead>
-                            <tr>
-                                <th>Product</th>
-                                <th>Description</th>
-                                <th>LB / LT</th>
-                                <th>Price</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($developer as $dt)
-                            <tr class="table-active table-border-double">
-                                <td colspan="7">{{$dt->nama_dev}}</td>
-                            </tr>
-                            @foreach ($primaries as $prim)
-                            @if($dt->id == $prim->dev_id)
-                            <tr id="{{$prim->id}}">
-                                <td>
-                                    <div class="d-flex align-items-center">
-                                        <div>
-                                            <a href="#" class="text-default font-weight-semibold"
-                                                style="white-space: nowrap;">{{$prim->title}}</a>
-                                            <div class="font-size-sm">
-                                                <span class="badge badge-mark border-slate-400 mr-1"></span>
-                                                <a href="javascript:void(0)" onclick="showDetail({{$prim->id}})"
-                                                    data-toggle="modal" data-target="#modal_facility"
-                                                    class="text-muted">Show Detail</a>
-                                                <!-- <a href="javascript:void(0)" onclick="editPrimary({{$prim->id}})"
-                                                    data-toggle="modal" data-target="#modal_facility"
-                                                    class="text-muted">Show Facility</a> -->
-                                            </div>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="col-sm-6 text-wrap">{{$prim->description}}</td>
-                                <td><span class="text-muted">{{$prim->lb}} / {{$prim->lt}}</span></td>
-                                <td>
-                                    <h6 class="font-weight-semibold mb-0">Rp. {{$prim->harga}}</h6>
-                                </td>
-                                <td class="text-center">
-                                    <div class="list-icons">
-                                        <div class="dropdown">
-                                            <a href="#" class="list-icons-item dropdown-toggle caret-0"
-                                                data-toggle="dropdown"><i class="icon-menu7"></i></a>
-                                            <div class="dropdown-menu dropdown-menu-right">
-                                                <a href="javascript:void(0)" onclick="editPrimary({{$prim->id}})"
-                                                    data-toggle="modal" data-target="#modal_facility"
-                                                    class="dropdown-item"><i class="icon-file-text2"></i>
-                                                    Edit Fasility</a>
-                                                <a href="#" class="dropdown-item"><i class="icon-file-picture"></i>
-                                                    Manage Media</a>
-                                                <a href="#" class="dropdown-item"><i class="icon-file-text2"></i> Edit
-                                                    Product</a>
-                                                <div class="dropdown-divider"></div>
-                                                <a href="#" class="dropdown-item"><i class="icon-file-minus"></i> Delete
-                                                    Product</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                            @endif
-                            @endforeach
-                            @endforeach
-                        </tbody>
-                    </table>
+                    <div id="AllProducts">
+
+                    </div>
                 </div>
             </div>
         </div>
@@ -167,7 +103,7 @@
             </div>
 
             <div class="modal-body">
-                <form id="updatePrimary" name="UpdatePrimary" action="{{route('update.fasility')}}" method="post">
+                <form id="update_form" name="UpdatePrimary" action="{{route('update.fasility')}}" method="post">
                     <input type="hidden" name="id" id="id" />
                     @csrf
                     <div class="row">
@@ -299,14 +235,125 @@
 </div>
 <!-- end detail modal -->
 
+<div id="primaryEditDetailModal" class="modal fade" tabindex="-1" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title"><i class="icon-pencil7 mr-2"></i> &nbsp;Edit Facility</h5>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <div class="modal-body">
+                <form class="wizard-form pt-3" id="update_detail" action="{{route('primary.update')}}" method="POST"
+                    enctype="multipart/form-data">
+                    @csrf
+                    <input type="hidden" name="id" id="iddet">
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <div class="form-group">
+                                <label class="form-control-label">Title: <span class="tx-danger">*</span></label>
+                                <input class="form-control" type="text" name="title" id="titledet"
+                                    placeholder="Enter Judul">
+                                @error('title')
+                                <strong class="text-danger">{{$message}}</strong>
+                                @enderror
+                            </div>
+                        </div><!-- col-4 -->
+                        <div class="col-lg-3">
+                            <div class="form-group">
+                                <label class="form-control-label">Harga: <span class="tx-danger">*</span></label>
+                                <input class="form-control" type="text" name="harga" id="price"
+                                    placeholder="Enter Judul">
+                                @error('harga')
+                                <strong class="text-danger">{{$message}}</strong>
+                                @enderror
+                            </div>
+                        </div><!-- col-4 -->
+                        <div class="col-lg-3">
+                            <div class="form-group">
+                                <label class="form-control-label">Type Rumah: <span class="tx-danger">*</span></label>
+                                <input class="form-control" type="text" name="type" id="tipe"
+                                    placeholder="Enter Type Rumah">
+                            </div>
+                        </div><!-- col-4 -->
+                        <div class="col-lg-3">
+                            <div class="form-group">
+                                <label class="form-control-label">Developer: <span class="tx-danger">*</span></label>
+                                <select class="form-control" name="dev_id" id="dev">
+                                    @foreach($developer as $category)
+                                    <option value="{{$category->id}}">{{$category->nama_dev}}</option>
+                                    @endforeach
+                                </select>
+                                @error('dev_id')
+                                <strong class="text-danger">{{$message}}</strong>
+                                @enderror
+                            </div>
+                        </div><!-- col-4 -->
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label class="form-control-label">Lokasi: <span class="tx-danger">*</span></label>
+                                <input class="form-control" type="text" name="lokasi" id="lok"
+                                    placeholder="Enter Lokasi">
+                                @error('lokasi')
+                                <strong class="text-danger">{{$message}}</strong>
+                                @enderror
+                            </div>
+                        </div><!-- col-4 -->
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <div class="form-group">
+                                <label for="exampleInputFile">Faslitas</label>
+                                <textarea name="fasilitas" id="fas" cols="20" rows="5" class="form-control"></textarea>
+                                @error('fasilitas')
+                                <strong class="text-danger">{{$message}}</strong>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-lg-9">
+                            <div class="form-group">
+                                <label for="exampleInputFile">Deskripsi</label>
+                                <textarea name="description" id="desc" cols="20" rows="5"
+                                    class="form-control"></textarea>
+                                @error('description')
+                                <strong class="text-danger">{{$message}}</strong>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="form-group">
+                                <label class="form-control-label">Image: <span class="tx-danger">*</span></label>
+                                <input class="form-control" type="file" id="image" name="image" value="{{old('title')}}"
+                                    placeholder="Enter Judul">
+                                @error('image')
+                                <strong class="text-danger">{{$message}}</strong>
+                                @enderror
+                            </div>
+                        </div><!-- col-4 -->
+                    </div>
+                    <!-- /.box-body -->
+
+                    <div class="box-footer">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
 </div>
+
+</div>
+
 <script>
 //When click edit primary
 function editPrimary(id) {
     $.get('/admin/primary/fasility/' + id, function(primary) {
         $("#id").val(primary.id);
-        $("#kt").val(primary.kt);
+        $("#title").val(primary.title);
         $("#km").val(primary.km);
+        $("#kt").val(primary.kt);
         $("#lb").val(primary.lb);
         $("#lt").val(primary.lt);
         $("#primaryEditModal").modal("toggle");
@@ -329,48 +376,88 @@ function showDetail(id) {
     });
 }
 
-// Update the primary
-$("#updatePrimary").validate({
-    rules: {
-        kt: "required",
-        km: "required",
-        lt: "required",
-        lb: "required",
-
-    },
-    messages: {},
-
-    submitHandler: function(form) {
-        var form_action = $("#updatePrimary").attr("action");
-        $.ajax({
-            data: $('#updatePrimary').serialize(),
-            url: form_action,
-            type: "POST",
-            dataType: 'json',
-            success: function(data) {
-                var primary;
-                primary +=
-                    '<td><div class="d-flex align-items-center"><div><a href="#" class="text-default font-weight-semibold"style="white-space: nowrap;">' +
-                    data.title +
-                    '</a><div class="font-size-sm"><span class="badge badge-mark border-slate-400 mr-1"></span><a href="javascript:void(0)" onclick="editPrimary(' +
-                    data.id +
-                    ')"data-toggle="modal" data-target="#modal_facility"class="text-muted">Show Facility</a></div></div></div></td>';
-                primary += '<td style="white-space: nowrap;">' + data.description + '</td>'
-                primary += '<td><span class="text-muted">' + data.lb + ' / ' + data.lt +
-                    '</span></td>';
-                primary += '<td><h6 class="font-weight-semibold mb-0">Rp. ' + data.harga +
-                    '</h6></td>';
-                // primary += '<td style="white-space: nowrap;">' + data.kt + ' Kamar Tidur</td>';
-                // primary += '<td style="white-space: nowrap;">' + data.km + ' Kamar Mandi</td>';
-                primary +=
-                    '<td class="text-center"> <div class="list-icons" ><div class="dropdown" ><a href="#" class="list-icons-item dropdown-toggle caret-0"data-toggle="dropdown"><i class="icon-menu7"></i></a><div class="dropdown-menu dropdown-menu-right"><a href="#" class = "dropdown-item" > <i class="icon-file-picture"> </i> Manage Media </a><a href="#" class="dropdown-item"> <i class = "icon-file-text2"> </i> Edit Product </a> <div class="dropdown-divider"></div><a href="#" class="dropdown-item"><i class="icon-file-minus"></i> Delete Product</a></div></div></div></td>';
-                $('#primaryTable tbody #' + data.id).html(primary);
-                $('#updatePrimary')[0].reset();
-                $('#primaryEditModal').modal('hide');
-            },
-            error: function(data) {}
-        });
-    }
+// Update the detail
+$('#update_detail').on('submit', function(e) {
+    e.preventDefault();
+    var form = this;
+    $.ajax({
+        url: $(form).attr('action'),
+        method: $(form).attr('method'),
+        data: new FormData(form),
+        processData: false,
+        dataType: 'json',
+        contentType: false,
+        beforeSend: function() {
+            $(form).find('span.error-text').text('');
+        },
+        success: function(data) {
+            if (data.code == 0) {
+                $.each(data.error, function(prefix, val) {
+                    $(form).find('span.' + prefix + '_error').text(val[0]);
+                });
+            } else {
+                $("#primaryEditDetailModal").modal("hide");
+                $('#update_detail')[0].reset();
+                // alert(data.msg);
+                fetchAllProducts();
+            }
+        }
+    });
 });
+
+// Update the primary
+$('#update_form').on('submit', function(e) {
+    e.preventDefault();
+    var form = this;
+    $.ajax({
+        url: $(form).attr('action'),
+        method: $(form).attr('method'),
+        data: new FormData(form),
+        processData: false,
+        dataType: 'json',
+        contentType: false,
+        beforeSend: function() {
+            $(form).find('span.error-text').text('');
+        },
+        success: function(data) {
+            if (data.code == 0) {
+                $.each(data.error, function(prefix, val) {
+                    $(form).find('span.' + prefix + '_error').text(val[0]);
+                });
+            } else {
+                $("#primaryEditModal").modal("hide");
+                $('#update_form')[0].reset();
+                // alert(data.msg);
+                fetchAllProducts();
+            }
+        }
+    });
+});
+
+//Fetch all products
+fetchAllProducts();
+
+function fetchAllProducts() {
+    $.get('{{route("get.primary")}}', {}, function(data) {
+        $('#AllProducts').html(data.result);
+    }, 'json');
+}
+
+//When click edit primary
+function editDetailPrimary(id) {
+    $.get('/admin/primary/editdetail/' + id, function(detail) {
+        $("#iddet").val(detail.id);
+        $("#titledet").val(detail.title);
+        $("#price").val(detail.harga);
+        $("#tipe").val(detail.type);
+        $("#lok").val(detail.lokasi);
+        $("#dev").val(detail.dev_id);
+        $("#fas").val(detail.fasilitas);
+        $("#desc").val(detail.description);
+        $("#primaryEditDetailModal").modal("toggle");
+    });
+}
 </script>
+
+
 @endsection
