@@ -1401,6 +1401,15 @@ a:hover {
 //--//-->   ABOUT
 ======================================*/
 
+.nav-pills .nav-link.active,
+  .nav-pills .show>.nav-link {
+      color: #fff;
+      background-color: #00ccff;
+  }
+  .nav-pills .nav-link {
+    border-radius: 50px;
+  }
+
 .section-about .title-vertical {
   position: absolute;
   letter-spacing: 0;
@@ -1947,6 +1956,11 @@ footer .credits {
 }
 
 @media (min-width: 1200px) {
+
+  .container{
+    max-width: 1200px;
+  }
+
   .card-box-d .card-overlay-hover {
     padding: 15px 40px 5px 35px;
   }

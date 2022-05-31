@@ -37,7 +37,7 @@ class FrontendController extends Controller
     {
         $banners = Post::where('postcat_id', 'LIKE', '%3%')->orderby('id', 'DESC')->paginate(2);
         $ads = Post::where('post_title', 'Ads')->orderby('id', 'DESC')->paginate(1);
-        $data = Developer::orderBy('created_at', 'desc')->paginate(3);
+        $data = Developer::orderBy('created_at', 'desc')->get();
         $primary = Primary::orderBy('created_at', 'desc')->where('status', '1')->paginate(4);
         // $secondary = Category::orderBy('created_at', 'desc')->where('status', '1')->paginate(3);
 
@@ -51,12 +51,12 @@ class FrontendController extends Controller
 
     public function dashboardev()
     {
-        $data = Developer::orderBy('created_at', 'desc')->where('status', '1')->paginate(2, ['*'], 'data');
-        $subdata = Developer::orderBy('created_at', 'desc')->where('status', '0')->paginate(2, ['*'], 'subdata');
+        $data = Developer::orderBy('created_at', 'desc')->where('status', '1')->paginate(3, ['*'], 'data');
+        $subdata = Developer::orderBy('created_at', 'desc')->where('status', '0')->paginate(3, ['*'], 'subdata');
 
-        $secondary = Category::orderBy('created_at', 'desc')->where('status', '1')->paginate(2);
+        $developer = Developer::orderBy('created_at', 'desc')->paginate(6);
 
-        return view('front.catadev', compact('data', 'secondary', 'subdata'));
+        return view('front.catadev', compact('data', 'developer', 'subdata'));
     }
 
     public function dashboarsec()
