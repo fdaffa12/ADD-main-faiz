@@ -35,15 +35,15 @@ class FrontendController extends Controller
 
     public function index()
     {
-        $banners = Post::where('postcat_id', 'LIKE', '%3%')->orderby('id', 'DESC')->paginate(2);
+        $banners = Post::where('postcat_id', 'LIKE', '%3%')->orderby('id', 'DESC')->paginate(1);
         $ads = Post::where('post_title', 'Ads')->orderby('id', 'DESC')->paginate(1);
         $data = Developer::orderBy('created_at', 'desc')->get();
-        $primary = Primary::orderBy('created_at', 'desc')->where('status', '1')->paginate(4);
+        $primary = Primary::orderBy('created_at', 'desc')->where('status', '2')->paginate(3);
         // $secondary = Category::orderBy('created_at', 'desc')->where('status', '1')->paginate(3);
 
         $secondary = Category::whereHas('listing', function ($q) {
             $q->where('jenis_listing', 'Exclusive');
-        })->get();
+        })->paginate(3);
 
         return view('front.home', compact('banners', 'data', 'secondary', 'ads', 'primary'));
     }
@@ -107,7 +107,15 @@ class FrontendController extends Controller
     {
         $primary = Primary::orderby('id', 'desc')->paginate(6);
 
-        return view('front.all-pro', compact('primary'));
+        $nol = 0;
+        $limaratus = 500000;
+        $satujuta = 1000000;
+
+        $nolsdlimaratus = Primary::whereBetween('harga', [$nol, $limaratus])->paginate(6);
+        $limasdsatujuta = Primary::whereBetween('harga', [$limaratus, $satujuta])->paginate(6);
+
+
+        return view('front.all-pro', compact('primary', 'nolsdlimaratus', 'limasdsatujuta'));
     }
 
     public function allSecPro()

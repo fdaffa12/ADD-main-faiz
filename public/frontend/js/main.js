@@ -100,15 +100,55 @@
 		}
 	});
 
-	/*--/ Property owl owl /--*/
-	$('#property-single-carousel').owlCarousel({
+	/*--/ Property owl /--*/
+	$('#property-limaratus').owlCarousel({
 		loop: true,
-		margin: 0,  
-		nav: true,
-		navText: ['<i class="ion-ios-arrow-back" aria-hidden="true"></i>', '<i class="ion-ios-arrow-forward" aria-hidden="true"></i>'],
+		margin: 30,
 		responsive: {
 			0: {
 				items: 1,
+			},
+			769: {
+				items: 2,
+			},
+			992: {
+				items: 3,
+			}
+		}
+	});
+
+	$('#property-satujuta').owlCarousel({
+		loop: true,
+		margin: 30,
+		responsive: {
+			0: {
+				items: 1,
+			},
+			769: {
+				items: 2,
+			},
+			992: {
+				items: 3,
+			}
+		}
+	});
+
+	/*--/ Property owl owl /--*/
+	$('#property-single-carousel').owlCarousel({
+		loop: true,
+		margin: 30,  
+		autoplay: true,
+		nav: true,
+		navText: ['<i class="fa fa-arrow-left" aria-hidden="true"></i>', '<i class="fa fa-arrow-right" aria-hidden="true"></i>'],
+		responsive: {
+			0: {
+				items: 1,
+			},
+			769: {
+				items: 2,
+			},
+			992: {
+				items: 3,
 			}
 		}
 	});

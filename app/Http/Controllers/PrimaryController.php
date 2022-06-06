@@ -186,6 +186,12 @@ class PrimaryController extends Controller
         return redirect()->back()->withToastInfo('Berhasil Dipublish');
     }
 
+    public function highlight($id)
+    {
+        Primary::findOrFail($id)->update(['status' => 2]);
+        return redirect()->back()->withToastInfo('Berhasil Dipublish');
+    }
+
     public function fasility($id)
     {
         //

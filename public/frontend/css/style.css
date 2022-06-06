@@ -94,6 +94,11 @@ a:hover {
   color: #00ccff;
 }
 
+.color-z{
+  /* background: linear-gradient(rgb(0, 136, 187) 0%, rgb(18, 97, 160) 100%); */
+  background-color: #153066
+}
+
 .color-d {
   color: #adadad;
 }
@@ -136,6 +141,37 @@ a:hover {
   background-attachment: fixed;
   background-size: cover;
   background-position: center center;
+}
+
+.hero {
+  height: 100vh;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  h1 {
+    font-size: 60px;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    z-index: 9999;
+    text-shadow: 0px 2px 2px rgba(150, 150, 150, 1);
+    padding: 20px;
+  }
+  
+  img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    width: 1500px;
+    min-width: 100%;
+    min-height: 100%;
+    transition: 0.001s;
+  }
 }
 
 /*------/ List a /------*/
@@ -230,7 +266,20 @@ a:hover {
 /*------/ Space Padding /------*/
 
 .section-t8 {
+  padding-top: 4rem;
+}
+
+.section-t7 {
+  padding-top: 5rem;
+}
+
+.section-t6 {
+  padding-top: 0rem;
+}
+
+.section-t9 {
   padding-top: 8rem;
+  background: rgb(249, 250, 251);
 }
 
 .section-t4 {
@@ -256,7 +305,12 @@ a:hover {
 }
 
 .title-a {
-  font-size: 2.6rem;
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+.title-k {
+  font-size: 20px;
   font-weight: 600;
 }
 
@@ -271,6 +325,22 @@ a:hover {
 }
 
 .title-link span {
+  font-size: 20px;
+  padding-left: 4px;
+  vertical-align: middle;
+}
+
+.title-link-z {
+  font-size: 1.2rem;
+  font-weight: 300;
+  padding-bottom: 0.5rem;
+}
+
+.title-link-z a {
+  color: #ffffff;
+}
+
+.title-link-z span {
   font-size: 20px;
   padding-left: 4px;
   vertical-align: middle;
@@ -350,8 +420,8 @@ a:hover {
   width: 16px;
   height: 9px;
   margin: 5px 5px;
-  background: #000000;
-  border: 0px solid #000000;
+  background: #bdbec6;
+  border: 0px solid #bdbec6;
   display: block;
   transition: all 0.6s ease-in-out;
   cursor: pointer;
@@ -371,7 +441,7 @@ a:hover {
   position: absolute;
   top: 0;
   right: 0;
-  font-size: 1.8rem;
+  font-size: 20px;
 }
 
 .owl-arrow .owl-nav .owl-prev,
@@ -402,19 +472,33 @@ a:hover {
 
 .nav-arrow-b .owl-arrow .owl-nav {
   position: absolute;
-  top: 0;
-  right: 0;
-  font-size: 1.2rem;
+    width: 105%;
+    height: 20px;
+    top: 45%;
+    left: -30px;
+    margin-top: -20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .nav-arrow-b .owl-arrow .owl-nav {
+    display: none;
+  } 
 }
 
 .nav-arrow-b .owl-arrow .owl-nav .owl-prev,
 .nav-arrow-b .owl-arrow .owl-nav .owl-next {
-  padding: .7rem 1.5rem !important;
+  padding: .5rem 1rem !important;
   display: inline-block;
   transition: all 0.6s ease-in-out;
-  color: #ffffff;
-  background-color: #00ccff;
-  opacity: .9;
+  color: #cabfbf;
+  background-color: #ffffff;
+  border-radius: 50%;
+  box-shadow: rgb(0 0 0 / 10%) 0px 0px 10px;
 }
 
 .nav-arrow-b .owl-arrow .owl-nav .owl-prev.disabled,
@@ -423,13 +507,13 @@ a:hover {
   color: #ffffff;
 }
 
-.nav-arrow-b .owl-arrow .owl-nav .owl-prev:hover,
+/* .nav-arrow-b .owl-arrow .owl-nav .owl-prev:hover,
 .nav-arrow-b .owl-arrow .owl-nav .owl-next:hover {
-  background-color: #26a356;
-}
+  background-color: #153066;
+} */
 
 .nav-arrow-b .owl-arrow .owl-nav .owl-next {
-  margin-left: 0px;
+  margin-left: 1px;
 }
 
 /*------/ Socials /------*/
@@ -520,8 +604,8 @@ a:hover {
 .navbar-default {
   transition: all .5s ease-in-out;
   background-color: #ffffff;
-  padding-top: 28px;
-  padding-bottom: 28px;
+  padding-top: 14px;
+  padding-bottom: 14px;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   box-shadow: 1px 2px 15px rgba(100, 100, 100, 0.3);
@@ -623,8 +707,8 @@ a:hover {
 
 .navbar-default.navbar-reduce {
   transition: all .5s ease-in-out;
-  padding-top: 19px;
-  padding-bottom: 19px;
+  padding-top: 16px;
+  padding-bottom: 16px;
 }
 
 .navbar-default.navbar-reduce .nav-link {
@@ -988,6 +1072,19 @@ a:hover {
 //--//-->   CARD GENERAL
 ======================================*/
 
+.cards{
+  position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border-radius: 0.25rem;
+}
+
 .card-box-a,
 .card-box-b,
 .card-box-d {
@@ -1074,6 +1171,16 @@ a:hover {
   letter-spacing: 0.030em;
 }
 
+.price-z {
+  color: #ffffff;
+  padding: 0.6rem 0.8rem;
+  border: 2px solid #00ccff;
+  background-color: #0cf;
+  border-radius: 50px;
+  text-transform: uppercase;
+  letter-spacing: 0.030em;
+}
+
 .card-footer-a {
   width: 100%;
   position: absolute;
@@ -1093,9 +1200,10 @@ a:hover {
 }
 
 .card-info li span {
-  color: #ffffff;
+  color: #434343
   font-size: .9rem;
 }
+
 
 /*------/ Property Grid /-----*/
 
@@ -1190,6 +1298,17 @@ a:hover {
 }
 
 .card-header-b .title-2 a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.card-header-b .title-3 {
+  margin-bottom: 0;
+  padding: .6rem 0;
+  font-size: 1rem;
+}
+
+.card-header-b .title-3 a {
   color: #ffffff;
   text-decoration: none;
 }
@@ -1992,6 +2111,22 @@ footer .credits {
     padding-top: 4rem;
   }
 
+  .section-t7 {
+    padding-top: 5rem;
+  }
+
+  .section-t6 {
+    padding-top: 0rem;
+  }
+
+  .section-t9 {
+    padding-top: 9rem;
+    background: rgb(249, 250, 251);
+  }
+  
+  
+  }
+
   .section-t4 {
     padding-top: 2rem;
   }
@@ -2012,7 +2147,7 @@ footer .credits {
   .card-box-b,
   .card-box-c,
   .card-box-d {
-    margin-bottom: 2.5rem;
+    margin-bottom: 0.1rem;
   }
 
   .card-box-a .card-overlay-a-content {
@@ -2020,7 +2155,7 @@ footer .credits {
   }
 
   .card-box-a .card-body-a {
-    padding-bottom: 1rem;
+    padding-bottom: 0rem;
   }
 
   .property-agent {

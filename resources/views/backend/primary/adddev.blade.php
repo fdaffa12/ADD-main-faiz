@@ -67,7 +67,7 @@
                 <div class="col-lg-3">
                     <div class="form-group">
                         <label for="lb">Harga</label>
-                        <input type="text" class="form-control" name="harga" id="harga">
+                        <input type="number" class="form-control" name="harga" id="harga">
                         @error('harga')
                         <strong class="text-danger">{{$message}}</strong>
                         @enderror

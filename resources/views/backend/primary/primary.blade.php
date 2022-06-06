@@ -263,7 +263,7 @@
                         <div class="col-lg-3">
                             <div class="form-group">
                                 <label class="form-control-label">Harga: <span class="tx-danger">*</span></label>
-                                <input class="form-control" type="text" name="harga" id="price"
+                                <input class="form-control" type="number" name="harga" id="price"
                                     placeholder="Enter Judul">
                                 @error('harga')
                                 <strong class="text-danger">{{$message}}</strong>

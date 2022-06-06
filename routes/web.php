@@ -108,6 +108,7 @@ Route::group(['middleware' => 'is_admin'], function () {
     Route::get('admin/primary/image/delete/{id}', 'PrimaryItemController@delete')->name('primary.image.delete');
     Route::get('admin/draft-primary/{id}', 'PrimaryController@draft');
     Route::get('admin/publish-primary/{id}', 'PrimaryController@publish');
+    Route::get('admin/highlight-primary/{id}', 'PrimaryController@highlight');
     //primary ajax
     Route::get('admin/primary/fasility/{id}', 'PrimaryController@fasility')->name('primary.fasility');
     Route::get('admin/primary/editdetail/{id}', 'PrimaryController@editDetail')->name('primary.edit');

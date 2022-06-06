@@ -38,7 +38,7 @@
             </td>
             <td><span class="text-muted">{{$prim->lb}} / {{$prim->lt}}</span></td>
             <td>
-                <h6 class="font-weight-semibold mb-0">Rp. {{$prim->harga}}</h6>
+                <h6 class="font-weight-semibold mb-0">@currency($prim->harga)</h6>
             </td>
             <td class="text-center">
                 <div class="list-icons">
@@ -54,8 +54,21 @@
                             <a href="javascript:void(0)" onclick="editDetailPrimary({{$prim->id}})"
                                 class="dropdown-item"><i class="icon-file-text2"></i> Edit
                                 Product</a>
+                            @if( $prim->status == 0 )
+                            <a href="{{ url('admin/publish-primary/'.$prim->id) }}" class="dropdown-item"><i
+                                    class="icon-eye"></i>Publish</a>
+                            @elseif ( $prim->status == 1 )
+                            <a href="{{ url('admin/draft-primary/'.$prim->id) }}" class="dropdown-item"><i
+                                    class="icon-eye-blocked"></i>
+                                Draft</a>
+                            <a href="{{ url('admin/highlight-primary/'.$prim->id) }}" class="dropdown-item"><i
+                                    class="icon-pushpin"></i>Highlight</a>
+                            @elseif ( $prim->status == 2 )
+                            <a href="{{ url('admin/publish-primary/'.$prim->id) }}" class="dropdown-item"><i
+                                    class="icon-eye"></i>Publish</a>
+                            @endif
                             <div class="dropdown-divider"></div>
-                            <a href="{{url('admin/primary/delete/'.$dt->id)}}" class="dropdown-item delete-confirm"><i
+                            <a href="{{url('admin/primary/delete/'.$prim->id)}}" class="dropdown-item delete-confirm"><i
                                     class="icon-file-minus"></i>
                                 Delete
                                 Product</a>
