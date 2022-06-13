@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Developer;
 use App\Primary;
 use App\PrimaryItem;
+use App\Listing;
 use Illuminate\Http\Request;
 use Response;
 
@@ -32,13 +33,15 @@ class PrimaryController extends Controller
     {
         $primaries = Primary::orderBy('id', 'desc')->get();
         $developer = Developer::orderBy('id', 'desc')->get();
-        return view('backend.primary.primary', compact('developer', 'primaries'));
+        $listing = Listing::orderBy('nama_pemilik', 'asc')->get();
+        return view('backend.primary.primary', compact('developer', 'primaries', 'listing'));
     }
 
     public function add()
     {
         $developer = Developer::orderBy('nama_dev', 'asc')->get();
-        return view('backend.primary.adddev')->with('developer', $developer);
+        $listing = Listing::orderBy('nama_pemilik', 'asc')->get();
+        return view('backend.primary.adddev', compact('developer', 'listing'));
     }
 
     public function store(Request $request)
@@ -52,13 +55,12 @@ class PrimaryController extends Controller
             'lt' => 'required',
             'kt' => 'required',
             'km' => 'required',
+            'kategori' => 'required',
             'type',
             'lokasi' => 'required',
             'harga' => 'required',
             'image' => 'required',
             'cover_image' => 'required'
-        ], [
-            'dev_id.required' => 'Select developer name',
         ]);
 
 
@@ -70,6 +72,7 @@ class PrimaryController extends Controller
         }
         $category->title = $request->input('title');
         $category->dev_id = $request->input('dev_id');
+        $category->list_id = $request->input('list_id');
         $category->description = $request->input('body');
         $category->fasilitas = $request->input('fasilitas');
         $category->lb = $request->input('lb');
@@ -77,6 +80,7 @@ class PrimaryController extends Controller
         $category->kt = $request->input('kt');
         $category->km = $request->input('km');
         $category->type = $request->input('type');
+        $category->kategori = $request->input('kategori');
         $category->lokasi = $request->input('lokasi');
         $category->harga = $request->input('harga');
         $category->save();
@@ -130,8 +134,7 @@ class PrimaryController extends Controller
             'type',
             'lokasi' => 'required',
             'harga' => 'required',
-        ], [
-            'dev_id.required' => 'Select developer name',
+            'kategori' => 'required',
         ]);
 
         $data['title'] = $request->title;
@@ -139,6 +142,8 @@ class PrimaryController extends Controller
         $data['fasilitas'] = $request->fasilitas;
         $data['type'] = $request->type;
         $data['dev_id'] = $request->dev_id;
+        $data['list_id'] = $request->list_id;
+        $data['kategori'] = $request->kategori;
         $data['lokasi'] = $request->lokasi;
         $data['harga'] = $request->harga;
         // $data['created_at'] = date('Y-m-d H:i:s');
@@ -160,6 +165,14 @@ class PrimaryController extends Controller
         $primaries = Primary::orderBy('id', 'desc')->get();
         $developer = Developer::orderBy('id', 'desc')->get();
         $data = \View::make('backend.primary.all_primary', ['primaries' => $primaries, 'developer' => $developer])->render();
+        return response()->json(['code' => 1, 'result' => $data]);
+    }
+
+    public function getSecondary()
+    {
+        $primaries = Primary::orderBy('id', 'desc')->where('kategori', 'bekas')->get();
+        $developer = Developer::orderBy('id', 'desc')->get();
+        $data = \View::make('backend.primary.all_secondary', ['primaries' => $primaries, 'developer' => $developer])->render();
         return response()->json(['code' => 1, 'result' => $data]);
     }
 

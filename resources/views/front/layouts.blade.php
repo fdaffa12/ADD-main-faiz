@@ -157,22 +157,6 @@
                         <a class="nav-link @yield('home')" href="{{url('/')}}">Home</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle @yield('developer')" href="#" id="navbarDropdown"
-                            role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Developer
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item @yield('alldev')" href="{{url('dashboard-dev')}}">All
-                                Developer</a>
-                            <a class="dropdown-item @yield('sec')"
-                                href="{{url('dashboard/all-secondary-property')}}">All
-                                Secondary Property</a>
-                            <a class="dropdown-item @yield('sec')"
-                                href="{{url('dashboard/all-secondary-property')}}">All
-                                Secondary Property</a>
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle @yield('property')" href="#" id="navbarDropdown"
                             role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Property
@@ -186,7 +170,7 @@
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="contact.html">Contact</a>
+                        <a class="nav-link" href="{{url('dashboard-dev')}}">Developer</a>
                     </li>
                 </ul>
             </div>

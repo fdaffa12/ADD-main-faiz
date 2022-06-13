@@ -7,7 +7,7 @@
 <section class="section-property section-t9">
     <div class="container">
         @foreach ($banners as $key => $banner)
-        <img class="img-fluid" src="{{asset($banner->image)}}" style="aspect-ratio: 15/4;">
+        <img class="img-fluid" src="{{asset($banner->image)}}">
         @endforeach
     </div>
 </section>
@@ -27,9 +27,9 @@
         <div class="row">
             <div class="col-sm-12">
                 <div id="property-single-carousel" class="owl-carousel owl-arrow owl-theme gallery-property">
-                    @foreach($data as $dt)
+                    @foreach($iklan as $dt)
                     <div class="carousel-item-b">
-                        <img src="{{asset($dt->gambar)}}" style="aspect-ratio: 9/3;" alt="" class="img-a img-fluid">
+                        <img src="{{asset($dt->image)}}" alt="" class="img-a img-fluid">
                     </div>
                     @endforeach
                 </div>
@@ -41,7 +41,7 @@
 <!--/ Property Star /-->
 <section class="section-property section-t6">
     <div class="color-z">
-        <div class="container color-z" style="padding-top: 30px; padding-bottom:30px">
+        <div class="container color-z" style="padding-top: 20px; padding-bottom:20px">
             <div class="row">
                 <div class="col-md-12">
                     <div class="d-flex justify-content-between pt-2">
@@ -60,7 +60,7 @@
                 @foreach($primary as $post)
                 <div class="carousel-item-b">
                     <div class="cards">
-                        <div class="card-box-a card-shadow">
+                        <div class="card-box-a card-shadow" style="margin-bottom:-10px;">
                             <div class="img-box-a">
                                 <img src="{{asset($post->image)}}" style="aspect-ratio: 4/3; border-radius: 0.25rem"
                                     alt="" class="img-a img-fluid">
@@ -76,31 +76,33 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="card-body">
-                            <div class="price-box d-flex pb-2">
-                                <span class="price-z">Cicilan | RP {{$post->harga}}</span>
+                        <div class="card-body" style="padding:1rem;">
+                            <div class="price-box d-flex pb-2" style="margin-top:1px">
+                                <span class="price-z">Cicilan | @currency($post->harga)</span>
                             </div>
-                            <h4 class="card-title-a ml-3" style="font-size: 20px;">
+                            <h4 class="card-title-a ml-3"
+                                style="font-size: 20px; margin-bottom: -3px; margin-top: -3px;">
                                 <a href="{{url('dashboard-dev/detail/'.$post->id)}}">{!!
                                     Str::limit($post->title,25, '...') !!}</a>
                             </h4>
-                            <ul class="card-info d-flex justify-content-around">
+                            <ul class="card-info d-flex justify-content-around"
+                                style="margin-top:-5px; margin-bottom:-19px">
                                 <li>
-                                    <h4 class="card-info-title">Buliding</h4>
+                                    <h4 class="card-info-title" style="margin-bottom: 3px;">Buliding</h4>
                                     <span class="color-x">{{$post->lb}}
                                     </span>
                                 </li>
                                 <li>
-                                    <h4 class="card-info-title">Area</h4>
+                                    <h4 class="card-info-title" style="margin-bottom: 3px;">Area</h4>
                                     <span>{{$post->lt}}
                                     </span>
                                 </li>
                                 <li>
-                                    <h4 class="card-info-title">Beds</h4>
+                                    <h4 class="card-info-title" style="margin-bottom: 3px;">Beds</h4>
                                     <span>{{$post->kt}}</span>
                                 </li>
                                 <li>
-                                    <h4 class="card-info-title">Baths</h4>
+                                    <h4 class="card-info-title" style="margin-bottom: 3px;">Baths</h4>
                                     <span>{{$post->km}}</span>
                                 </li>
                             </ul>

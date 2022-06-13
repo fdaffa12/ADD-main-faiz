@@ -9,12 +9,7 @@
         </tr>
     </thead>
     <tbody>
-        @foreach ($developer as $dt)
-        <tr class="table-active table-border-double">
-            <td colspan="7">{{$dt->nama_dev}}</td>
-        </tr>
         @foreach ($primaries as $prim)
-        @if($dt->id == $prim->dev_id)
         <tr id="{{$prim->id}}">
             <td>
                 <div class="d-flex align-items-center">
@@ -52,7 +47,7 @@
                             <a href="{{route('primary.images', $prim->id)}}" class="dropdown-item"><i
                                     class="icon-file-picture"></i>
                                 Manage Media</a>
-                            <a href="javascript:void(0)" onclick="editDetailPrimary({{$prim->id}})"
+                            <a href="javascript:void(0)" onclick="editDetailPrimarySecondary({{$prim->id}})"
                                 class="dropdown-item"><i class="icon-file-text2"></i> Edit
                                 Product</a>
                             @if( $prim->status == 0 )
@@ -78,8 +73,6 @@
                 </div>
             </td>
         </tr>
-        @endif
-        @endforeach
         @endforeach
     </tbody>
 </table>

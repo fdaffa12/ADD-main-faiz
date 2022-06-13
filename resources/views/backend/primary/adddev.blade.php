@@ -77,7 +77,12 @@
                 <div class="col-lg-3">
                     <div class="form-group">
                         <label for="type">Type</label>
-                        <input type="text" class="form-control" name="type" id="type">
+                        <select name="type" class="form-control" value="{{old('type')}}">
+                            <option value="Rumah" selected>Rumah</option>
+                            <option value="Apartemen">Apartemen</option>
+                            <option value="Ruko">Ruko</option>
+                            <option value="Kantor">Kantor</option>
+                        </select>
                         @error('type')
                         <strong class="text-danger">{{$message}}</strong>
                         @enderror
@@ -86,16 +91,36 @@
 
                 <div class="col-lg-3">
                     <div class="form-group">
-                        <label class="form-control-label">Nama Developer: <span class="tx-danger">*</span></label>
-                        <select class="form-control" name="dev_id" data-placeholder="Choose Category">
-                            <option label="Choose Category"></option>
-                            @foreach($developer as $list)
-                            <option value="{{$list->id}}">{{$list->nama_dev}}</option>
-                            @endforeach
+                        <label class="form-control-label">Kategori: <span class="tx-danger">*</span></label>
+                        <select id="search" name="kategori" class="form-control">
+                            <option label="Choose Category">Pilih Kategori</option>
+                            <option value="baru">Baru</option>
+                            <option value="bekas">Bekas</option>
                         </select>
-                        @error('dev_id')
-                        <strong class="text-danger">{{$message}}</strong>
-                        @enderror
+
+                        <div id="bekas">
+                            <select class="form-control" name="list_id" data-placeholder="Choose Category">
+                                <option label="Choose Category"></option>
+                                @foreach($listing as $list)
+                                <option value="{{$list->id}}">{{$list->nama_pemilik}}</option>
+                                @endforeach
+                            </select>
+                            @error('list_id')
+                            <strong class="text-danger">{{$message}}</strong>
+                            @enderror
+                        </div>
+
+                        <div id="baru">
+                            <select class="form-control" name="dev_id" data-placeholder="Choose Category">
+                                <option label="Choose Category"></option>
+                                @foreach($developer as $list)
+                                <option value="{{$list->id}}">{{$list->nama_dev}}</option>
+                                @endforeach
+                            </select>
+                            @error('dev_id')
+                            <strong class="text-danger">{{$message}}</strong>
+                            @enderror
+                        </div>
                     </div>
                 </div><!-- col-4 -->
 
@@ -164,6 +189,8 @@
 <!-- /wizard with validation -->
 @endsection
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+
 <script>
 function triggerClick() {
     document.querySelector('#profileImage').click();
@@ -189,4 +216,33 @@ function displayImage(e) {
     margin: 10px auto;
     border-radius: 16px;
 }
+
+.search-form {
+    color: #999;
+}
+
+#bekas,
+#baru {
+    margin-top: 10px;
+    display: none;
+}
 </style>
+
+<script>
+$(document).ready(function() {
+
+    $("#search").change(function(e) {
+        hideAll();
+        $(e.target.options).removeClass();
+        var $selectedOption = $(e.target.options[e.target.options.selectedIndex]);
+        $selectedOption.addClass('selected');
+        $('#' + $selectedOption.val()).show();
+    });
+});
+
+function hideAll() {
+    $("#bekas").hide();
+    $("#baru").hide();
+
+}
+</script>

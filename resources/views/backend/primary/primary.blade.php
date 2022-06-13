@@ -11,6 +11,7 @@
                     data-toggle="tab">Developer List</a></li>
             <li class="nav-item"><a href="#solid-rounded-tab2" class="nav-link" data-toggle="tab">Product
                     List</a></li>
+            <li class="nav-item"><a href="#solid-rounded-tab3" class="nav-link" data-toggle="tab">Secondary</a></li>
         </ul>
 
         <div class="tab-content">
@@ -83,6 +84,14 @@
             <div class="tab-pane fade" id="solid-rounded-tab2">
                 <div class="table-responsive">
                     <div id="AllProducts">
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-pane fade" id="solid-rounded-tab3">
+                <div class="table-responsive">
+                    <div id="AllSecondary">
 
                     </div>
                 </div>
@@ -249,6 +258,7 @@
                     enctype="multipart/form-data">
                     @csrf
                     <input type="hidden" name="id" id="iddet">
+                    <input class="form-control" type="hidden" name="kategori" id="kategori">
                     <div class="row">
                         <div class="col-lg-3">
                             <div class="form-group">
@@ -273,8 +283,12 @@
                         <div class="col-lg-3">
                             <div class="form-group">
                                 <label class="form-control-label">Type Rumah: <span class="tx-danger">*</span></label>
-                                <input class="form-control" type="text" name="type" id="tipe"
-                                    placeholder="Enter Type Rumah">
+                                <select class="form-control" name="type" id="tipe" data-placeholder="Choose Category">
+                                    <option value="Rumah" selected>Rumah</option>
+                                    <option value="Apartemen">Apartemen</option>
+                                    <option value="Ruko">Ruko</option>
+                                    <option value="Kantor">Kantor</option>
+                                </select>
                             </div>
                         </div><!-- col-4 -->
                         <div class="col-lg-3">
@@ -315,6 +329,122 @@
                             <div class="form-group">
                                 <label for="exampleInputFile">Deskripsi</label>
                                 <textarea name="description" id="desc" cols="20" rows="5"
+                                    class="form-control"></textarea>
+                                @error('description')
+                                <strong class="text-danger">{{$message}}</strong>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="form-group">
+                                <label class="form-control-label">Image: <span class="tx-danger">*</span></label>
+                                <input class="form-control" type="file" id="image" name="image" value="{{old('title')}}"
+                                    placeholder="Enter Judul">
+                                @error('image')
+                                <strong class="text-danger">{{$message}}</strong>
+                                @enderror
+                            </div>
+                        </div><!-- col-4 -->
+                    </div>
+                    <!-- /.box-body -->
+
+                    <div class="box-footer">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div id="primaryEditDetailSecondaryModal" class="modal fade" tabindex="-1" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title"><i class="icon-pencil7 mr-2"></i> &nbsp;Edit Facility</h5>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <div class="modal-body">
+                <form class="wizard-form pt-3" id="update_secondary_detail" action="{{route('primary.update')}}"
+                    method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <input type="hidden" name="id" id="iddetsec">
+                    <input class="form-control" type="hidden" name="kategori" id="kategorisec">
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <div class="form-group">
+                                <label class="form-control-label">Title: <span class="tx-danger">*</span></label>
+                                <input class="form-control" type="text" name="title" id="titledetsec"
+                                    placeholder="Enter Judul">
+                                @error('title')
+                                <strong class="text-danger">{{$message}}</strong>
+                                @enderror
+                            </div>
+                        </div><!-- col-4 -->
+                        <div class="col-lg-3">
+                            <div class="form-group">
+                                <label class="form-control-label">Harga: <span class="tx-danger">*</span></label>
+                                <input class="form-control" type="number" name="harga" id="pricesec"
+                                    placeholder="Enter Judul">
+                                @error('harga')
+                                <strong class="text-danger">{{$message}}</strong>
+                                @enderror
+                            </div>
+                        </div><!-- col-4 -->
+                        <div class="col-lg-3">
+                            <div class="form-group">
+                                <label class="form-control-label">Type Rumah: <span class="tx-danger">*</span></label>
+                                <select class="form-control" name="type" id="tipesec"
+                                    data-placeholder="Choose Category">
+                                    <option value="Rumah" selected>Rumah</option>
+                                    <option value="Apartemen">Apartemen</option>
+                                    <option value="Ruko">Ruko</option>
+                                    <option value="Kantor">Kantor</option>
+                                </select>
+                            </div>
+                        </div><!-- col-4 -->
+                        <div class="col-lg-3">
+                            <div class="form-group">
+                                <label class="form-control-label">Pemilik: <span class="tx-danger">*</span></label>
+                                <select class="form-control" name="list_id" id="listsec">
+                                    @foreach($listing as $category)
+                                    <option value="{{$category->id}}">{{$category->nama_pemilik}}</option>
+                                    @endforeach
+                                </select>
+                                @error('list_id')
+                                <strong class="text-danger">{{$message}}</strong>
+                                @enderror
+                            </div>
+                        </div><!-- col-4 -->
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label class="form-control-label">Lokasi: <span class="tx-danger">*</span></label>
+                                <input class="form-control" type="text" name="lokasi" id="loksec"
+                                    placeholder="Enter Lokasi">
+                                @error('lokasi')
+                                <strong class="text-danger">{{$message}}</strong>
+                                @enderror
+                            </div>
+                        </div><!-- col-4 -->
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <div class="form-group">
+                                <label for="exampleInputFile">Faslitas</label>
+                                <textarea name="fasilitas" id="fassec" cols="20" rows="5"
+                                    class="form-control"></textarea>
+                                @error('fasilitas')
+                                <strong class="text-danger">{{$message}}</strong>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-lg-9">
+                            <div class="form-group">
+                                <label for="exampleInputFile">Deskripsi</label>
+                                <textarea name="description" id="descsec" cols="20" rows="5"
                                     class="form-control"></textarea>
                                 @error('description')
                                 <strong class="text-danger">{{$message}}</strong>
@@ -451,10 +581,68 @@ function editDetailPrimary(id) {
         $("#price").val(detail.harga);
         $("#tipe").val(detail.type);
         $("#lok").val(detail.lokasi);
+        $("#kategori").val(detail.kategori);
         $("#dev").val(detail.dev_id);
         $("#fas").val(detail.fasilitas);
         $("#desc").val(detail.description);
         $("#primaryEditDetailModal").modal("toggle");
+    });
+}
+
+
+//Secondary
+
+// Update the detail
+$('#update_secondary_detail').on('submit', function(e) {
+    e.preventDefault();
+    var form = this;
+    $.ajax({
+        url: $(form).attr('action'),
+        method: $(form).attr('method'),
+        data: new FormData(form),
+        processData: false,
+        dataType: 'json',
+        contentType: false,
+        beforeSend: function() {
+            $(form).find('span.error-text').text('');
+        },
+        success: function(data) {
+            if (data.code == 0) {
+                $.each(data.error, function(prefix, val) {
+                    $(form).find('span.' + prefix + '_error').text(val[0]);
+                });
+            } else {
+                $("#primaryEditDetailSecondaryModal").modal("hide");
+                $('#update_secondary_detail')[0].reset();
+                // alert(data.msg);
+                fetchAllSecondary();
+            }
+        }
+    });
+});
+
+//Fetch all products
+fetchAllSecondary();
+
+function fetchAllSecondary() {
+    $.get('{{route("get.secondary")}}', {}, function(data) {
+        $('#AllSecondary').html(data.result);
+    }, 'json');
+}
+
+//When click edit primary
+function editDetailPrimarySecondary(id) {
+    $.get('/admin/primary/editdetail/' + id, function(detail) {
+        $("#iddetsec").val(detail.id);
+        $("#titledetsec").val(detail.title);
+        $("#pricesec").val(detail.harga);
+        $("#tipesec").val(detail.type);
+        $("#loksec").val(detail.lokasi);
+        $("#kategorisec").val(detail.kategori);
+        $("#listsec").val(detail.list_id);
+        $("#fassec").val(detail.fasilitas);
+        $("#descsec").val(detail.description);
+        $("#primaryEditDetailSecondaryModal").modal("toggle");
     });
 }
 </script>

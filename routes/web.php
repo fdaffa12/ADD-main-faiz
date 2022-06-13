@@ -115,6 +115,7 @@ Route::group(['middleware' => 'is_admin'], function () {
     Route::get('admin/primary/detail/{id}', 'PrimaryController@detail')->name('primary.detail');
     Route::post('/admin/primary/update-fasility', 'PrimaryController@updateFasility')->name('update.fasility');
     Route::get('admin/read-primary', 'PrimaryController@getPrimary')->name('get.primary');
+    Route::get('admin/read-secondary', 'PrimaryController@getSecondary')->name('get.secondary');
 
     //video
     Route::get('admin/video', 'Admin\VideoController@index')->name('video.index');

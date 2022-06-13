@@ -65,11 +65,11 @@
                         <div class="property-price d-flex justify-content-center foo">
                             <div class="card-header-c d-flex">
                                 <div class="card-box-ico">
-                                    <span class="ion-money">Rp</span>
+                                    <h5 class="title-c">@currency($data->harga)</h5>
                                 </div>
-                                <div class="card-title-c align-self-center">
+                                <!-- <div class="card-title-c align-self-center">
                                     <h5 class="title-c">{{$data->harga}}</h5>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                         <div class="property-summary">

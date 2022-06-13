@@ -4,7 +4,7 @@
 @section('alldev') active @endsection
 @section('content')
 
-<section class="intro-single">
+<section class="intro-single" style="padding-top:8rem;">
     <div class="container">
         <div class="row">
             <div class="col-md-12 col-lg-8">
