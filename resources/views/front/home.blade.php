@@ -3,8 +3,9 @@
 @section('home') active @endsection
 @section('content')
 
+
 <!--/ Carousel Star /-->
-<section class="section-property section-t9">
+<section class="section-property section-t9" style="padding-top: 6rem;">
     <div class="container">
         @foreach ($banners as $key => $banner)
         <img class="img-fluid" src="{{asset($banner->image)}}">
@@ -13,7 +14,7 @@
 </section>
 <!--/ Carousel end /-->
 
-<section class="property-single section-t7 nav-arrow-b">
+<section class="property-single section-t7 nav-arrow-b" style="padding-top: 3rem;">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -76,7 +77,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="card-body" style="padding:1rem;">
+                        <div class="card-body" style="padding:1.5rem;">
                             <div class="price-box d-flex pb-2" style="margin-top:1px">
                                 <span class="price-z">Cicilan | @currency($post->harga)</span>
                             </div>

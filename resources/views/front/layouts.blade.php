@@ -183,267 +183,41 @@
     <!--/ Nav End /-->
 
     @yield('content')
-
-    <section class="property-single nav-arrow-b">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="row section-t3">
-                        <div class="col-sm-12">
-                            <div class="title-box-d">
-                                <h3 class="title-d">Contact Agent</h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6 col-lg-4">
-                            <img src="{{asset('uploads/agen.jpg')}}" alt="" class="img-fluid">
-                        </div>
-                        <div class="col-md-6 col-lg-4">
-                            <div class="property-agent">
-                                <h4 class="title-agent">Restiani Anjarwati</h4>
-                                <p class="color-text-a">
-                                    Hanya dalam properti, Anda bahkan dapat menghasilkan uang saat membeli, bukan hanya
-                                    saat
-                                    menjual. Hubungi saya jika anda berminat untuk melakukan transaksi property.
-                                </p>
-                                <ul class="list-unstyled">
-                                    <li class="d-flex justify-content-between">
-                                        <strong>Phone:</strong>
-                                        <a href="https://wa.me/+628111160311">
-                                            <span>081-111-603-11</span>
-                                        </a>
-                                    </li>
-                                    <li class="d-flex justify-content-between">
-                                        <strong>Email:</strong>
-                                        <a href="mailto:first@email.address">
-                                            <span>addpropertyprima@gmail.com</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                                <div class="socials-a">
-                                    <ul class="list-inline">
-                                        <li class="list-inline-item">
-                                            <a href="#">
-                                                <i class="fa fa-facebook" aria-hidden="true"></i>
-                                            </a>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <a href="#">
-                                                <i class="fa fa-twitter" aria-hidden="true"></i>
-                                            </a>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <a href="#">
-                                                <i class="fa fa-instagram" aria-hidden="true"></i>
-                                            </a>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <a href="#">
-                                                <i class="fa fa-pinterest-p" aria-hidden="true"></i>
-                                            </a>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <a href="#">
-                                                <i class="fa fa-dribbble" aria-hidden="true"></i>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-12 col-lg-4">
-                            <div class="property-contact">
-                                <form class="form-a">
-                                    <div class="row">
-                                        <div class="col-md-12 mb-1">
-                                            <div class="form-group">
-                                                <input type="text" class="form-control form-control-lg form-control-a"
-                                                    id="inputName" placeholder="Name *" required>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12 mb-1">
-                                            <div class="form-group">
-                                                <input type="email" class="form-control form-control-lg form-control-a"
-                                                    id="inputEmail1" placeholder="Email *" required>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12 mb-1">
-                                            <div class="form-group">
-                                                <textarea id="textMessage" class="form-control" placeholder="Comment *"
-                                                    name="message" cols="45" rows="8" required></textarea>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <button type="submit" class="btn btn-a">Send Message</button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!--/ footer Star /-->
-    <section class="section-footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12 col-md-4">
-                    <div class="widget-a">
-                        <div class="w-header-a">
-                            <h3 class="w-title-a text-brand">EstateAgency</h3>
-                        </div>
-                        <div class="w-body-a">
-                            <p class="w-text-a color-text-a">
-                                Enim minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip exea commodo
-                                consequat duis
-                                sed aute irure.
-                            </p>
-                        </div>
-                        <div class="w-footer-a">
-                            <ul class="list-unstyled">
-                                <li class="color-a">
-                                    <span class="color-text-a">Phone .</span> contact@example.com
-                                </li>
-                                <li class="color-a">
-                                    <span class="color-text-a">Email .</span> +54 356 945234
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-12 col-md-4 section-md-t3">
-                    <div class="widget-a">
-                        <div class="w-header-a">
-                            <h3 class="w-title-a text-brand">The Company</h3>
-                        </div>
-                        <div class="w-body-a">
-                            <div class="w-body-a">
-                                <ul class="list-unstyled">
-                                    <li class="item-list-a">
-                                        <i class="fa fa-angle-right"></i> <a href="#">Site Map</a>
-                                    </li>
-                                    <li class="item-list-a">
-                                        <i class="fa fa-angle-right"></i> <a href="#">Legal</a>
-                                    </li>
-                                    <li class="item-list-a">
-                                        <i class="fa fa-angle-right"></i> <a href="#">Agent Admin</a>
-                                    </li>
-                                    <li class="item-list-a">
-                                        <i class="fa fa-angle-right"></i> <a href="#">Careers</a>
-                                    </li>
-                                    <li class="item-list-a">
-                                        <i class="fa fa-angle-right"></i> <a href="#">Affiliate</a>
-                                    </li>
-                                    <li class="item-list-a">
-                                        <i class="fa fa-angle-right"></i> <a href="#">Privacy Policy</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-12 col-md-4 section-md-t3">
-                    <div class="widget-a">
-                        <div class="w-header-a">
-                            <h3 class="w-title-a text-brand">International sites</h3>
-                        </div>
-                        <div class="w-body-a">
-                            <ul class="list-unstyled">
-                                <li class="item-list-a">
-                                    <i class="fa fa-angle-right"></i> <a href="#">Venezuela</a>
-                                </li>
-                                <li class="item-list-a">
-                                    <i class="fa fa-angle-right"></i> <a href="#">China</a>
-                                </li>
-                                <li class="item-list-a">
-                                    <i class="fa fa-angle-right"></i> <a href="#">Hong Kong</a>
-                                </li>
-                                <li class="item-list-a">
-                                    <i class="fa fa-angle-right"></i> <a href="#">Argentina</a>
-                                </li>
-                                <li class="item-list-a">
-                                    <i class="fa fa-angle-right"></i> <a href="#">Singapore</a>
-                                </li>
-                                <li class="item-list-a">
-                                    <i class="fa fa-angle-right"></i> <a href="#">Philippines</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
     <footer>
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <nav class="nav-footer">
-                        <ul class="list-inline">
-                            <li class="list-inline-item">
-                                <a href="#">Home</a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="#">About</a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="#">Property</a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="#">Blog</a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="#">Contact</a>
-                            </li>
-                        </ul>
-                    </nav>
                     <div class="socials-a">
                         <ul class="list-inline">
                             <li class="list-inline-item">
-                                <a href="#">
-                                    <i class="fa fa-facebook" aria-hidden="true"></i>
+                                <a href="https://www.facebook.com/addproperty.id">
+                                    <i class="fa fa-facebook" aria-hidden="true"
+                                        style="background: #103681; border-radius: 5px; padding: 0.4rem; color: #ffff;"></i>
+                                    ADD Property
                                 </a>
                             </li>
                             <li class="list-inline-item">
-                                <a href="#">
-                                    <i class="fa fa-twitter" aria-hidden="true"></i>
+                                <a href="https://wa.me/+628111160311">
+                                    <i class="fa fa-whatsapp" aria-hidden="true"
+                                        style="background: #103681; border-radius: 5px; padding: 0.4rem; color: #ffff;"></i>
+                                    0811-1160-311
                                 </a>
                             </li>
                             <li class="list-inline-item">
-                                <a href="#">
-                                    <i class="fa fa-instagram" aria-hidden="true"></i>
-                                </a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="#">
-                                    <i class="fa fa-pinterest-p" aria-hidden="true"></i>
-                                </a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="#">
-                                    <i class="fa fa-dribbble" aria-hidden="true"></i>
+                                <a href="https://www.instagram.com/add.property/">
+                                    <i class="fa fa-instagram" aria-hidden="true"
+                                        style="background: #103681; border-radius: 5px; padding: 0.4rem; color: #ffff;"></i>
+                                    @add.property
                                 </a>
                             </li>
                         </ul>
                     </div>
                     <div class="copyright-footer">
-                        <p class="copyright color-text-a">
+                        <p class="copyright color-text-a" style="margin-bottom: 0;">
                             &copy; Copyright
-                            <span class="color-a">EstateAgency</span> All Rights Reserved.
+                            <span class="color-a">Add Property</span> All Rights Reserved.
                         </p>
-                    </div>
-                    <div class="credits">
-                        <!--
-              All the links in the footer should remain intact.
-              You can delete the links only if you purchased the pro version.
-              Licensing information: https://bootstrapmade.com/license/
-              Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=EstateAgency
-            -->
-                        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
                     </div>
                 </div>
             </div>

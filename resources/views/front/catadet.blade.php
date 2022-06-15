@@ -4,7 +4,7 @@
 @section('allprim') active @endsection
 @section('content')
 <!--/ Intro Single star /-->
-<section class="intro-single">
+<section class="intro-single" style="padding-top: 7rem; padding-bottom: 0rem;">
     <div class="container">
         <div class="row">
             <div class="col-md-12 col-lg-8">
@@ -60,81 +60,175 @@
                     <!--container-->
                 </div>
                 <!-- Thumb-Slider-Element ends -->
-                <div class="row justify-content-between pt-3">
-                    <div class="col-md-5 col-lg-4">
-                        <div class="property-price d-flex justify-content-center foo">
-                            <div class="card-header-c d-flex">
-                                <div class="card-box-ico">
-                                    <h5 class="title-c">@currency($data->harga)</h5>
+                <div class="container">
+                    <div class="row justify-content-between">
+                        <div class="col-md-8">
+                            <div class="row justify-content-between pt-3">
+                                <div class="col-md-12 col-lg-12">
+                                    <div class="title-box-d">
+                                        <h3 class="title-d">@currency($data->harga)</h3>
+                                    </div>
+                                    <div class="summary-list">
+                                        <div class="list">
+                                            <span>Luas Bangunan {{$data->lb}}</span>
+                                            <span> - </span>
+                                            <span>Luas Bangunan {{$data->lb}}</span>
+                                            <span> - </span>
+                                            <span>Kamar Tidur {{$data->kt}}</span>
+                                            <span> - </span>
+                                            <span>Kamar Mandi {{$data->km}}</span>
+                                        </div>
+                                    </div>
+                                    <span><i class="fa fa-map-marker" aria-hidden="true"></i> {{$data->lokasi}}</span>
+                                    <hr class="garis">
                                 </div>
-                                <!-- <div class="card-title-c align-self-center">
-                                    <h5 class="title-c">{{$data->harga}}</h5>
-                                </div> -->
-                            </div>
-                        </div>
-                        <div class="property-summary">
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <div class="title-box-d section-t4">
-                                        <h3 class="title-d">Quick Summary</h3>
+                                <div class="col-md-12 col-lg-12">
+                                    <div class="title-box-d">
+                                        <h3 class="title-d">Deskripsi</h3>
+                                    </div>
+                                    <div class="summary-list">
+                                        <div class="list">
+                                            <span>{!! nl2br(e($data->description)) !!}</span>
+                                        </div>
+                                    </div>
+                                    <hr class="garis">
+                                </div>
+                                <div class="col-md-12 col-lg-12">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="d-flex justify-content-between pt-2">
+                                                <div class="title-box">
+                                                    <h2 class="title-a">Perumahan Terlaris</h2>
+                                                </div>
+                                                <div class="title-link-a">
+                                                    <a href="{{url('dashboard/all-property')}}">Perumahan Terlaris
+                                                        Lainnya
+                                                        <span class="ion-ios-arrow-forward"></span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div id="property-carousel" class="owl-carousel owl-theme">
+                                                @foreach($highlight as $post)
+                                                <div class="carousel-item-b">
+                                                    <div class="card">
+                                                        <div class="card-box-a card-shadow"
+                                                            style="margin-bottom:-10px;">
+                                                            <div class="img-box-a">
+                                                                <img src="{{asset($post->image)}}"
+                                                                    style="aspect-ratio: 4/3; border-radius: 0.25rem"
+                                                                    alt="" class="img-a img-fluid">
+                                                            </div>
+                                                            <div class="card-overlay">
+                                                                <div class="card-header-b">
+                                                                    <div class="card-title-b">
+                                                                        <h2 class="title-3">
+                                                                            <a
+                                                                                href="{{url('dashboard-dev/detail/'.$post->id)}}">Selengkapnya
+                                                                                <span
+                                                                                    class="ion-ios-arrow-forward"></span></a>
+                                                                        </h2>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="card-body" style="padding:1.5rem;">
+                                                            <div class="price-box d-flex pb-2" style="margin-top:1px">
+                                                                <span class="price-z" style="font-size:12px">Cicilan |
+                                                                    @currency($post->harga)</span>
+                                                            </div>
+                                                            <h4 class="card-title-a ml-3"
+                                                                style="font-size: 16px; margin-bottom: -3px; margin-top: -3px;">
+                                                                <a href="{{url('dashboard-dev/detail/'.$post->id)}}">{!!
+                                                                    Str::limit($post->title,25, '...') !!}</a>
+                                                            </h4>
+                                                            <ul class="card-info d-flex justify-content-around"
+                                                                style="margin-top:-5px; margin-bottom:-19px">
+                                                                <li>
+                                                                    <h4 class="card-info-title"
+                                                                        style="margin-bottom: 3px; font-size:12px">
+                                                                        Buliding
+                                                                    </h4>
+                                                                    <span style="font-size:12px">{{$post->lb}}</span>
+                                                                </li>
+                                                                <li>
+                                                                    <h4 class="card-info-title"
+                                                                        style="margin-bottom: 3px; font-size:12px">
+                                                                        Area
+                                                                    </h4>
+                                                                    <span style="font-size:12px">{{$post->lt}}</span>
+                                                                </li>
+                                                                <li>
+                                                                    <h4 class="card-info-title"
+                                                                        style="margin-bottom: 3px; font-size:12px">
+                                                                        Beds
+                                                                    </h4>
+                                                                    <span style="font-size:12px">{{$post->kt}}</span>
+                                                                </li>
+                                                                <li>
+                                                                    <h4 class="card-info-title"
+                                                                        style="margin-bottom: 3px; font-size:12px">
+                                                                        Baths
+                                                                    </h4>
+                                                                    <span style="font-size:12px">{{$post->km}}</span>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                @endforeach
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="summary-list">
-                                <ul class="list">
-                                    <li class="d-flex justify-content-between">
-                                        <strong>Location:</strong>
-                                        <span>{{$data->lokasi}}</span>
-                                    </li>
-                                    <li class="d-flex justify-content-between">
-                                        <strong>Property Type:</strong>
-                                        <span>{{$data->type}}</span>
-                                    </li>
-                                    <li class="d-flex justify-content-between">
-                                        <strong>Buliding:</strong>
-                                        <span>{{$data->lb}}</span>
-                                    </li>
-                                    <li class="d-flex justify-content-between">
-                                        <strong>Area:</strong>
-                                        <span>{{$data->lt}}
-                                        </span>
-                                    </li>
-                                    <li class="d-flex justify-content-between">
-                                        <strong>Beds:</strong>
-                                        <span>{{$data->kt}}</span>
-                                    </li>
-                                    <li class="d-flex justify-content-between">
-                                        <strong>Baths:</strong>
-                                        <span>{{$data->km}}</span>
-                                    </li>
-                                </ul>
-                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-7 col-lg-7 section-md-t3">
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <div class="title-box-d">
-                                    <h3 class="title-d">Property Description</h3>
+                        <div class="col-lg-3">
+                            <div class="justify-content-between pt-3 sticky-top" style="top: 100px;">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title text-center">Ayo konsultasi dengan Add Property
+                                        </h5>
+                                        <button type="button" class="tombol" data-toggle="modal"
+                                            data-target=".bd-example-modal-sm"><i class="fa fa-whatsapp"
+                                                aria-hidden="true"></i> Hubungi Sekarang</button>
+                                        <a data-toggle="collapse" href="#collapseExample" role="button"
+                                            aria-expanded="false" aria-controls="collapseExample" style="justify-content: center;
+    display: flex;">
+                                            Tanya-tanya nanti<i class="fa fa-angle-down" aria-hidden="true"
+                                                style="font-size: 20px; margin-top: 3px; margin-left: 3px;"></i>
+
+                                        </a>
+                                        </p>
+                                        <div class="collapse" id="collapseExample">
+                                            <p class="text-center" style="font-size: 10px;">Isi data diri anda dengan
+                                                lengkap agar kami dapat
+                                                mengubungi anda.</p>
+                                            <form action="{{route('store.customer')}}" method="post">
+                                                @csrf
+                                                <div class="form-group">
+                                                    <label style="margin-bottom:2px; font-size:13px;">Nama
+                                                        Lengkap</label>
+                                                    <input type="text" class="form-control" name="nama_cus"
+                                                        placeholder="Nama Lengkap" required>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label style="margin-bottom:2px; font-size:13px;">Nomor
+                                                        Telepon</label>
+                                                    <input type="number" class="form-control" name="nohp"
+                                                        placeholder="Nomor Telepon" required>
+                                                </div>
+
+                                                <button type="submit" class="btn btn-primary"
+                                                    style="background-color: #103681;">Kirim</button>
+                                            </form>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="property-description">
-                            <p class="description color-text-a">
-                                {!! nl2br(e($data->description)) !!}
-                            </p>
-                        </div>
-                        <div class="row section-t3">
-                            <div class="col-sm-12">
-                                <div class="title-box-d">
-                                    <h3 class="title-d">Facility</h3>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="property-description">
-                            <p class="description color-text-a">
-                                {!! nl2br(e($data->fasilitas)) !!}
-                            </p>
                         </div>
                     </div>
                 </div>
@@ -143,6 +237,37 @@
     </div>
 </section>
 <!--/ Property Single End /-->
+
+
+<!-- modal -->
+<div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content" style="top:100px;">
+            <div class="modal-header">
+                <h5 class="modal-title">Konfirmasi nomor telepon yuk,</h5>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <div class="modal-body">
+                <p>Agar team kami selalu siap melayani kebutuhan property anda</p>
+
+                <form action="{{route('store.customer')}}" method="post">
+                    @csrf
+                    <div class="form-group">
+                        <label style="margin-bottom:2px; font-size:13px;">Nomor
+                            Telepon</label>
+                        <input type="number" class="form-control" name="nohp" placeholder="Nomor Telepon">
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary" style="background-color: #103681;">Kirim</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 
 <style>
 .carousel {

@@ -12,6 +12,7 @@
 body {
   font-family: 'Poppins', sans-serif;
   color: #555555;
+  background-color: #f8f8f8 !important;
 }
 
 h1,
@@ -29,7 +30,7 @@ a {
 }
 
 a:hover {
-  color: #00ccff;
+  color: #103681;
   text-decoration: none;
 }
 
@@ -91,7 +92,7 @@ a:hover {
 }
 
 .color-b {
-  color: #00ccff;
+  color: #103681;
 }
 
 .color-z{
@@ -130,7 +131,7 @@ a:hover {
   bottom: -1px;
   width: 100%;
   height: 2px;
-  background-color: #00ccff;
+  background-color: #103681;
   z-index: 2;
 }
 
@@ -213,7 +214,8 @@ a:hover {
 .pagination-a .pagination .page-link:hover,
 .pagination-a .pagination .page-link:active,
 .pagination-a .pagination .page-link:focus {
-  background-color: #00ccff;
+  background-color: #103681;
+  color: #ffffff;
 }
 
 .pagination-a .pagination .page-link span {
@@ -240,11 +242,12 @@ a:hover {
 }
 
 .pagination-a .pagination .page-item.active .page-link {
-  background-color: #00ccff;
+  background-color: #103681;
+  color: #ffffff;
 }
 
 .a {
-  color: #00ccff;
+  color: #103681;
   font-size: 1.3rem;
 }
 
@@ -362,7 +365,7 @@ a:hover {
   position: absolute;
   width: 70px;
   height: 4px;
-  background-color: #00ccff;
+  background-color: #103681;
   bottom: 20px;
   left: 0;
 }
@@ -429,11 +432,11 @@ a:hover {
 }
 
 .owl-theme .owl-dots .owl-dot:hover span {
-  background-color: #00ccff;
+  background-color: #103681;
 }
 
 .owl-theme .owl-dots .owl-dot.active span {
-  background-color: #00ccff;
+  background-color: #103681;
   width: 35px;
 }
 
@@ -527,7 +530,7 @@ a:hover {
 .back-to-top {
   position: fixed;
   display: none;
-  background: #00ccff;
+  background: #103681;
   color: #fff;
   width: 44px;
   height: 44px;
@@ -565,7 +568,7 @@ a:hover {
   top: calc(50% - 30px);
   left: calc(50% - 30px);
   border: 6px solid #f2f2f2;
-  border-top: 6px solid #00ccff;
+  border-top: 6px solid #103681;
   border-radius: 50%;
   width: 60px;
   height: 60px;
@@ -655,7 +658,7 @@ a:hover {
   width: 100%;
   height: 2px;
   z-index: 0;
-  background-color: #00ccff;
+  background-color: #103681;
   -webkit-transform: scaleX(0);
   transform: scaleX(0);
   -webkit-transform-origin: right;
@@ -691,7 +694,7 @@ a:hover {
 }
 
 .navbar-default.navbar-trans .nav-link:before {
-  background-color: #00ccff;
+  background-color: #103681;
 }
 
 .navbar-default.navbar-trans .nav-link:hover {
@@ -716,7 +719,7 @@ a:hover {
 }
 
 .navbar-default.navbar-reduce .nav-link:before {
-  background-color: #00ccff;
+  background-color: #103681;
 }
 
 .navbar-default.navbar-reduce .nav-link:hover {
@@ -736,7 +739,7 @@ a:hover {
 
 .navbar-default .dropdown .dropdown-menu {
   border-top: 0;
-  border-left: 4px solid #00ccff;
+  border-left: 4px solid #103681;
   border-right: 0;
   border-bottom: 0;
   -webkit-transform: translate3d(0px, -40px, 0px);
@@ -759,13 +762,13 @@ a:hover {
 
 .navbar-default .dropdown .dropdown-menu .dropdown-item:hover {
   background-color: #ffffff;
-  color: #00ccff;
+  color: #103681;
   transition: all 500ms ease;
 }
 
 .navbar-default .dropdown .dropdown-menu .dropdown-item.active {
   background-color: #ffffff;
-  color: #00ccff;
+  color: #103681;
 }
 
 .navbar-default .dropdown:hover .dropdown-menu {
@@ -961,11 +964,11 @@ a:hover {
 }
 
 .intro .owl-theme .owl-dots .owl-dot:hover span {
-  background-color: #00ccff;
+  background-color: #103681;
 }
 
 .intro .owl-theme .owl-dots .owl-dot.active span {
-  background-color: #00ccff;
+  background-color: #103681;
 }
 
 .intro .intro-item {
@@ -1000,7 +1003,7 @@ a:hover {
 .intro .intro-body .price-a {
   color: #ffffff;
   padding: 1rem 1.5rem;
-  border: 2px solid #00ccff;
+  border: 2px solid #103681;
   border-radius: 50px;
   text-transform: uppercase;
   letter-spacing: 0.030em;
@@ -1050,7 +1053,7 @@ a:hover {
 }
 
 .intro-single .title-single-box {
-  border-left: 3px solid #00ccff;
+  border-left: 3px solid #103681;
 }
 
 .intro-single .title-single-box .title-single {
@@ -1077,7 +1080,7 @@ a:hover {
 }
 
 .intro-double .title-single-box {
-  border-left: 3px solid #00ccff;
+  border-left: 3px solid #103681;
 }
 
 .intro-double .title-single-box .title-single {
@@ -1098,6 +1101,37 @@ a:hover {
 /*======================================
 //--//-->   CARD GENERAL
 ======================================*/
+
+.garis {
+  float: left;
+  width: 100%;
+  margin-block: 16px;
+  border-width: 0rem;
+  height: 0.0625rem;
+  background-color: rgb(217, 221, 224);
+}
+
+.tombol {
+  white-space: break-spaces;
+  height: unset;
+  max-height: 44px;
+  border-radius: 4px;
+  border: none;
+  padding: 14px 16px;
+  font-weight: 600;
+  font-size: 14px;
+  color: white;
+  background: #103681;
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom: 10px;
+}
 
 .cards{
   position: relative;
@@ -1182,7 +1216,7 @@ a:hover {
 
 .card-header-a .category-a {
   font-size: .9rem;
-  background-color: #00ccff;
+  background-color: #103681;
   padding: 0.3rem 0.7rem;
   color: #313131;
   letter-spacing: 0.030em;
@@ -1195,7 +1229,7 @@ a:hover {
 
 .card-header-a .category-ab {
   font-size: .9rem;
-  background-color: #00ccff;
+  background-color: #103681;
   padding: 0.3rem 0.7rem;
   color: #313131;
   letter-spacing: 0.030em;
@@ -1219,7 +1253,7 @@ a:hover {
 .price-a {
   color: #ffffff;
   padding: .6rem .8rem;
-  border: 2px solid #00ccff;
+  border: 2px solid #103681;
   border-radius: 50px;
   text-transform: uppercase;
   letter-spacing: 0.030em;
@@ -1228,8 +1262,8 @@ a:hover {
 .price-z {
   color: #ffffff;
   padding: 0.3rem 0.4rem;
-  border: 2px solid #00ccff;
-  background-color: #0cf;
+  border: 2px solid #103681;
+  background-color: #103681;
   border-radius: 50px;
   text-transform: uppercase;
   letter-spacing: 0.030em;
@@ -1241,7 +1275,7 @@ a:hover {
   width: 100%;
   position: absolute;
   z-index: 2;
-  background-color: #00ccff;
+  background-color: #103681;
 }
 
 .card-info {
@@ -1339,9 +1373,9 @@ a:hover {
 
 .card-header-b .category-b {
   font-size: .9rem;
-  background-color: #00ccff;
+  background-color: #103681;
   padding: .3rem .7rem;
-  color: #313131;
+  color: #ffffff;
   letter-spacing: 0.030em;
   border-radius: 50px;
   text-decoration: none;
@@ -1401,7 +1435,7 @@ a:hover {
 
 .post-content .blockquote {
   padding: 1rem 3rem 1.7rem 3rem;
-  border-left: 3px solid #00ccff;
+  border-left: 3px solid #103681;
   color: #000000;
 }
 
@@ -1488,7 +1522,7 @@ a:hover {
 
 .card-box-ico {
   padding: 1rem 3rem 1rem 4.5rem;
-  border: 5px solid #00ccff;
+  border: 5px solid #103681;
 }
 
 .card-box-ico span {
@@ -1549,7 +1583,7 @@ a:hover {
 }
 
 .card-box-d:hover .card-overlay-hover {
-  background-color: #00ccff;
+  background-color: #103681;
   opacity: .9;
 }
 
@@ -1579,20 +1613,20 @@ a:hover {
 .nav-pills .nav-link.active,
   .nav-pills .show>.nav-link {
       color: #fff;
-      background-color: #00ccff;
+      background-color: #103681;
   }
 .nav-pills .nav-link {
   border-radius: 50px;
   margin: 2px;
   margin: 2px;
   background: #ffff;
-  border: 1px solid #00ccff;
+  border: 1px solid #103681;
 }
 
 .dropdown-item.active, .dropdown-item:active {
   color: #fff;
   text-decoration: none;
-  background-color: #00ccff;
+  background-color: #103681;
 }
 .dropdown-item {
   display: block;
@@ -1626,7 +1660,7 @@ a:hover {
 }
 
 .sinse-box {
-  background-color: #00ccff;
+  background-color: #103681;
   padding: 1rem 2rem;
   position: absolute;
   left: 15px;
@@ -1680,7 +1714,7 @@ a:hover {
 
 .testimonial-ico span {
   font-size: 1.8rem;
-  background-color: #00ccff;
+  background-color: #103681;
   color: #ffffff;
   padding: .4rem 1rem;
   border-radius: 50px;
@@ -1737,7 +1771,7 @@ a:hover {
 .section-footer .item-list-a i {
   font-size: 18px;
   padding-right: 4px;
-  color: #00ccff;
+  color: #103681;
 }
 
 .section-footer .widget-a .w-title-a {
@@ -1764,8 +1798,8 @@ footer .credits {
 ======================================*/
 
 .form-a #sendmessage {
-  color: #00ccff;
-  border: 1px solid #26a356;
+  color: #103681;
+  border: 1px solid #00ccff;
   display: none;
   text-align: center;
   padding: 15px;
@@ -1818,7 +1852,7 @@ footer .credits {
 
 .form-a .form-control:focus {
   box-shadow: none;
-  border-color: #00ccff;
+  border-color: #103681;
 }
 
 /*======================================
@@ -1842,12 +1876,12 @@ footer .credits {
 }
 
 .btn.btn-a:hover {
-  background-color: #00ccff;
+  background-color: #103681;
   color: #000000;
 }
 
 .btn.btn-b {
-  background-color: #00ccff;
+  background-color: #103681;
   color: #000000;
 }
 
@@ -1857,13 +1891,13 @@ footer .credits {
 }
 
 .btn.btn-b-n {
-  background-color: #00ccff;
+  background-color: #103681;
   color: #ffffff;
   border-radius: 0;
 }
 
 .btn.btn-b-n:hover {
-  background-color: #26a356;
+  background-color: #00ccff;
   color: #ffffff;
 }
 
@@ -1913,7 +1947,7 @@ footer .credits {
   }
 
   .navbar-default .dropdown .dropdown-menu {
-    border-top: 4px solid #00ccff;
+    border-top: 4px solid #103681;
     border-left: 0;
     display: block;
     position: absolute;

@@ -4,12 +4,12 @@
 @section('alldev') active @endsection
 @section('content')
 
-<section class="intro-single">
+<section class="intro-single" style="padding-top: 8rem">
     <div class="container">
         <div class="row">
             <div class="col-md-12 col-lg-8">
                 <div class="title-single-box">
-                    <h1 class="title-single">Our Developer</h1>
+                    <h1 class="title-single">{{$data->nama_dev}}</h1>
                 </div>
             </div>
         </div>

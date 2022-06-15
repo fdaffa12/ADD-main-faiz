@@ -236,3 +236,4 @@ Route::get('dashboard/all-secondary-property', 'FrontendController@allSecPro');
 Route::get('dashboard-dev/item/{id}', 'FrontendController@devitem');
 Route::get('dashboard-dev/detail/{id}', 'FrontendController@detail');
 Route::get('dashboard-sec/detail/{id}', 'FrontendController@detailsec');
+Route::post('post-customer', 'FrontendController@postCustomer')->name('store.customer');

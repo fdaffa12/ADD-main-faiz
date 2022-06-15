@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Developer;
 use App\Category;
 use App\CategoryItem;
+use App\Customer;
 use App\Listing;
 use App\Setting;
 use App\Post;
@@ -79,8 +80,9 @@ class FrontendController extends Controller
     {
         $categoryitems = PrimaryItem::where('primary_id', $id)->orderBy('created_at', 'desc')->paginate(6);
         $data = Primary::where('id', $id)->first();
+        $highlight = Primary::orderBy('created_at', 'desc')->where('status', '2')->paginate(3);
 
-        return view('front.catadet', compact('categoryitems', 'data'));
+        return view('front.catadet', compact('categoryitems', 'data', 'highlight'));
     }
 
     public function detailsec($id)
@@ -141,5 +143,21 @@ class FrontendController extends Controller
         $category = Category::orderby('id', 'desc')->paginate(6);
 
         return view('front.all-secpro', compact('category'));
+    }
+
+    public function postCustomer(Request $request)
+    {
+        $request->validate([
+            'nohp' => 'required',
+        ]);
+
+        $data['nama_cus'] = $request->nama_cus;
+        $data['nohp'] = $request->nohp;
+        $data['created_at'] = date('Y-m-d H:i:s');
+        $data['updated_at'] = date('Y-m-d H:i:s');
+
+        Customer::insert($data);
+
+        return redirect()->back();
     }
 }
