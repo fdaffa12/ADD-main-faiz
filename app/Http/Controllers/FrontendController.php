@@ -12,6 +12,7 @@ use App\Post;
 use App\Primary;
 use App\PrimaryItem;
 use Illuminate\Http\Request;
+use Symfony\Component\Console\Input\Input;
 
 class FrontendController extends Controller
 {
@@ -106,36 +107,39 @@ class FrontendController extends Controller
         return view('front.kebijakan');
     }
 
-    public function allPro()
+    public function allPro(Request $request)
     {
-        $primary = Primary::orderby('kategori', 'asc')->paginate(6, ['*'], 'primary');
-        $category = Primary::where('kategori', 'bekas')->paginate(6, ['*'], 'primary');
+        // $primary = Primary::orderby('kategori', 'asc')->paginate(6, ['*'], 'primary');
+
+        $keyword = $request->input('keyword');
+        $query = Primary::orderBy('kategori', 'asc');
+        if ($request->keyword) {
+            // This will only execute if you received any keyword
+            $query = $query->where('type', 'like', '%' . $keyword . '%');
+        }
+        if ($request->min_price && $request->max_price) {
+            // This will only execute if you received any price
+            // Make you you validated the min and max price properly
+            $query = $query->where('harga', '>=', $request->min_price);
+            $query = $query->where('harga', '<=', $request->max_price);
+        }
+        if ($request->min_price) {
+            // This will only execute if you received any price
+            // Make you you validated the min and max price properly
+            $query = $query->where('harga', '>=', $request->min_price);
+        }
+        if ($request->max_price) {
+            // This will only execute if you received any price
+            // Make you you validated the min and max price properly
+            $query = $query->where('harga', '<=', $request->max_price);
+        }
+        $primary = $query->paginate(6);
+
 
         $highlight = Primary::orderBy('created_at', 'desc')->where('status', '2')->paginate(3);
 
-        $nol = 0;
-        $limaratus = 500000;
-        $satujuta = 1000000;
 
-        $nolsdlimaratus = Primary::whereBetween('harga', [$nol, $limaratus])->paginate(6, ['*'], 'nolsdlimaratus');
-        $limasdsatujuta = Primary::whereBetween('harga', [$limaratus, $satujuta])->paginate(6, ['*'], 'limasdsatujuta');
-
-        $rumah = Primary::where('type', 'Rumah')->paginate(6, ['*'], 'rumah');
-        $rumahsec = Category::whereHas('listing', function ($q) {
-            $q->where('unit', 'Rumah');
-        })->paginate(6, ['*'], 'rumahsec');
-
-        $ruko = Primary::where('type', 'Ruko')->paginate(6, ['*'], 'ruko');
-        $rukosec = Category::whereHas('listing', function ($q) {
-            $q->where('unit', 'Ruko');
-        })->paginate(6, ['*'], 'rumahsec');
-
-        $rumahsubsidi = Primary::whereHas('developer', function ($q) {
-            $q->where('status', 0);
-        })->paginate(6, ['*'], 'rumahsec');
-
-
-        return view('front.all-pro', compact('primary', 'nolsdlimaratus', 'limasdsatujuta', 'rumah', 'category', 'rumahsec', 'ruko', 'rukosec', 'rumahsubsidi', 'highlight'));
+        return view('front.all-pro', compact('primary', 'highlight', 'query'));
     }
 
     public function allSecPro()
