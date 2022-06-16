@@ -138,7 +138,7 @@
                                                         <div class="card-body" style="padding:1.5rem;">
                                                             <div class="price-box d-flex pb-2" style="margin-top:1px">
                                                                 <span class="price-z" style="font-size:12px">Cicilan |
-                                                                    @currency($post->harga)</span>
+                                                                    @currency($data->harga)</span>
                                                             </div>
                                                             <h4 class="card-title-a ml-3"
                                                                 style="font-size: 16px; margin-bottom: -3px; margin-top: -3px;">
