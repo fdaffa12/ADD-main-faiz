@@ -70,7 +70,7 @@
                                 <div class="card-header-b">
                                     <div class="card-title-b">
                                         <h2 class="title-3">
-                                            <a href="{{url('dashboard-dev/detail/'.$post->id)}}">Selengkapnya
+                                            <a href="{{url('detail/'.$post->title)}}">Selengkapnya
                                                 <span class="ion-ios-arrow-forward"></span></a>
                                         </h2>
                                     </div>
@@ -83,19 +83,19 @@
                             </div>
                             <h4 class="card-title-a ml-3"
                                 style="font-size: 20px; margin-bottom: -3px; margin-top: -3px;">
-                                <a href="{{url('dashboard-dev/detail/'.$post->id)}}">{!!
+                                <a href="{{url('detail/'.$post->title)}}">{!!
                                     Str::limit($post->title,25, '...') !!}</a>
                             </h4>
                             <ul class="card-info d-flex justify-content-around"
                                 style="margin-top:-5px; margin-bottom:-19px">
                                 <li>
                                     <h4 class="card-info-title" style="margin-bottom: 3px;">Buliding</h4>
-                                    <span class="color-x">{{$post->lb}}
+                                    <span class="color-x">{{$post->lb}}<sup>2</sup>
                                     </span>
                                 </li>
                                 <li>
                                     <h4 class="card-info-title" style="margin-bottom: 3px;">Area</h4>
-                                    <span>{{$post->lt}}
+                                    <span>{{$post->lt}}<sup>2</sup>
                                     </span>
                                 </li>
                                 <li>

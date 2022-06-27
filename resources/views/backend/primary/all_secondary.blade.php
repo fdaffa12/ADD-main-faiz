@@ -50,6 +50,11 @@
                             <a href="javascript:void(0)" onclick="editDetailPrimarySecondary({{$prim->id}})"
                                 class="dropdown-item"><i class="icon-file-text2"></i> Edit
                                 Product</a>
+                            <div class="dropdown-divider"></div>
+                            <a href="{{url('admin/primary/delete/'.$prim->id)}}" class="dropdown-item delete-confirm"><i
+                                    class="icon-file-minus"></i>
+                                Delete
+                                Product</a>
                             @if( $prim->status == 0 )
                             <a href="{{ url('admin/publish-primary/'.$prim->id) }}" class="dropdown-item"><i
                                     class="icon-eye"></i>Publish</a>
@@ -63,11 +68,6 @@
                             <a href="{{ url('admin/publish-primary/'.$prim->id) }}" class="dropdown-item"><i
                                     class="icon-eye"></i>Publish</a>
                             @endif
-                            <div class="dropdown-divider"></div>
-                            <a href="{{url('admin/primary/delete/'.$prim->id)}}" class="dropdown-item delete-confirm"><i
-                                    class="icon-file-minus"></i>
-                                Delete
-                                Product</a>
                         </div>
                     </div>
                 </div>

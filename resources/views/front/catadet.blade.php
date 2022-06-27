@@ -4,6 +4,7 @@
 @section('allprim') active @endsection
 @section('content')
 <!--/ Intro Single star /-->
+
 <section class="intro-single" style="padding-top: 7rem; padding-bottom: 0rem;">
     <div class="container">
         <div class="row">
@@ -19,45 +20,37 @@
 <!--/ Intro Single End /-->
 
 <!--/ Property Single Star /-->
-<section class="property-single nav-arrow-b">
+<section class="property-single nav-arrow-b pt-4">
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
                 <!-- Main-Slideelement -->
-                <div class="container-fluid">
-
-                    <div id="demo" class="carousel slide vert" data-ride="carousel" data-interval="3000">
-
-                        <div class="row no-gutters">
-
-                            <div class="col-12 col-sm-12 col-md-12 col-lg-2 col-xl-2">
-                                <div class="carousel-indicators">
-                                    @foreach($categoryitems as $key => $category)
-                                    <div data-target="#demo" data-slide-to="{{$key}}"
-                                        class="item {{$key == 0 ? 'active' : '' }}"><img class="img-fluid"
-                                            src="{{asset('uploads/gallery/'.$category->cover_image)}}" alt=""></div>
-                                    @endforeach
-                                </div>
-                            </div><!-- col-sm-4 Indicators -->
-
-
-                            <div class="col-12 col-sm-12 col-md-12 col-lg-10">
-                                <div class="carousel-inner">
-                                    @foreach($categoryitems as $key => $category)
-                                    <div class="carousel-item {{$key == 0 ? 'active' : '' }}">
-                                        <img class="img-fluid"
-                                            src="{{asset('uploads/gallery/'.$category->cover_image)}}" alt="">
-                                    </div>
-                                    @endforeach
-                                </div>
-                                <!--inner-->
-                            </div><!-- col-sm-6  -->
-
-
+                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        @foreach($categoryitems as $key => $category)
+                        <li data-target="#carouselExampleIndicators" data-slide-to="{{$key}}"
+                            class="item {{$key == 0 ? 'active' : '' }}">
+                            <img class="d-block w-100" src="{{asset('uploads/gallery/'.$category->cover_image)}}"
+                                alt="">
+                        </li>
+                        @endforeach
+                    </ol>
+                    <div class="carousel-inner">
+                        @foreach($categoryitems as $key => $category)
+                        <div class="carousel-item {{$key == 0 ? 'active' : '' }}">
+                            <img class="d-block w-100" src="{{asset('uploads/gallery/'.$category->cover_image)}}"
+                                alt="First slide">
                         </div>
-                        <!--row-->
+                        @endforeach
                     </div>
-                    <!--container-->
+                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                        <i class="fa fa-arrow-left" aria-hidden="true"
+                            style="background-color: #103681; padding: 1rem; border-radius: 2px;"></i>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                        <i class="fa fa-arrow-right" aria-hidden="true"
+                            style="background-color: #103681; padding: 1rem; border-radius: 2px;"></i>
+                    </a>
                 </div>
                 <!-- Thumb-Slider-Element ends -->
                 <div class="container">
@@ -66,13 +59,17 @@
                             <div class="row justify-content-between pt-3">
                                 <div class="col-md-12 col-lg-12">
                                     <div class="title-box-d">
-                                        <h3 class="title-d">@currency($data->harga)</h3>
+                                        @if( $data->kategori == 'baru' )
+                                        <h3 class="title-d">Cicilan @currency($data->harga)</h3>
+                                        @else
+                                        <h3 class="title-d">Harga @currency($data->harga)</h3>
+                                        @endif
                                     </div>
                                     <div class="summary-list">
                                         <div class="list">
-                                            <span>Luas Bangunan {{$data->lb}}</span>
+                                            <span>Luas Bangunan {{$data->lb}}<sup>2</sup></span>
                                             <span> - </span>
-                                            <span>Luas Bangunan {{$data->lb}}</span>
+                                            <span>Luas Tanah {{$data->lt}}<sup>2</sup></span>
                                             <span> - </span>
                                             <span>Kamar Tidur {{$data->kt}}</span>
                                             <span> - </span>
@@ -109,7 +106,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="row">
+                                    <div class="row" style="margin-bottom: 2rem;">
                                         <div class="col-md-12">
                                             <div id="property-carousel" class="owl-carousel owl-theme">
                                                 @foreach($highlight as $post)
@@ -126,8 +123,7 @@
                                                                 <div class="card-header-b">
                                                                     <div class="card-title-b">
                                                                         <h2 class="title-3">
-                                                                            <a
-                                                                                href="{{url('dashboard-dev/detail/'.$post->id)}}">Selengkapnya
+                                                                            <a href="{{url('detail/'.$post->title)}}">Selengkapnya
                                                                                 <span
                                                                                     class="ion-ios-arrow-forward"></span></a>
                                                                         </h2>
@@ -141,8 +137,8 @@
                                                                     @currency($data->harga)</span>
                                                             </div>
                                                             <h4 class="card-title-a ml-3"
-                                                                style="font-size: 16px; margin-bottom: -3px; margin-top: -3px;">
-                                                                <a href="{{url('dashboard-dev/detail/'.$post->id)}}">{!!
+                                                                style="font-size: 15px; margin-bottom: -3px; margin-top: -3px;">
+                                                                <a href="{{url('detail/'.$post->title)}}">{!!
                                                                     Str::limit($post->title,25, '...') !!}</a>
                                                             </h4>
                                                             <ul class="card-info d-flex justify-content-around"
@@ -152,14 +148,16 @@
                                                                         style="margin-bottom: 3px; font-size:12px">
                                                                         Buliding
                                                                     </h4>
-                                                                    <span style="font-size:12px">{{$post->lb}}</span>
+                                                                    <span
+                                                                        style="font-size:12px">{{$post->lb}}<sup>2</sup></span>
                                                                 </li>
                                                                 <li>
                                                                     <h4 class="card-info-title"
                                                                         style="margin-bottom: 3px; font-size:12px">
                                                                         Area
                                                                     </h4>
-                                                                    <span style="font-size:12px">{{$post->lt}}</span>
+                                                                    <span
+                                                                        style="font-size:12px">{{$post->lt}}<sup>2</sup></span>
                                                                 </li>
                                                                 <li>
                                                                     <h4 class="card-info-title"
@@ -192,9 +190,10 @@
                                     <div class="card-body">
                                         <h5 class="card-title text-center">Ayo konsultasi dengan Add Property
                                         </h5>
-                                        <button type="button" class="tombol" data-toggle="modal"
-                                            data-target=".bd-example-modal-sm"><i class="fa fa-whatsapp"
-                                                aria-hidden="true"></i> Hubungi Sekarang</button>
+                                        <a href="https://wa.me/+628111160311">
+                                            <button type="button" class="tombol"><i class="fa fa-whatsapp"
+                                                    aria-hidden="true"></i> Hubungi Sekarang</button>
+                                        </a>
                                         <a data-toggle="collapse" href="#collapseExample" role="button"
                                             aria-expanded="false" aria-controls="collapseExample" style="justify-content: center;
     display: flex;">
@@ -240,7 +239,7 @@
 
 
 <!-- modal -->
-<div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
+<!-- <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
     aria-hidden="true">
     <div class="modal-dialog modal-sm">
         <div class="modal-content" style="top:100px;">
@@ -267,157 +266,18 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 
 <style>
-.carousel {
-    margin-top: 40px;
-}
-
-/* Make the image fully responsive */
-.carousel-inner img {
-    aspect-ratio: 4/3;
-}
-
-.carousel-indicators {
-    display: inline-block;
-    height: 500px;
-    overflow-y: scroll;
-    overflow-x: hidden;
-    position: static;
-    direction: rtl;
-}
-
-@media screen and (max-width:992px) {
-    .carousel-indicators {
-        display: inline-flex;
-        direction: inherit;
-        height: auto;
-        width: 100%;
-        max-width: 800px;
-        overflow-x: auto;
-        position: relative;
-        margin-left: 0;
-        margin-right: 0;
-        overflow-y: hidden;
-        justify-content: normal;
-        margin-bottom: 20px;
-    }
-
-    .carousel-inner {
-        margin-left: 0 !important;
-    }
-
-    .carousel-inner img {
-        width: 100%;
-    }
-}
-
-/* width */
-::-webkit-scrollbar {
-    width: 5px;
-    height: 5px;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-    background: #f1f1f1;
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-    background: #888;
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-    background: #555;
-}
-
-.item {
-    margin-bottom: 10px;
-    margin-left: 10px;
-    cursor: pointer;
+.carousel-indicators li {
+    width: 100px;
+    height: 100%;
+    opacity: 0.8;
 }
 
 .item.active img {
-    border: 1px solid #00ccff;
+    border: 1px solid #103681;
     opacity: 1;
-}
-
-.item img {
-    border: 1px solid transparent;
-    opacity: 0.5;
-    transition: 0.5s;
-}
-
-.item:hover img {
-    border: 1px solid #00ccff;
-    opacity: 1;
-}
-
-.content {
-    position: absolute;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.5);
-    /* Black background with transparency */
-    color: #f1f1f1;
-    width: 100%;
-    padding: 10px;
-}
-
-.content p {
-    font-size: 15px;
-}
-
-.content {
-    position: static;
-}
-
-
-
-.vert .carousel-item-next.carousel-item-left,
-.vert .carousel-item-prev.carousel-item-right {
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
-}
-
-.vert .carousel-item-next,
-.vert .active.carousel-item-right {
-    -webkit-transform: translate3d(0, 100%, 0);
-    transform: translate3d(0, 100% 0);
-}
-
-.vert .carousel-item-prev,
-.vert .active.carousel-item-left {
-    -webkit-transform: translate3d(0, -100%, 0);
-    transform: translate3d(0, -100%, 0);
 }
 </style>
-
-<script>
-jQuery(document).ready(function($) {
-
-    $('#myCarousel').carousel({
-        interval: 5000
-    });
-
-    //Handles the carousel thumbnails
-    $('[id^=carousel-selector-]').click(function() {
-        var id_selector = $(this).attr("id");
-        try {
-            var id = /-(\d+)$/.exec(id_selector)[1];
-            console.log(id_selector, id);
-            jQuery('#myCarousel').carousel(parseInt(id));
-        } catch (e) {
-            console.log('Regex failed!', e);
-        }
-    });
-    // When the carousel slides, auto update the text
-    $('#myCarousel').on('slid.bs.carousel', function(e) {
-        var id = $('.item.active').data('slide-number');
-        $('#carousel-text').html($('#slide-content-' + id).html());
-    });
-});
-</script>
 @endsection

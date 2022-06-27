@@ -77,10 +77,12 @@ class FrontendController extends Controller
         return view('front.dev-item', compact('categoryitems', 'data'));
     }
 
-    public function detail($id)
+    public function detail($title)
     {
-        $categoryitems = PrimaryItem::where('primary_id', $id)->orderBy('created_at', 'desc')->paginate(6);
-        $data = Primary::where('id', $id)->first();
+
+
+        $data = Primary::where('title', $title)->first();
+        $categoryitems = PrimaryItem::where('primary_id', $data->id)->orderBy('created_at', 'desc')->get();
         $highlight = Primary::orderBy('created_at', 'desc')->where('status', '2')->paginate(3);
 
         return view('front.catadet', compact('categoryitems', 'data', 'highlight'));
@@ -112,10 +114,15 @@ class FrontendController extends Controller
         // $primary = Primary::orderby('kategori', 'asc')->paginate(6, ['*'], 'primary');
 
         $keyword = $request->input('keyword');
+        $kategori = $request->input('kategori');
         $query = Primary::orderBy('kategori', 'asc');
         if ($request->keyword) {
             // This will only execute if you received any keyword
             $query = $query->where('type', 'like', '%' . $keyword . '%');
+        }
+        if ($request->kategori) {
+            // This will only execute if you received any kategori
+            $query = $query->where('kategori', 'like', '%' . $kategori . '%');
         }
         if ($request->min_price && $request->max_price) {
             // This will only execute if you received any price

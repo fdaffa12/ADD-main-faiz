@@ -133,7 +133,7 @@
                         <div class="col-lg-12">
                             <div class="form-group">
                                 <label for="exampleInputFile">Description</label>
-                                <textarea class="form-control" name="description" id="description" rows="10"
+                                <textarea class="form-control" name="description" id="editor-full" rows="10"
                                     cols="80"></textarea>
                                 @error('description')
                                 <strong class="text-danger">{{$message}}</strong>

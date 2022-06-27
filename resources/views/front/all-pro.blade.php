@@ -11,46 +11,219 @@
             <div class="col-md-12 col-lg-12">
                 <div class="d-flex justify-content-center">
                     <ul class="nav nav-pills p-2">
-                        <li class="nav-item"><a href="#basic-pill1" class="nav-link active" data-toggle="tab">Semua
-                                Property</a>
-                        </li>
-                        <form action="{{ url('dashboard/all-property')}}" method="GET">
-                            <li class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Harga</a>
-                                <div class="dropdown-menu dropdown-menu-right" style="padding: 1rem;">
-                                    <div class="form-group">
-                                        <input type="number" class="form-control" name="min_price" placeholder="Minimum"
-                                            value="{{ request()->input('min_price') }}" style="width:200px;">
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="number" class="form-control" name="max_price" placeholder="Maximal"
-                                            value="{{ request()->input('max_price') }}" style="width:200px;">
-                                    </div>
-                                    <!-- <input type=" text" name="keyword"> -->
-                                    <input type="submit" value="Filter"
-                                        style="background-color: #103681; border: #103681; color: #ffff; border-radius: 2px; padding: 0.3rem; width:100%;">
+                        <div class="tab-content">
+                            <form action="{{ url('dashboard/all-property')}}" method="GET">
+                                <div class="row">
+                                    <li class="nav-item dropdown">
+                                        @if( request()->input('max_price') == '' && request()->input('min_price') == ''
+                                        )
+                                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Harga</a>
+                                        @elseif ( request()->input('min_price') > 0 && request()->input('max_price') ==
+                                        '')
+                                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"><i
+                                                class="fa fa-chevron-right" aria-hidden="true"></i>
+                                            @currency(request()->input('min_price'))</a>
+                                        @elseif ( request()->input('max_price') > 0 && request()->input('min_price') ==
+                                        '')
+                                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"><i
+                                                class="fa fa-chevron-left" aria-hidden="true"></i>
+                                            @currency(request()->input('max_price'))</a>
+                                        @elseif ( request()->input('max_price') > 0 && request()->input('min_price') >
+                                        0)
+                                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
+                                            @currency(request()->input('min_price'))</a>
+                                        @endif
+                                        <div class="dropdown-menu dropdown-menu-right" style="padding: 1rem;">
+                                            <!-- <div class="form-group">
+                                                <input type="number" class="form-control" name="min_price"
+                                                    placeholder="Minimum" value="{{ request()->input('min_price') }}"
+                                                    style="width:200px;">
+                                            </div> -->
+                                            <!-- <div class="form-group">
+                                                <input type="number" class="form-control" name="max_price"
+                                                    placeholder="Maximal" value="{{ request()->input('max_price') }}"
+                                                    style="width:200px;">
+                                            </div> -->
+                                            <div class="input-group mb-2" style="width:200px;">
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text">RP</div>
+                                                </div>
+                                                <input type="text" class="form-control" id="inlineFormInputGroup"
+                                                    name="min_price" placeholder="Maximal"
+                                                    value="{{ request()->input('min_price') }}">
+                                            </div>
+                                            <div class="input-group mb-2">
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text">RP</div>
+                                                </div>
+                                                <input type="text" class="form-control" id="inlineFormInputGroup"
+                                                    name="max_price" placeholder="Maximal"
+                                                    value="{{ request()->input('max_price') }}">
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                        @if( request()->input('keyword') == '')
+                                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Tipe
+                                            Bangunan</a>
+                                        @else
+                                        <a href="#" class="nav-link dropdown-toggle text-capitalize"
+                                            data-toggle="dropdown">{{request()->input('keyword')}}</a>
+                                        @endif
+                                        <div class="dropdown-menu dropdown-menu-right" style="padding: 1rem;">
+                                            @if( request()->input('keyword') == '')
+                                            <div class="form-check" style="width: 210px;">
+                                                <input class="form-check-input" type="radio" name="keyword" value=""
+                                                    checked>
+                                                <label class="form-check-label" style="white-space: nowrap;">
+                                                    Semua Jenis Bangunan
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="keyword"
+                                                    value="rumah">
+                                                <label class="form-check-label">
+                                                    Rumah
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="keyword"
+                                                    value="ruko">
+                                                <label class="form-check-label">
+                                                    Ruko
+                                                </label>
+                                            </div>
+                                            @elseif ( request()->input('keyword') == 'rumah')
+                                            <div class="form-check" style="width: 210px;">
+                                                <input class="form-check-input" type="radio" name="keyword" value=""
+                                                    checked>
+                                                <label class="form-check-label" style="white-space: nowrap;">
+                                                    Semua Jenis Bangunan
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="keyword"
+                                                    value="rumah" checked>
+                                                <label class="form-check-label">
+                                                    Rumah
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="keyword"
+                                                    value="ruko">
+                                                <label class="form-check-label">
+                                                    Ruko
+                                                </label>
+                                            </div>
+                                            @elseif ( request()->input('keyword') == 'ruko')
+                                            <div class="form-check" style="width: 210px;">
+                                                <input class="form-check-input" type="radio" name="keyword" value=""
+                                                    checked>
+                                                <label class="form-check-label" style="white-space: nowrap;">
+                                                    Semua Jenis Bangunan
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="keyword"
+                                                    value="rumah">
+                                                <label class="form-check-label">
+                                                    Rumah
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="keyword" value="ruko"
+                                                    checked>
+                                                <label class="form-check-label">
+                                                    Ruko
+                                                </label>
+                                            </div>
+                                            @endif
+                                        </div>
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                        @if ( request()->input('kategori') == '')
+                                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Semua
+                                            Kategori</a>
+                                        @elseif ( request()->input('kategori') == 'baru')
+                                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Baru</a>
+                                        @elseif ( request()->input('kategori') == 'bekas')
+                                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Bekas</a>
+                                        @endif
+                                        <div class="dropdown-menu dropdown-menu-right" style="padding: 1rem;">
+                                            @if ( request()->input('kategori') == '')
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="kategori" value=""
+                                                    checked>
+                                                <label class="form-check-label" style="white-space: nowrap;">
+                                                    Semua Kategori
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="kategori"
+                                                    value="baru">
+                                                <label class="form-check-label">
+                                                    Baru
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="kategori"
+                                                    value="bekas">
+                                                <label class="form-check-label">
+                                                    Seken
+                                                </label>
+                                            </div>
+                                            @elseif ( request()->input('kategori') == 'baru')
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="kategori" value="">
+                                                <label class="form-check-label" style="white-space: nowrap;">
+                                                    Semua Kategori
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="kategori"
+                                                    value="baru" checked>
+                                                <label class="form-check-label">
+                                                    Baru
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="kategori"
+                                                    value="bekas">
+                                                <label class="form-check-label">
+                                                    Seken
+                                                </label>
+                                            </div>
+                                            @elseif ( request()->input('kategori') == 'bekas')
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="kategori" value="">
+                                                <label class="form-check-label" style="white-space: nowrap;">
+                                                    Semua Kategori
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="kategori"
+                                                    value="baru">
+                                                <label class="form-check-label">
+                                                    Baru
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="kategori"
+                                                    value="bekas" checked>
+                                                <label class="form-check-label">
+                                                    Seken
+                                                </label>
+                                            </div>
+                                            @endif
+                                        </div>
+                                    </li>
+                                    <li class="nav-item">
+                                        <input type="submit" value="Filter"
+                                            style="background-color: #103681; border: #103681; color: #ffff; border-radius: 2px; padding: 0.5rem; width:100%; margin:4px;">
+                                    </li>
                                 </div>
-                            </li>
-                        </form>
-                        <li class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Tipe Bangunan</a>
-                            <div class="dropdown-menu dropdown-menu-right">
-                                <!-- <a href="#basic-pill1" class="dropdown-item" data-toggle="tab">Semua Property</a> -->
-                                <a href="#type-pill1" class="dropdown-item" data-toggle="tab">Rumah</a>
-                                <a href="#type-pill2" class="dropdown-item" data-toggle="tab">Ruko</a>
-                                <a href="#type-pill3" class="dropdown-item" data-toggle="tab">Apartemen</a>
-                                <a href="#type-pill4" class="dropdown-item" data-toggle="tab">Kantor</a>
-                            </div>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Ketegori</a>
-                            <div class="dropdown-menu dropdown-menu-right">
-                                <!-- <a href="#basic-pill1" class="dropdown-item" data-toggle="tab">Semua Property</a> -->
-                                <a href="#kategori-pill1" class="dropdown-item" data-toggle="tab">Baru</a>
-                                <a href="#kategori-pill2" class="dropdown-item" data-toggle="tab">Subsidi</a>
-                                <a href="#kategori-pill3" class="dropdown-item" data-toggle="tab">Bekas</a>
-                            </div>
-                        </li>
+                            </form>
+                        </div>
                     </ul>
                 </div>
             </div>
@@ -89,7 +262,7 @@
                                 <div class="card-header-b">
                                     <div class="card-title-b">
                                         <h2 class="title-3">
-                                            <a href="{{url('dashboard-dev/detail/'.$post->id)}}">Selengkapnya
+                                            <a href="{{url('detail/'.$post->title)}}">Selengkapnya
                                                 <span class="ion-ios-arrow-forward"></span></a>
                                         </h2>
                                     </div>
@@ -102,19 +275,19 @@
                             </div>
                             <h4 class="card-title-a ml-3"
                                 style="font-size: 20px; margin-bottom: -3px; margin-top: -3px;">
-                                <a href="{{url('dashboard-dev/detail/'.$post->id)}}">{!!
+                                <a href="{{url('detail/'.$post->title)}}">{!!
                                     Str::limit($post->title,25, '...') !!}</a>
                             </h4>
                             <ul class="card-info d-flex justify-content-around"
                                 style="margin-top:-5px; margin-bottom:-19px">
                                 <li>
                                     <h4 class="card-info-title" style="margin-bottom: 3px;">Buliding</h4>
-                                    <span class="color-x">{{$post->lb}}
+                                    <span class="color-x">{{$post->lb}}<sup>2</sup>
                                     </span>
                                 </li>
                                 <li>
                                     <h4 class="card-info-title" style="margin-bottom: 3px;">Area</h4>
-                                    <span>{{$post->lt}}
+                                    <span>{{$post->lt}}<sup>2</sup>
                                     </span>
                                 </li>
                                 <li>
@@ -184,7 +357,7 @@
                                         </div>
                                         <div class="card-title-b">
                                             <h2 class="title-3">
-                                                <a href="{{url('dashboard-dev/detail/'.$post->id)}}">Selengkapnya
+                                                <a href="{{url('detail/'.$post->title)}}">Selengkapnya
                                                     <span class="ion-ios-arrow-forward"></span></a>
                                             </h2>
                                         </div>
@@ -197,19 +370,19 @@
                                 </div>
                                 <h4 class="card-title-a ml-3"
                                     style="font-size: 20px; margin-bottom: -3px; margin-top: -3px;">
-                                    <a href="{{url('dashboard-dev/detail/'.$post->id)}}">{!!
+                                    <a href="{{url('detail/'.$post->title)}}">{!!
                                         Str::limit($post->title,25, '...') !!}</a>
                                 </h4>
                                 <ul class="card-info d-flex justify-content-around"
                                     style="margin-top:-5px; margin-bottom:-19px">
                                     <li>
                                         <h4 class="card-info-title" style="margin-bottom: 3px;">Buliding</h4>
-                                        <span class="color-x">{{$post->lb}}
+                                        <span class="color-x">{{$post->lb}}<sup>2</sup>
                                         </span>
                                     </li>
                                     <li>
                                         <h4 class="card-info-title" style="margin-bottom: 3px;">Area</h4>
-                                        <span>{{$post->lt}}
+                                        <span>{{$post->lt}}<sup>2</sup>
                                         </span>
                                     </li>
                                     <li>

@@ -15,7 +15,7 @@ class PrimaryItemController extends Controller
     public function index($id)
     {
 
-        $primaryitems = PrimaryItem::where('primary_id', $id)->orderBy('created_at', 'desc')->paginate(6);
+        $primaryitems = PrimaryItem::where('primary_id', $id)->orderBy('created_at', 'desc')->get();
 
         return view('backend.primary.view.images')->with([
             'primaryitems' => $primaryitems,

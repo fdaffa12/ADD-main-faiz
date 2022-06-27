@@ -392,7 +392,6 @@
     }
     </style>
 
-
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
     <script>
@@ -411,6 +410,9 @@
         });
     });
     </script>
+
+    <script src="{{ asset('assets/js/demo_pages/ckeditor/ckeditor.js') }}"></script>
+    <script src="{{ asset('assets/js/demo_pages/editor_ckeditor_dark.js') }}"></script>
 
 </body>
 

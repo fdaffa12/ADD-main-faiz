@@ -19,29 +19,61 @@
 <section class="news-grid grid">
     <div class="container">
         <div class="row">
-            @foreach($categoryitems as $category)
+            @foreach($categoryitems as $post)
             <div class="col-md-4">
-                <div class="card-box-b card-shadow news-box">
-                    <div class="img-box-b">
-                        <img src="{{asset($category->image)}}" style="aspect-ratio: 4/3;" alt=""
-                            class="img-a img-fluid">
-                    </div>
-                    <div class="card-overlay">
-                        <div class="card-header-b">
-                            <div class="card-category-b">
-                                @if( $category->status == 0 )
-                                <a href="{{url('dashboard-dev/detail/'.$category->id)}}" class="category-b">Subsidi</a>
-                                @else
-                                <a href="{{url('dashboard-dev/detail/'.$category->id)}}" class="category-b">Komersil</a>
-                                @endif
-                            </div>
-                            <div class="card-title-b">
-                                <h2 class="title-2">
-                                    <a href="{{url('dashboard-dev/detail/'.$category->id)}}">{{$category->title}}
-                                    </a>
-                                </h2>
+                <div class="card" style="margin-bottom: 30px;">
+                    <div class="card-box-a card-shadow" style="margin-bottom:-10px;">
+                        <div class="img-box-a">
+                            <img src="{{asset($post->image)}}" style="aspect-ratio: 4/3; border-radius: 0.25rem" alt=""
+                                class="img-a img-fluid">
+                        </div>
+                        <div class="card-overlay">
+                            <div class="card-header-b">
+                                <div class="card-category-b">
+                                    @if( $post->kategori == 'baru' )
+                                    <a href="#" class="category-b">Baru</a>
+                                    @else
+                                    <a href="#" class="category-b">Bekas</a>
+                                    @endif
+                                </div>
+                                <div class="card-title-b">
+                                    <h2 class="title-3">
+                                        <a href="{{url('detail/'.$post->title)}}">Selengkapnya
+                                            <span class="ion-ios-arrow-forward"></span></a>
+                                    </h2>
+                                </div>
                             </div>
                         </div>
+                    </div>
+                    <div class="card-body" style="padding:1.5rem;">
+                        <div class="price-box d-flex pb-2" style="margin-top:1px">
+                            <span class="price-z">Cicilan | @currency($post->harga)</span>
+                        </div>
+                        <h4 class="card-title-a ml-3" style="font-size: 20px; margin-bottom: -3px; margin-top: -3px;">
+                            <a href="{{url('detail/'.$post->title)}}">{!!
+                                Str::limit($post->title,25, '...') !!}</a>
+                        </h4>
+                        <ul class="card-info d-flex justify-content-around"
+                            style="margin-top:-5px; margin-bottom:-19px">
+                            <li>
+                                <h4 class="card-info-title" style="margin-bottom: 3px;">Buliding</h4>
+                                <span class="color-x">{{$post->lb}}<sup>2</sup>
+                                </span>
+                            </li>
+                            <li>
+                                <h4 class="card-info-title" style="margin-bottom: 3px;">Area</h4>
+                                <span>{{$post->lt}}<sup>2</sup>
+                                </span>
+                            </li>
+                            <li>
+                                <h4 class="card-info-title" style="margin-bottom: 3px;">Beds</h4>
+                                <span>{{$post->kt}}</span>
+                            </li>
+                            <li>
+                                <h4 class="card-info-title" style="margin-bottom: 3px;">Baths</h4>
+                                <span>{{$post->km}}</span>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
