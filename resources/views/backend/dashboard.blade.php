@@ -79,13 +79,10 @@
                 <li class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Sec Developer
+                        Listing
                     </a>
 
                     <div class="dropdown-menu dropdown-menu-right">
-                        <a href="{{url('admin/gallery')}}" class="dropdown-item">Manage Secondary Developer</a>
-                        <a href="{{url('admin/add-gallery')}}" class="dropdown-item">Add
-                            Secondary Developer</a>
                         <a href="{{url('admin/listing')}}" class="dropdown-item">Manage Listing</a>
                         <a href="{{url('admin/add-listing')}}" class="dropdown-item">Add
                             Listing</a>
@@ -94,18 +91,18 @@
                 <li class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Primary Developer
+                        Product
                     </a>
 
                     <div class="dropdown-menu dropdown-menu-right">
                         <!-- <a href="{{url('admin/primary')}}" class="dropdown-item">Manage Primary Developer</a> -->
-                        <a href="{{url('admin/add-primary')}}" class="dropdown-item">Add
-                            Primary Developer</a>
                         <!-- <a href="{{url('admin/developer')}}" class="dropdown-item">Manage
                             Developer</a> -->
                         <a href="{{url('admin/add-developer')}}" class="dropdown-item">Add
                             Developer</a>
-                        <a href="{{url('admin/primary-all')}}" class="dropdown-item">Primary</a>
+                        <a href="{{url('admin/add-primary')}}" class="dropdown-item">Add
+                            Product</a>
+                        <a href="{{url('admin/primary-all')}}" class="dropdown-item">All Product</a>
                     </div>
                 </li>
                 <li class="nav-item">
@@ -117,18 +114,6 @@
                     <a href="{{url('admin/publikasi')}}" class="nav-link">
                         Publikasi
                     </a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Struktur
-                    </a>
-
-                    <div class="dropdown-menu dropdown-menu-right">
-                        <a href="{{url('admin/struktur')}}" class="dropdown-item">Manage Struktur Perusahaan</a>
-                        <a href="{{url('admin/add-struktur')}}" class="dropdown-item">Add
-                            Struktur Perusahaan</a>
-                    </div>
                 </li>
                 <li class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
@@ -152,13 +137,10 @@
                 <li class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Sec Developer
+                        Listing
                     </a>
 
                     <div class="dropdown-menu dropdown-menu-right">
-                        <a href="{{url('admin/gallery')}}" class="dropdown-item">Manage Secondary Developer</a>
-                        <a href="{{url('admin/add-gallery')}}" class="dropdown-item">Add
-                            Secondary Developer</a>
                         <a href="{{url('admin/listing')}}" class="dropdown-item">Manage Listing</a>
                         <a href="{{url('admin/add-listing')}}" class="dropdown-item">Add
                             Listing</a>

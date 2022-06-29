@@ -45,82 +45,162 @@
         </div>
         <span class="close-box-collapse right-boxed ion-ios-close"></span>
         <div class="box-collapse-wrap form">
-            <form class="form-a">
+            <form action="{{ url('search-catalog')}}" method="GET">
                 <div class="row">
                     <div class="col-md-12 mb-2">
                         <div class="form-group">
-                            <label for="Type">Keyword</label>
-                            <input type="text" class="form-control form-control-lg form-control-a"
-                                placeholder="Keyword">
+                            <label for="Type">Nama Perumahan</label>
+                            @if( request()->input('search') == '')
+                            <input type="text" class="form-control form-control-lg form-control-a" name="search"
+                                placeholder="Search">
+                            @else
+                            <input type="text" class="form-control form-control-lg form-control-a" name="search"
+                                value="{{ request()->input('search') }}" placeholder="Search">
+                            @endif
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-2">
+                        <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">RP</div>
+                            </div>
+                            <input type="number" class="form-control" id="inlineFormInputGroup" name="min_price"
+                                placeholder="Minimal" value="{{ request()->input('min_price') }}">
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-2">
+                        <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">RP</div>
+                            </div>
+                            <input type="number" class="form-control" id="inlineFormInputGroup" name="max_price"
+                                placeholder="Maximal" value="{{ request()->input('max_price') }}">
                         </div>
                     </div>
                     <div class="col-md-6 mb-2">
                         <div class="form-group">
-                            <label for="Type">Type</label>
-                            <select class="form-control form-control-lg form-control-a" id="Type">
-                                <option>All Type</option>
-                                <option>For Rent</option>
-                                <option>For Sale</option>
-                                <option>Open House</option>
-                            </select>
+                            <label for="bedrooms">Kategori</label>
+                            @if ( request()->input('kategori') == '')
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="kategori" value="" checked>
+                                <label class="form-check-label" style="white-space: nowrap;">
+                                    Semua Kategori
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="kategori" value="baru">
+                                <label class="form-check-label">
+                                    Baru
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="kategori" value="bekas">
+                                <label class="form-check-label">
+                                    Seken
+                                </label>
+                            </div>
+                            @elseif ( request()->input('kategori') == 'baru')
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="kategori" value="">
+                                <label class="form-check-label" style="white-space: nowrap;">
+                                    Semua Kategori
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="kategori" value="baru" checked>
+                                <label class="form-check-label">
+                                    Baru
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="kategori" value="bekas">
+                                <label class="form-check-label">
+                                    Seken
+                                </label>
+                            </div>
+                            @elseif ( request()->input('kategori') == 'bekas')
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="kategori" value="">
+                                <label class="form-check-label" style="white-space: nowrap;">
+                                    Semua Kategori
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="kategori" value="baru">
+                                <label class="form-check-label">
+                                    Baru
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="kategori" value="bekas" checked>
+                                <label class="form-check-label">
+                                    Seken
+                                </label>
+                            </div>
+                            @endif
                         </div>
                     </div>
                     <div class="col-md-6 mb-2">
                         <div class="form-group">
-                            <label for="city">City</label>
-                            <select class="form-control form-control-lg form-control-a" id="city">
-                                <option>All City</option>
-                                <option>Alabama</option>
-                                <option>Arizona</option>
-                                <option>California</option>
-                                <option>Colorado</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-md-6 mb-2">
-                        <div class="form-group">
-                            <label for="bedrooms">Bedrooms</label>
-                            <select class="form-control form-control-lg form-control-a" id="bedrooms">
-                                <option>Any</option>
-                                <option>01</option>
-                                <option>02</option>
-                                <option>03</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-md-6 mb-2">
-                        <div class="form-group">
-                            <label for="garages">Garages</label>
-                            <select class="form-control form-control-lg form-control-a" id="garages">
-                                <option>Any</option>
-                                <option>01</option>
-                                <option>02</option>
-                                <option>03</option>
-                                <option>04</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-md-6 mb-2">
-                        <div class="form-group">
-                            <label for="bathrooms">Bathrooms</label>
-                            <select class="form-control form-control-lg form-control-a" id="bathrooms">
-                                <option>Any</option>
-                                <option>01</option>
-                                <option>02</option>
-                                <option>03</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-md-6 mb-2">
-                        <div class="form-group">
-                            <label for="price">Min Price</label>
-                            <select class="form-control form-control-lg form-control-a" id="price">
-                                <option>Unlimite</option>
-                                <option>$50,000</option>
-                                <option>$100,000</option>
-                                <option>$150,000</option>
-                                <option>$200,000</option>
-                            </select>
+                            <label for="garages">Jenis Bangunan</label>
+                            @if( request()->input('keyword') == '')
+                            <div class="form-check" style="width: 210px;">
+                                <input class="form-check-input" type="radio" name="keyword" value="" checked>
+                                <label class="form-check-label" style="white-space: nowrap;">
+                                    Semua Jenis Bangunan
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="keyword" value="rumah">
+                                <label class="form-check-label">
+                                    Rumah
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="keyword" value="ruko">
+                                <label class="form-check-label">
+                                    Ruko
+                                </label>
+                            </div>
+                            @elseif ( request()->input('keyword') == 'rumah')
+                            <div class="form-check" style="width: 210px;">
+                                <input class="form-check-input" type="radio" name="keyword" value="" checked>
+                                <label class="form-check-label" style="white-space: nowrap;">
+                                    Semua Jenis Bangunan
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="keyword" value="rumah" checked>
+                                <label class="form-check-label">
+                                    Rumah
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="keyword" value="ruko">
+                                <label class="form-check-label">
+                                    Ruko
+                                </label>
+                            </div>
+                            @elseif ( request()->input('keyword') == 'ruko')
+                            <div class="form-check" style="width: 210px;">
+                                <input class="form-check-input" type="radio" name="keyword" value="" checked>
+                                <label class="form-check-label" style="white-space: nowrap;">
+                                    Semua Jenis Bangunan
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="keyword" value="rumah">
+                                <label class="form-check-label">
+                                    Rumah
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="keyword" value="ruko" checked>
+                                <label class="form-check-label">
+                                    Ruko
+                                </label>
+                            </div>
+                            @endif
                         </div>
                     </div>
                     <div class="col-md-12">

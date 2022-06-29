@@ -98,10 +98,44 @@ class FrontendController extends Controller
 
     public function search(Request $request)
     {
-        $query = $request->input('query');
-        $categoryitems = Primary::where('title', 'LIKE', "%$query%")->where('status', '1')->orderby('id', 'DESC')->get();
-        $cats = Category::Where('title', 'LIKE', "%$query%")->where('status', '1')->orderby('id', 'DESC')->get();
-        return view('front.show', compact('categoryitems', 'cats'));
+        $search = $request->input('search');
+        $keyword = $request->input('keyword');
+        $kategori = $request->input('kategori');
+        $query = Primary::orderBy('kategori', 'asc');
+        if ($request->search) {
+            // This will only execute if you received any search
+            $query = $query->where('title', 'like', '%' . $search . '%');
+        }
+        if ($request->keyword) {
+            // This will only execute if you received any keyword
+            $query = $query->where('type', 'like', '%' . $keyword . '%');
+        }
+        if ($request->kategori) {
+            // This will only execute if you received any kategori
+            $query = $query->where('kategori', 'like', '%' . $kategori . '%');
+        }
+        if ($request->min_price && $request->max_price) {
+            // This will only execute if you received any price
+            // Make you you validated the min and max price properly
+            $query = $query->where('harga', '>=', $request->min_price);
+            $query = $query->where('harga', '<=', $request->max_price);
+        }
+        if ($request->min_price) {
+            // This will only execute if you received any price
+            // Make you you validated the min and max price properly
+            $query = $query->where('harga', '>=', $request->min_price);
+        }
+        if ($request->max_price) {
+            // This will only execute if you received any price
+            // Make you you validated the min and max price properly
+            $query = $query->where('harga', '<=', $request->max_price);
+        }
+        $primary = $query->paginate(6);
+
+
+        $highlight = Primary::orderBy('created_at', 'desc')->where('status', '2')->paginate(3);
+
+        return view('front.show', compact('primary', 'highlight'));
     }
 
     public function kebijakan()
@@ -149,11 +183,41 @@ class FrontendController extends Controller
         return view('front.all-pro', compact('primary', 'highlight', 'query'));
     }
 
-    public function allSecPro()
+    public function allSecPro(Request $request)
     {
-        $category = Category::orderby('id', 'desc')->paginate(6);
+        $keyword = $request->input('keyword');
+        $kategori = $request->input('kategori');
+        $query = Primary::where('kategori', 'bekas');
+        if ($request->keyword) {
+            // This will only execute if you received any keyword
+            $query = $query->where('type', 'like', '%' . $keyword . '%');
+        }
+        if ($request->kategori) {
+            // This will only execute if you received any kategori
+            $query = $query->where('kategori', 'like', '%' . $kategori . '%');
+        }
+        if ($request->min_price && $request->max_price) {
+            // This will only execute if you received any price
+            // Make you you validated the min and max price properly
+            $query = $query->where('harga', '>=', $request->min_price);
+            $query = $query->where('harga', '<=', $request->max_price);
+        }
+        if ($request->min_price) {
+            // This will only execute if you received any price
+            // Make you you validated the min and max price properly
+            $query = $query->where('harga', '>=', $request->min_price);
+        }
+        if ($request->max_price) {
+            // This will only execute if you received any price
+            // Make you you validated the min and max price properly
+            $query = $query->where('harga', '<=', $request->max_price);
+        }
+        $primary = $query->paginate(6);
 
-        return view('front.all-secpro', compact('category'));
+
+        $highlight = Primary::orderBy('created_at', 'desc')->where('status', '2')->paginate(3);
+
+        return view('front.all-secpro', compact('primary', 'highlight', 'query'));
     }
 
     public function postCustomer(Request $request)

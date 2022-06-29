@@ -9,9 +9,10 @@
         <ul class="nav nav-tabs nav-tabs-solid rounded">
             <li class="nav-item"><a href="#solid-rounded-tab1" class="nav-link rounded-left active"
                     data-toggle="tab">Developer List</a></li>
-            <li class="nav-item"><a href="#solid-rounded-tab2" class="nav-link" data-toggle="tab">Product
+            <li class="nav-item"><a href="#solid-rounded-tab2" class="nav-link" data-toggle="tab">Primary Product
                     List</a></li>
-            <li class="nav-item"><a href="#solid-rounded-tab3" class="nav-link" data-toggle="tab">Secondary</a></li>
+            <li class="nav-item"><a href="#solid-rounded-tab3" class="nav-link" data-toggle="tab">Secondary Product
+                    List</a></li>
         </ul>
 
         <div class="tab-content">

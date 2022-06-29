@@ -48,15 +48,15 @@
                                                 <div class="input-group-prepend">
                                                     <div class="input-group-text">RP</div>
                                                 </div>
-                                                <input type="text" class="form-control" id="inlineFormInputGroup"
-                                                    name="min_price" placeholder="Maximal"
+                                                <input type="number" class="form-control" id="inlineFormInputGroup"
+                                                    name="min_price" placeholder="Minimal"
                                                     value="{{ request()->input('min_price') }}">
                                             </div>
                                             <div class="input-group mb-2">
                                                 <div class="input-group-prepend">
                                                     <div class="input-group-text">RP</div>
                                                 </div>
-                                                <input type="text" class="form-control" id="inlineFormInputGroup"
+                                                <input type="number" class="form-control" id="inlineFormInputGroup"
                                                     name="max_price" placeholder="Maximal"
                                                     value="{{ request()->input('max_price') }}">
                                             </div>
@@ -319,6 +319,7 @@
                 <p></p>
                 @else
                 <p> <strong>{{ $primary->total() }}</strong> hasil pencarian {{ request()->input('keyword') }}
+                    {{ request()->input('kategori') }}
                     harga dibawah
                     @currency(request()->input('max_price'))
                 </p>
